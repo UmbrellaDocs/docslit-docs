@@ -1,0 +1,99 @@
+---
+title: Pages and navigation
+tag: Writing
+readtime: 4 min read
+---
+
+# Pages and navigation
+
+DocsLit generates your site navigation from `docslit.json`. You control the sidebar structure, page ordering, and pagination through a single configuration file.
+
+## Sidebar structure
+
+The `sidebar` array in `docslit.json` defines groups of pages:
+
+```json filename="docslit.json"
+{
+  "sidebar": [
+    {
+      "group": "Getting started",
+      "pages": ["introduction", "installation", "quickstart"]
+    },
+    {
+      "group": "Guides",
+      "pages": ["authentication", "deployment", "custom-domains"]
+    }
+  ]
+}
+```
+
+Each group creates a collapsible section in the sidebar. Pages appear in the order you list them.
+
+## Page slugs
+
+Each entry in the `pages` array is a slug — the filename without the `.md` extension:
+
+| Slug | File | Sidebar label |
+|---|---|---|
+| `introduction` | `docs/introduction.md` | Introduction |
+| `getting-started` | `docs/getting-started.md` | Getting Started |
+| `api-reference` | `docs/api-reference.md` | Api Reference |
+
+DocsLit converts kebab-case slugs to title case automatically. To override the sidebar label, use the `sidebar_title` frontmatter field.
+
+## Nested page IDs
+
+You can organize pages in subdirectories within `docs/`:
+
+```json filename="docslit.json"
+{
+  "sidebar": [
+    {
+      "group": "API",
+      "pages": ["api/overview", "api/authentication", "api/endpoints"]
+    }
+  ]
+}
+```
+
+This maps to files at `docs/api/overview.md`, `docs/api/authentication.md`, and so on.
+
+## Pagination
+
+DocsLit automatically adds previous and next navigation links at the bottom of each page. The order follows the sidebar — the page after the last entry in a group continues to the first page of the next group.
+
+<wc-callout type="tip" title="Logical ordering">
+Arrange your pages in the order a new reader would follow. The sidebar defines both navigation and learning path.
+</wc-callout>
+
+## Sidebar features
+
+### Collapsible groups
+
+Each sidebar group is collapsible. Readers can expand or collapse sections to focus on the content that matters to them.
+
+### Keyboard navigation
+
+The sidebar supports full keyboard navigation:
+
+| Key | Action |
+|---|---|
+| `↑` `↓` | Move between sidebar items |
+| `Enter` | Navigate to the selected page |
+| `Home` | Jump to the first item |
+| `End` | Jump to the last item |
+
+### Filter
+
+The sidebar includes a search filter at the top. Readers type to filter pages by title, making it easy to find pages in large documentation sites.
+
+## Table of contents
+
+DocsLit generates a table of contents from `##` and `###` headings on each page. This appears as a right-side panel on wide screens.
+
+Write descriptive headings that help readers scan the page. Each heading becomes a clickable anchor link.
+
+## Next steps
+
+- Optimize for search and AI agents with [search and SEO](writing-content/search-and-seo)
+- Start adding components to your pages — begin with [callouts and alerts](components/callouts-and-alerts)

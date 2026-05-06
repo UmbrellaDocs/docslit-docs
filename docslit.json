@@ -1,0 +1,87 @@
+{
+  "name": "DocsLit",
+  "description": "Documentation for DocsLit — build beautiful docs with Markdown and web components",
+  "sidebar": [
+    {
+      "group": "Getting started",
+      "pages": [
+        "getting-started/introduction",
+        "getting-started/installation",
+        "getting-started/quickstart",
+        "getting-started/project-structure"
+      ]
+    },
+    {
+      "group": "Writing content",
+      "pages": [
+        "writing-content/markdown-basics",
+        "writing-content/frontmatter",
+        "writing-content/pages-and-navigation",
+        "writing-content/search-and-seo"
+      ]
+    },
+    {
+      "group": "Components",
+      "pages": [
+        "components/callouts-and-alerts",
+        "components/code-blocks",
+        "components/tabs-and-accordions",
+        "components/cards-and-tiles",
+        "components/steps",
+        "components/layout",
+        "components/api-reference-components",
+        "components/data-display",
+        "components/file-trees",
+        "components/interactive-elements",
+        "components/icons"
+      ]
+    },
+    {
+      "group": "Customization",
+      "pages": [
+        "customization/theming",
+        "customization/custom-components",
+        "customization/versioning"
+      ]
+    },
+    {
+      "group": "Deployment",
+      "pages": [
+        "deployment/static-hosting",
+        "deployment/offline-builds",
+        "deployment/docslit-cloud"
+      ]
+    },
+    {
+      "group": "Migration",
+      "pages": [
+        "migration/from-mintlify",
+        "migration/from-fern",
+        "migration/from-gitbook"
+      ]
+    },
+    {
+      "group": "CLI reference",
+      "pages": [
+        "cli-reference/commands",
+        "cli-reference/validation"
+      ]
+    },
+    {
+      "group": "Changelog",
+      "pages": [
+        "changelog/whats-new"
+      ]
+    }
+  ],
+  "versions": {
+    "default": "0.1",
+    "list": [
+      {
+        "version": "0.1",
+        "branch": "main",
+        "tag": "Latest"
+      }
+    ]
+  }
+}

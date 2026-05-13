@@ -24,14 +24,37 @@ Display an API endpoint with its HTTP method and URL:
 <wc-endpoint method="PUT" url="/api/v1/users/:id"></wc-endpoint>
 <wc-endpoint method="DELETE" url="/api/v1/users/:id"></wc-endpoint>
 
-<wc-fields header="wc-endpoint">
+<wc-fields header="wc-endpoint attributes">
 <wc-field name="method" type="string" required>
 The HTTP method. Options: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
 </wc-field>
 <wc-field name="url" type="string" required>
 The endpoint URL path.
 </wc-field>
+<wc-field name="ref" type="string">
+An OpenAPI `operationId` to resolve against the loaded spec. When set, DocsLit automatically populates `method`, `url`, `summary`, `description`, parameters, request body, and response fields from the spec data.
+</wc-field>
+<wc-field name="summary" type="string">
+A short one-line summary of what the endpoint does. Rendered in bold above the description.
+</wc-field>
+<wc-field name="description" type="string">
+A longer description of the endpoint. Supports inline Markdown (bold, italic, code, links).
+</wc-field>
+<wc-field name="security" type="string">
+JSON-encoded security requirements for the endpoint.
+</wc-field>
 </wc-fields>
+
+### OpenAPI-driven endpoints
+
+When you have an OpenAPI spec configured, use `ref` to pull all endpoint data from the spec automatically:
+
+```markdown
+<wc-endpoint ref="createUser">
+</wc-endpoint>
+```
+
+DocsLit resolves the ref at build time and injects all parameters, request body fields, response schemas, and examples. See [OpenAPI integration](integrations/openapi) for setup details.
 
 ## Interactive API tester
 
@@ -51,7 +74,13 @@ The interactive API tester sends real HTTP requests from the reader's browser. U
 
 ## Parameter fields
 
-Document request parameters with `wc-fields` and `wc-field`:
+Document request parameters with `wc-fields` and `wc-field`. The `title` attribute controls the section header (defaults to "Parameter"):
+
+<wc-fields header="wc-fields attributes">
+<wc-field name="title" type="string" default="Parameter">
+The section header text. When populated from an OpenAPI spec, this is set automatically to values like "Headers", "Query Parameters", or "Body application/json".
+</wc-field>
+</wc-fields>
 
 ```markdown
 <wc-fields header="Request parameters">
@@ -100,6 +129,39 @@ The default value if the field is omitted.
 </wc-field>
 <wc-field name="deprecated" type="boolean">
 Mark the field as deprecated.
+</wc-field>
+<wc-field name="in" type="string">
+The parameter location. Options: `header`, `path`, `query`, `cookie`, `body`. Displayed as a badge next to the field name.
+</wc-field>
+<wc-field name="description" type="string">
+A description of the field. Supports inline Markdown (bold, italic, code, links).
+</wc-field>
+<wc-field name="format" type="string">
+The data format (e.g., `uuid`, `email`, `date-time`). Displayed alongside the type.
+</wc-field>
+<wc-field name="enum" type="string">
+Comma-separated list of allowed values. Displayed as a constraint.
+</wc-field>
+<wc-field name="pattern" type="string">
+A regex pattern the value must match.
+</wc-field>
+<wc-field name="minimum" type="string">
+Minimum numeric value.
+</wc-field>
+<wc-field name="maximum" type="string">
+Maximum numeric value.
+</wc-field>
+<wc-field name="minlength" type="string">
+Minimum string length. Displayed as a character count constraint.
+</wc-field>
+<wc-field name="maxlength" type="string">
+Maximum string length. Displayed as a character count constraint.
+</wc-field>
+<wc-field name="example" type="string">
+An example value for the field.
+</wc-field>
+<wc-field name="collapsible" type="boolean">
+When set, the field becomes a collapsible section. Nested `wc-field` children are hidden until the user expands it. Used automatically for nested object and array schemas from OpenAPI specs.
 </wc-field>
 </wc-fields>
 

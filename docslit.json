@@ -61,6 +61,13 @@
       ]
     },
     {
+      "group": "Integration",
+      "pages": [
+        "integration/openapi",
+        "integration/skills"
+      ]
+    },
+    {
       "group": "CLI reference",
       "pages": [
         "cli-reference/commands",

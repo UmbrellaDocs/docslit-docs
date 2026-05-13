@@ -54,6 +54,9 @@ Set to `true` to hide this page from the built site and sidebar. The page is sti
 <wc-field name="redirect" type="string">
 Redirect visitors to another page. Use a page slug like `/other-page`. Useful when you rename or reorganize pages.
 </wc-field>
+<wc-field name="layout" type="string">
+Set to `api` for API reference pages. Uses a three-column layout with a wider content area and an examples panel on the right. Set automatically by the `openapi scaffold` command.
+</wc-field>
 </wc-fields>
 
 ## Examples
@@ -91,6 +94,18 @@ draft: true
 <wc-callout type="info" title="Draft pages in dev mode">
 Pages with `draft: true` are visible when you run `docslit dev` so you can preview them. They are excluded from `docslit build` output and hidden from the sidebar in production.
 </wc-callout>
+
+### API reference page
+
+```yaml
+---
+title: Create a user
+description: Create a new user account
+layout: api
+---
+```
+
+Pages with `layout: api` use a wider three-column layout with an examples panel. See [OpenAPI integration](integrations/openapi) for the full workflow.
 
 ### Sidebar title override
 

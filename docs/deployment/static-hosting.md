@@ -145,6 +145,10 @@ Every build produces these files:
 | `robots.txt` | Crawler directives |
 | `llms.txt` | AI agent discovery index |
 | `llms-full.txt` | Complete docs as plain text |
+| `_middleware.js` | Content negotiation for AI agents (Cloudflare/Netlify) |
+| `vercel.json` | Content negotiation for AI agents (Vercel) |
+| `.well-known/agent.json` | Machine-readable agent discovery |
+| `mcp-server.js` | MCP server for AI tool integration |
 
 ## Custom output directory
 

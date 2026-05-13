@@ -133,6 +133,31 @@ Scan and report without writing any files.
 </wc-field>
 </wc-fields>
 
+## openapi scaffold
+
+Generate API reference pages from an OpenAPI 3.x specification.
+
+<wc-endpoint method="GET" url="docslit openapi scaffold <spec.yaml>"></wc-endpoint>
+
+```bash
+npx docslit openapi scaffold api-spec.yaml
+npx docslit openapi scaffold api-spec.yaml --overlay overlay.yaml
+npx docslit openapi scaffold api-spec.yaml --new-only
+```
+
+Creates a Markdown page per endpoint in `docs/api/`, an `introduction.md` from the spec's `info` block, and updates `docslit.json` with the OpenAPI config and sidebar structure. Tags and `x-tagGroups` in the spec are used to build sidebar hierarchy with method badges.
+
+<wc-fields header="Options">
+<wc-field name="--overlay" type="string">
+Path to an OpenAPI overlay file to apply on top of the spec.
+</wc-field>
+<wc-field name="--new-only" type="flag">
+Only create pages for operations not already documented. Scans existing files for `wc-endpoint ref` tags.
+</wc-field>
+</wc-fields>
+
+See [OpenAPI integration](integrations/openapi) for the full guide.
+
 ## Cloud commands
 
 These commands require authentication. Run `docslit login` first.

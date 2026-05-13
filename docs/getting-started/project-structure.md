@@ -84,6 +84,9 @@ An array of groups, each containing a `group` name and a `pages` array of page s
 <wc-field name="versions" type="object">
 Multi-version configuration. See [versioning](customization/versioning) for details.
 </wc-field>
+<wc-field name="openapi" type="string | object">
+Path to an OpenAPI 3.x spec file, or an object with `spec` and `overlay` keys. Enables spec-driven API reference generation. See [OpenAPI integration](integrations/openapi) for details.
+</wc-field>
 </wc-fields>
 
 ## Page slugs

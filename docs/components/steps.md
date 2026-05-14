@@ -126,4 +126,4 @@ Use steps for any sequential procedure where order matters:
 - Deployment checklists
 - Migration procedures
 
-For non-sequential content, use [accordions](components/tabs-and-accordions) or standard headings instead.
+For non-sequential content, use [accordions](tabs-and-accordions) or standard headings instead.

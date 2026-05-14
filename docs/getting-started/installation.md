@@ -78,4 +78,4 @@ You should see the current version number printed in your terminal.
 
 ## Next steps
 
-Now that DocsLit is installed, follow the [quickstart](getting-started/quickstart) to create your first documentation site.
+Now that DocsLit is installed, follow the [quickstart](quickstart) to create your first documentation site.

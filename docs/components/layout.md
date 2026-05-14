@@ -167,14 +167,14 @@ Float supplementary content to the side of your main text:
 ```markdown
 <wc-aside>
 
-**Related:** See [theming](customization/theming) for customization options.
+**Related:** See [theming](../customization/theming) for customization options.
 
 </wc-aside>
 ```
 
 <wc-aside>
 
-**Related:** See [theming](customization/theming) for customization options.
+**Related:** See [theming](../customization/theming) for customization options.
 
 </wc-aside>
 

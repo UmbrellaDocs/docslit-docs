@@ -54,7 +54,7 @@ When you have an OpenAPI spec configured, use `ref` to pull all endpoint data fr
 </wc-endpoint>
 ```
 
-DocsLit resolves the ref at build time and injects all parameters, request body fields, response schemas, and examples. See [OpenAPI integration](integrations/openapi) for setup details.
+DocsLit resolves the ref at build time and injects all parameters, request body fields, response schemas, and examples. See [OpenAPI integration](../integrations/openapi) for setup details.
 
 ## Interactive API tester
 

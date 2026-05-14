@@ -89,21 +89,27 @@ The more context you give, the better the output. Instead of "write a page about
 <wc-accordion-group>
 <wc-accordion title="Create a new documentation page">
 
-> Write a DocsLit page for our REST API authentication flow. Include steps for getting an API key, making a first request, and handling errors. Use code examples in curl, Python, and JavaScript.
+<wc-prompt>
+Write a DocsLit page for our REST API authentication flow. Include steps for getting an API key, making a first request, and handling errors. Use code examples in curl, Python, and JavaScript.
+</wc-prompt>
 
 The agent will produce a `.md` file with proper frontmatter, `<wc-steps>` for the flow, `<wc-code-group>` for multi-language examples, and `<wc-callout>` blocks for important notes.
 
 </wc-accordion>
 <wc-accordion title="Document API endpoints">
 
-> Create an API reference page for our /users endpoints. We have GET /users (list), POST /users (create), GET /users/:id (get one), and DELETE /users/:id (delete). Each endpoint needs parameters documented.
+<wc-prompt>
+Create an API reference page for our /users endpoints. We have GET /users (list), POST /users (create), GET /users/:id (get one), and DELETE /users/:id (delete). Each endpoint needs parameters documented.
+</wc-prompt>
 
 The agent will use `<wc-endpoint>`, `<wc-fields>`, and `<wc-field>` components with the correct attributes like `method`, `url`, `type`, and `required`.
 
 </wc-accordion>
 <wc-accordion title="Build a landing page with cards">
 
-> Create a documentation landing page with a 3-column tile grid linking to our guides: Quick Start, Configuration, Deployment, API Reference, Migration, and Troubleshooting.
+<wc-prompt>
+Create a documentation landing page with a 3-column tile grid linking to our guides: Quick Start, Configuration, Deployment, API Reference, Migration, and Troubleshooting.
+</wc-prompt>
 
 The agent will use `<wc-tiles cols="3">` with `<wc-tile>` children, each with `title`, `description`, `href`, and `icon-name` attributes.
 
@@ -152,7 +158,7 @@ The validator checks for broken links, unknown components, missing frontmatter, 
 </wc-steps>
 
 <wc-callout type="info" title="Automated import also available">
-DocsLit has a built-in `import` command that handles migration programmatically. See the [migration guides](migration/from-mintlify) for details. The skill is useful when you want AI-assisted migration with more control over the output, or when converting from platforms the import command does not support.
+DocsLit has a built-in `import` command that handles migration programmatically. See the [migration guides](../migration/from-mintlify) for details. The skill is useful when you want AI-assisted migration with more control over the output, or when converting from platforms the import command does not support.
 </wc-callout>
 
 ### What the migration skill converts
@@ -195,6 +201,6 @@ curl -o .claude/skills/docslit-author.md https://raw.githubusercontent.com/nicho
 
 ## Next steps
 
-- Learn about [MCP server integration](writing-content/search-and-seo) for giving agents live access to your docs
-- Explore all available [components](components/callouts-and-alerts)
-- Try the built-in [import command](migration/from-mintlify) for automated migration
+- Learn about [MCP server integration](../writing-content/search-and-seo) for giving agents live access to your docs
+- Explore all available [components](../components/callouts-and-alerts)
+- Try the built-in [import command](../migration/from-mintlify) for automated migration

@@ -61,10 +61,10 @@
       ]
     },
     {
-      "group": "Integration",
+      "group": "Integrations",
       "pages": [
-        "integration/openapi",
-        "integration/skills"
+        "integrations/openapi",
+        "integrations/skills"
       ]
     },
     {

@@ -24,6 +24,34 @@ const config = { name: "My Docs" };
 
 Every code block includes a copy button automatically.
 
+## Syntax highlighting
+
+DocsLit uses [Shiki](https://shiki.style) for build-time syntax highlighting. Code blocks are highlighted at parse time, so there is no client-side rendering cost. Shiki supports dual themes -- your code blocks automatically match the page's light or dark mode.
+
+### Code theme toggle
+
+Every code block and code group includes a kebab menu that lets readers switch all code blocks between light and dark mode. This setting is independent of the page theme and is saved to the browser for future visits.
+
+You can also force a specific theme on any individual code block:
+
+```markdown
+<wc-code-block language="javascript" theme="dark">
+const alwaysDark = true;
+</wc-code-block>
+```
+
+### Fenced code block filename
+
+You can add a filename directly in the fenced code block info string:
+
+````markdown
+```javascript filename="config.js"
+export default { name: "My Docs" };
+```
+````
+
+This is equivalent to using the `filename` attribute on `wc-code-block`.
+
 ## Code block with filename
 
 Add a `filename` attribute to show a file header:
@@ -52,6 +80,20 @@ The syntax highlighting language. Examples: `javascript`, `python`, `bash`, `jso
 A filename displayed in the header bar above the code.
 </wc-field>
 </wc-fields>
+
+## Code block with line numbers
+Add the `linenumbers` attribute to show line numbers alongside the code:
+
+```markdown
+<wc-code-block language="python" linenumbers="true">
+def greet(name):
+    print(f"Hello, {name}!")
+</wc-code-block>
+```
+<wc-code-block language="python" linenumbers="true">
+def greet(name):
+    print(f"Hello, {name}!")
+</wc-code-block>
 
 ## Code groups
 
@@ -141,6 +183,14 @@ The default value shown before the reader edits it.
 Editable variables make setup instructions personal. Instead of asking readers to "replace `YOUR_API_KEY`", give them a field to type it once and see it everywhere.
 </wc-callout>
 
+## Copy button on code groups
+
+Code groups include a copy button that copies the active tab's content. Readers can copy code from any tab without selecting text manually.
+
 ## Supported languages
 
-DocsLit supports syntax highlighting for all common programming languages including JavaScript, TypeScript, Python, Go, Rust, Java, C, C++, Ruby, PHP, Shell/Bash, SQL, HTML, CSS, JSON, YAML, TOML, Markdown, and more.
+DocsLit uses Shiki for syntax highlighting, which supports all common programming languages including JavaScript, TypeScript, Python, Go, Rust, Java, C, C++, Ruby, PHP, Shell/Bash, SQL, HTML, CSS, JSON, YAML, TOML, Markdown, and more.
+
+<wc-callout type="info" title="Variables and highlighting">
+Code blocks containing `{{VAR}}` variable placeholders use plain text highlighting so that interactive variable substitution continues to work. Blocks without variables get full Shiki highlighting.
+</wc-callout>

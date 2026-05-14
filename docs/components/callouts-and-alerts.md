@@ -81,7 +81,7 @@ Callouts support full Markdown content including bold, italic, lists, links, and
 You can use:
 
 - **Bold** and *italic* text
-- `inline code` and [links](getting-started/introduction)
+- `inline code` and [links](../getting-started/introduction)
 - Nested lists and other formatting
 
 </wc-callout>
@@ -92,7 +92,7 @@ You can use:
 You can use:
 
 - **Bold** and *italic* text
-- `inline code` and [links](getting-started/introduction)
+- `inline code` and [links](../getting-started/introduction)
 - Nested lists and other formatting
 
 </wc-callout>

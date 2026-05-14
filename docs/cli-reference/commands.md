@@ -102,7 +102,7 @@ npx docslit validate
 npx docslit validate --strict
 ```
 
-See [validation](cli-reference/validation) for details on what gets checked.
+See [validation](validation) for details on what gets checked.
 
 <wc-fields header="Options">
 <wc-field name="--strict" type="flag">
@@ -156,7 +156,7 @@ Only create pages for operations not already documented. Scans existing files fo
 </wc-field>
 </wc-fields>
 
-See [OpenAPI integration](integrations/openapi) for the full guide.
+See [OpenAPI integration](../integrations/openapi) for the full guide.
 
 ## Cloud commands
 
@@ -183,4 +183,4 @@ Remove a project from DocsLit Cloud.
 </wc-field>
 </wc-fields>
 
-See [DocsLit Cloud](deployment/docslit-cloud) for details.
+See [DocsLit Cloud](../deployment/docslit-cloud) for details.

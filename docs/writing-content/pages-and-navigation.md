@@ -93,7 +93,21 @@ DocsLit generates a table of contents from `##` and `###` headings on each page.
 
 Write descriptive headings that help readers scan the page. Each heading becomes a clickable anchor link.
 
+### Active section tracking
+
+The table of contents highlights the current section as readers scroll. A colored guide line follows the active heading, and sub-headings (h3) are visually indented under their parent h2. Clicking a heading highlights it instantly without waiting for the smooth scroll to finish.
+
+## Page toolbar
+
+Every page displays a toolbar below the title with three actions:
+
+| Button | Description |
+|---|---|
+| **Copy as Markdown** | Copies the raw Markdown source of the page to your clipboard |
+| **View as Markdown** | Opens the `.md` source file in a new browser tab |
+| **Save as PDF** | Opens the browser print dialog with optimized print styles -- all accordions and tab panels are expanded, page chrome is hidden, and page breaks are prevented inside code blocks, tables, and images |
+
 ## Next steps
 
-- Optimize for search and AI agents with [search and SEO](writing-content/search-and-seo)
-- Start adding components to your pages — begin with [callouts and alerts](components/callouts-and-alerts)
+- Optimize for search and AI agents with [search and SEO](search-and-seo)
+- Start adding components to your pages — begin with [callouts and alerts](../components/callouts-and-alerts)

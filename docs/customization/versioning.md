@@ -137,4 +137,4 @@ The root `index.html` redirects to the default version. Only pages that differ b
 
 ## Version-specific content
 
-Use `wc-versions` to show different content depending on the selected version. See [data display](components/data-display) for details.
+Use `wc-versions` to show different content depending on the selected version. See [data display](../components/data-display) for details.

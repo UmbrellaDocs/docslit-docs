@@ -211,5 +211,5 @@ Write headings that describe what the section covers. Headings are indexed for s
 
 ## Next steps
 
-- Start adding rich content with [callouts and alerts](components/callouts-and-alerts)
-- Deploy your site with [static hosting](deployment/static-hosting) or [DocsLit Cloud](deployment/docslit-cloud)
+- Start adding rich content with [callouts and alerts](../components/callouts-and-alerts)
+- Deploy your site with [static hosting](../deployment/static-hosting) or [DocsLit Cloud](../deployment/docslit-cloud)

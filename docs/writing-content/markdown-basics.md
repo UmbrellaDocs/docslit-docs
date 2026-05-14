@@ -91,7 +91,7 @@ const greeting = "Hello, world!";
 console.log(greeting);
 ```
 
-See [code blocks](components/code-blocks) for advanced features like filenames, tabs, and editable variables.
+See [code blocks](../components/code-blocks) for advanced features like filenames, tabs, and editable variables.
 
 ## Images
 
@@ -106,7 +106,7 @@ Place image files in your `docs/` directory and reference them with relative pat
 Link to other pages using the page slug:
 
 ```markdown
-Read the [installation guide](getting-started/installation) to get started.
+Read the [installation guide](../getting-started/installation) to get started.
 ```
 
 DocsLit resolves these links in both dev and static build modes.
@@ -147,7 +147,7 @@ You can write Markdown inside most components:
 You can use **bold**, *italic*, `code`, and even:
 
 - Bullet lists
-- [Links](getting-started/introduction)
+- [Links](../getting-started/introduction)
 - Other components
 
 </wc-callout>
@@ -158,10 +158,41 @@ You can use **bold**, *italic*, `code`, and even:
 You can use **bold**, *italic*, `code`, and even:
 
 - Bullet lists
-- [Links](getting-started/introduction)
+- [Links](../getting-started/introduction)
 - Other components
 
 </wc-callout>
+
+## MDX compatibility
+
+DocsLit recognizes PascalCase component names from Mintlify and MDX projects. Tags like `<Tip>`, `<Card>`, `<Steps>`, and `<CardGroup>` are automatically rewritten to their `wc-*` equivalents at parse time. This means most Mintlify projects work without changing source files.
+
+Both styles can be mixed in a single file. The canonical `wc-*` syntax continues to work unchanged.
+
+```markdown
+<!-- Both of these render the same component -->
+<Tip>This uses the Mintlify-style name.</Tip>
+
+<wc-callout type="tip">This uses the DocsLit name.</wc-callout>
+```
+
+Any unmapped PascalCase tag is converted to `wc-kebab-case` automatically, so a custom `<MyWidget>` becomes `<wc-my-widget>`.
+
+<wc-callout type="info" title="Validation catches unmapped tags">
+Run `docslit validate` to get warnings about PascalCase tags that resolve to a component that is not registered.
+</wc-callout>
+
+## Inline variable references
+
+Use `{{VAR_NAME}}` in regular Markdown text to display a live variable value. These references update automatically when the variable is changed elsewhere on the page using a `wc-var` input.
+
+```markdown
+Set your key: <wc-var name="API_KEY" default="sk-demo"></wc-var>
+
+Your key is **{{API_KEY}}** and it will update as you type above.
+```
+
+See [Code blocks](../components/code-blocks) for using variables inside code blocks.
 
 ## HTML pass-through
 
@@ -175,6 +206,6 @@ Standard HTML tags work in your Markdown. Use them for layout or styling that Ma
 
 ## Next steps
 
-- Set up page metadata with [frontmatter](writing-content/frontmatter)
-- Organize your sidebar with [pages and navigation](writing-content/pages-and-navigation)
-- Add rich interactions with [components](components/callouts-and-alerts)
+- Set up page metadata with [frontmatter](frontmatter)
+- Organize your sidebar with [pages and navigation](pages-and-navigation)
+- Add rich interactions with [components](../components/callouts-and-alerts)

@@ -30,7 +30,7 @@ The card heading.
 The link destination. Can be a page slug or an external URL.
 </wc-field>
 <wc-field name="icon-name" type="string">
-A built-in icon name. See [icons](components/icons) for the full list.
+A built-in icon name. See [icons](icons) for the full list.
 </wc-field>
 <wc-field name="description" type="string">
 A short description. Alternatively, use the slot content (the content between the tags).

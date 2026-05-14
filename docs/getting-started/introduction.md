@@ -86,17 +86,17 @@ The dev server watches your files and reloads the browser instantly when you sav
 <wc-steps>
 <wc-step title="Install DocsLit">
 
-Follow the [installation guide](getting-started/installation) to set up DocsLit on your machine.
+Follow the [installation guide](installation) to set up DocsLit on your machine.
 
 </wc-step>
 <wc-step title="Build your first site">
 
-Walk through the [quickstart](getting-started/quickstart) to create and preview a documentation site in under 3 minutes.
+Walk through the [quickstart](quickstart) to create and preview a documentation site in under 3 minutes.
 
 </wc-step>
 <wc-step title="Explore components">
 
-Browse the [components section](components/callouts-and-alerts) to see everything you can use in your docs.
+Browse the [components section](../components/callouts-and-alerts) to see everything you can use in your docs.
 
 </wc-step>
 </wc-steps>

@@ -258,6 +258,6 @@ These examples appear as tabbed code blocks in the examples panel alongside any 
 
 ## Next steps
 
-- Learn about the [API reference components](components/api-reference-components) used to render endpoint documentation
-- Set up [AI agent discovery](writing-content/search-and-seo) for your API docs
-- Deploy your API reference with [static hosting](deployment/static-hosting)
+- Learn about the [API reference components](../components/api-reference-components) used to render endpoint documentation
+- Set up [AI agent discovery](../writing-content/search-and-seo) for your API docs
+- Deploy your API reference with [static hosting](../deployment/static-hosting)

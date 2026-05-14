@@ -105,7 +105,7 @@ layout: api
 ---
 ```
 
-Pages with `layout: api` use a wider three-column layout with an examples panel. See [OpenAPI integration](integrations/openapi) for the full workflow.
+Pages with `layout: api` use a wider three-column layout with an examples panel. See [OpenAPI integration](../integrations/openapi) for the full workflow.
 
 ### Sidebar title override
 
@@ -124,5 +124,5 @@ When you include `tag`, `readtime`, `updated`, or `component` in your frontmatte
 
 ## Next steps
 
-- Learn how to organize pages in the [sidebar](writing-content/pages-and-navigation)
-- Make your content searchable with [search and SEO](writing-content/search-and-seo)
+- Learn how to organize pages in the [sidebar](pages-and-navigation)
+- Make your content searchable with [search and SEO](search-and-seo)

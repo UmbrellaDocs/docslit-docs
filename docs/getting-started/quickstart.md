@@ -122,10 +122,10 @@ When you are ready to deploy, build a static site:
 npx docslit build
 ```
 
-This creates a `dist/` directory with everything you need to deploy. See [static hosting](deployment/static-hosting) for deployment guides.
+This creates a `dist/` directory with everything you need to deploy. See [static hosting](../deployment/static-hosting) for deployment guides.
 
 ## Next steps
 
-- Learn about [project structure](getting-started/project-structure) to understand how DocsLit organizes your content
-- Read [Markdown basics](writing-content/markdown-basics) to start writing effective documentation
-- Explore the [components](components/callouts-and-alerts) to add rich interactions to your pages
+- Learn about [project structure](project-structure) to understand how DocsLit organizes your content
+- Read [Markdown basics](../writing-content/markdown-basics) to start writing effective documentation
+- Explore the [components](../components/callouts-and-alerts) to add rich interactions to your pages

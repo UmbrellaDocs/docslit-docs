@@ -77,4 +77,4 @@ Auth tokens are stored at `~/.docslit/config.json` with file permissions set to 
 | Rollback | Built-in | Manual |
 | Cost | Managed pricing | Your hosting cost |
 
-For self-hosting options, see [static hosting](deployment/static-hosting).
+For self-hosting options, see [static hosting](static-hosting).

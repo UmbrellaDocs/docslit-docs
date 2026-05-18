@@ -18,6 +18,9 @@ Every DocsLit project follows a simple, flat structure. There are no deeply nest
 <wc-file name="installation.md"></wc-file>
 <wc-file name="quickstart.md"></wc-file>
 <wc-file name="guides.md"></wc-file>
+<wc-dir name="_reusables">
+<wc-file name="shared/install-cli.md"></wc-file>
+</wc-dir>
 </wc-dir>
 <wc-dir name="components">
 <wc-file name="my-widget.js"></wc-file>
@@ -38,6 +41,9 @@ Project configuration. Defines your site name, sidebar navigation, and optional 
 </wc-field>
 <wc-field name="docs/" type="directory" required>
 Contains all your Markdown documentation pages. Each `.md` file becomes a page on your site. The filename (without extension) is the page slug used in URLs.
+</wc-field>
+<wc-field name="docs/_reusables/" type="directory">
+Reusable markdown fragments for `<wc-include />`. Include targets must live under this directory.
 </wc-field>
 <wc-field name="components/" type="directory">
 Optional directory for custom Lit web components. Any `.js` file here is automatically loaded alongside the built-in components.

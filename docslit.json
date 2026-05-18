@@ -15,6 +15,8 @@
       "group": "Writing content",
       "pages": [
         "writing-content/markdown-basics",
+        "writing-content/reusable-content",
+        "writing-content/variables-and-precedence",
         "writing-content/frontmatter",
         "writing-content/pages-and-navigation",
         "writing-content/search-and-seo"

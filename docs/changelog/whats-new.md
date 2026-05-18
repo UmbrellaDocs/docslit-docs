@@ -8,6 +8,46 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
+## 0.1.8
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Reusable content includes**
+
+DocsLit now supports compile-time includes with `pass:[<wc-include src="..."/>]`. Includes are intentionally strict: targets must be Markdown files under `docs/_reusables/**`, include tags must be self-closing, and unsafe paths are blocked.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Variable precedence for compile-time rendering**
+
+`pass:[{{VAR}}]` placeholders in prose now resolve with clear precedence: global `attributes` in `docslit.json`, then page frontmatter `attributes`, then page-local `pass:[<wc-var name="X" value="Y" />]` declarations.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Pass-through escape syntax**
+
+Use `pass:[pass:[...]]` to render syntax literally when you are documenting templates or components. Example: `pass:[{{TOKEN}}]` or `pass:[<wc-include src="..." />]`.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Expanded Markdown for AI consumers**
+
+Markdown output now uses preprocessed content (includes and compile-time variables resolved), improving quality for `llms-full.txt`, search indexing, and markdown-based AI ingestion.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Version-aware global variables**
+
+Two built-in globals are now available on every page: `{{DOCSLIT_VERSION}}` and `{{DOCSLIT_BRANCH}}`.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="fixed">
+Nested include checks no longer fail when reusable files contain include syntax only inside fenced code examples.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="fixed">
+Inline literal rendering now uses explicit `pass:[...]` behavior, avoiding accidental formatting regressions while keeping variable syntax usable in normal prose.
+</wc-update>
+
 ## 0.1.7
 
 <wc-update version="0.1.7" date="May 2025" type="added">

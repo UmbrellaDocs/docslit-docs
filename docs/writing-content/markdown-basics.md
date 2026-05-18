@@ -184,15 +184,15 @@ Run `docslit validate` to get warnings about PascalCase tags that resolve to a c
 
 ## Inline variable references
 
-Use `{{VAR_NAME}}` in regular Markdown text to display a live variable value. These references update automatically when the variable is changed elsewhere on the page using a `wc-var` input.
+Use `{{VAR_NAME}}` in regular Markdown prose for compile-time variable substitution. Values come from global attributes, page frontmatter attributes, and page-local `wc-var` declarations.
 
 ```markdown
-Set your key: <wc-var name="API_KEY" default="sk-demo"></wc-var>
+<wc-var name="API_KEY" value="sk-demo" />
 
-Your key is **{{API_KEY}}** and it will update as you type above.
+Your key is **{{API_KEY}}**.
 ```
 
-See [Code blocks](../components/code-blocks) for using variables inside code blocks.
+See [Variables and precedence](variables-and-precedence) for variable resolution rules, and [Code blocks](../components/code-blocks) for runtime interactive variable workflows.
 
 ## HTML pass-through
 

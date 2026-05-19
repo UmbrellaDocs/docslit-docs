@@ -12,6 +12,30 @@ All notable changes to DocsLit, organized by release.
 ## 0.1.8
 
 <wc-update version="0.1.8" date="May 2026" type="added">
+**Multi-file offline builds with lazy loading**
+
+Offline mode now splits into per-page JS files that load on demand via script injection, working directly from `file://` URLs without a server. Vendor JS is inlined as data URIs to avoid CORS restrictions. Hash-based navigation handles `file://` with History API fallback, and delegated click handlers support links inside web components. SEO-only artifacts are skipped in offline mode. See [Offline builds](../deployment/offline-builds).
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Parallel builds and caching**
+
+Page builds now run in parallel, Shiki syntax highlighting results are cached, and languages load lazily on demand. The dev server caches build artifacts for faster reloads. Build timing is reported so you can see where time is spent.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Reduced layout shift and faster loading**
+
+`docslit-app.js` is now deferred and Google Fonts CSS loads asynchronously with metric-matched fallback fonts. Layout space is reserved for `wc-columns`, `wc-tiles`, `wc-tabs`, and `wc-accordion` before component upgrade to eliminate cumulative layout shift.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
+**Dynamic meta descriptions**
+
+The SPA shell now includes a `<meta name="description">` tag that updates dynamically during navigation across all three modes. Falls back to `config.description` when pages lack a frontmatter description.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Reusable content includes**
 
 DocsLit now supports compile-time includes with `pass:[<wc-include src="..."/>]`. Includes are intentionally strict: targets must be Markdown files under `docs/_reusables/**`, include tags must be self-closing, and unsafe paths are blocked.
@@ -41,10 +65,20 @@ Markdown output now uses preprocessed content (includes and compile-time variabl
 Two built-in globals are now available on every page: `{{DOCSLIT_VERSION}}` and `{{DOCSLIT_BRANCH}}`.
 </wc-update>
 
+<wc-update version="0.1.8" date="May 2026" type="fixed">
+Nested include checks no longer fail when reusable files contain include syntax only inside fenced code examples.
+</wc-update>
+
 <wc-update version="0.1.8" date="May 2026" type="improved">
 **Offline build security hardening**
 
-Offline builds are now hardened for secure, air-gapped environments. All inline event handlers (`onclick`, `oninput`, etc.) are replaced with event delegation. User-facing values are HTML-escaped to prevent DOM-based XSS. Google Fonts and all external requests are removed. Pages load lazily from local files for faster startup. See [Offline builds](../deployment/offline-builds).
+Offline builds are now hardened for secure, air-gapped environments. All inline event handlers (`onclick`, `oninput`, etc.) are replaced with event delegation. User-facing values are HTML-escaped to prevent DOM-based XSS. Google Fonts and all external requests are removed.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="improved">
+**WCAG contrast improvements**
+
+Light-mode text and accent colors are darkened for WCAG AA compliance. Theme toggle and copy buttons get proper `aria-label` attributes, and the menu button meets minimum touch target size requirements.
 </wc-update>
 
 <wc-update version="0.1.8" date="May 2026" type="fixed">
@@ -53,6 +87,14 @@ Nested include checks no longer fail when reusable files contain include syntax 
 
 <wc-update version="0.1.8" date="May 2026" type="fixed">
 Inline literal rendering now uses explicit `pass:[...]` behavior, avoiding accidental formatting regressions while keeping variable syntax usable in normal prose.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="fixed">
+Validator now resolves relative internal links correctly and excludes reusable files under `docs/_reusables/` from validation.
+</wc-update>
+
+<wc-update version="0.1.8" date="May 2026" type="fixed">
+Versioned offline builds no longer write null shared files to disk.
 </wc-update>
 
 ## 0.1.7

@@ -88,7 +88,7 @@ Produces HTML pages, search index, sitemap, and AI discovery files in the output
 The output directory for the built site.
 </wc-field>
 <wc-field name="--offline" type="flag">
-Build a single HTML file with all content inlined. No server needed to view.
+Build a self-contained offline site with lazy-loaded pages. No server needed — works from `file://` URLs.
 </wc-field>
 </wc-fields>
 

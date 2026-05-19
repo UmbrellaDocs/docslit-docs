@@ -170,7 +170,7 @@ Use `wc-expandable` for a simpler collapsible section:
 
 These options are for advanced users who need fine-grained control over the build output.
 
-- `--offline` — Build a single HTML file
+- `--offline` — Build a self-contained offline site
 - `--out <dir>` — Custom output directory
 
 </wc-expandable>
@@ -180,7 +180,7 @@ These options are for advanced users who need fine-grained control over the buil
 
 These options are for advanced users who need fine-grained control over the build output.
 
-- `--offline` — Build a single HTML file
+- `--offline` — Build a self-contained offline site
 - `--out <dir>` — Custom output directory
 
 </wc-expandable>

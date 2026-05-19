@@ -188,7 +188,7 @@ On platforms without middleware support (GitHub Pages, S3), agents can request M
 
 ## Offline search
 
-The offline build mode (`docslit build --offline`) embeds the search index directly into the HTML file. Search works without a server — even when opening the file from your desktop.
+The offline build mode (`docslit build --offline`) produces a `search-index.js` file that loads on demand when search is first used. Search works without a server — even when opening the file from your desktop via `file://`.
 
 ## Best practices
 

@@ -41,6 +41,12 @@ Markdown output now uses preprocessed content (includes and compile-time variabl
 Two built-in globals are now available on every page: `{{DOCSLIT_VERSION}}` and `{{DOCSLIT_BRANCH}}`.
 </wc-update>
 
+<wc-update version="0.1.8" date="May 2026" type="improved">
+**Offline build security hardening**
+
+Offline builds are now hardened for secure, air-gapped environments. All inline event handlers (`onclick`, `oninput`, etc.) are replaced with event delegation. User-facing values are HTML-escaped to prevent DOM-based XSS. Google Fonts and all external requests are removed. Pages load lazily from local files for faster startup. See [Offline builds](../deployment/offline-builds).
+</wc-update>
+
 <wc-update version="0.1.8" date="May 2026" type="fixed">
 Nested include checks no longer fail when reusable files contain include syntax only inside fenced code examples.
 </wc-update>

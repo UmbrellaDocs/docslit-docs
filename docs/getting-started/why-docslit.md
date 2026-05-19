@@ -122,7 +122,7 @@ Request any page with `Accept: text/markdown` and get raw Markdown back. APIs an
 </wc-accordion>
 <wc-accordion title="Offline builds">
 
-Run `docslit build --offline` to produce a single `index.html` with all pages inlined. Works without a server, from a file:// URL, or on an air-gapped network.
+Run `docslit build --offline` to produce a self-contained site with lazy-loaded pages. Works without a server, from a `file://` URL, or on an air-gapped network. No external requests, no inline event handlers — hardened for secure environments.
 
 </wc-accordion>
 <wc-accordion title="11-format migration">

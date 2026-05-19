@@ -1,5 +1,6 @@
 ---
 title: Markdown basics
+description: Learn the Markdown syntax supported by DocsLit, including headings, lists, links, images, and GFM extensions.
 tag: Writing
 readtime: 4 min read
 ---

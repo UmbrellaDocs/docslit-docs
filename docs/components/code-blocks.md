@@ -1,5 +1,6 @@
 ---
 title: Code blocks
+description: Display syntax-highlighted code with copy buttons, filenames, line numbers, code groups, and theme toggles.
 tag: Components
 readtime: 5 min read
 ---

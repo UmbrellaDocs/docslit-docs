@@ -1,5 +1,6 @@
 ---
 title: Layout
+description: Structure page content with columns, panels, frames, expandable sections, and floating aside boxes.
 tag: Components
 readtime: 4 min read
 ---

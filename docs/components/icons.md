@@ -1,5 +1,6 @@
 ---
 title: Icons
+description: Use built-in Lucide icons and Font Awesome brand icons by name in any DocsLit component or inline.
 tag: Components
 readtime: 2 min read
 ---

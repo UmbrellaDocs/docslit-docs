@@ -1,5 +1,6 @@
 ---
 title: Cards and tiles
+description: Create clickable card grids and compact tile layouts for navigation, feature highlights, and link collections.
 tag: Components
 readtime: 3 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: Theming
+description: Customize colors, fonts, and dark/light mode behavior for your DocsLit site using CSS variables.
 tag: Customization
 readtime: 3 min read
 ---

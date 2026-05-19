@@ -1,5 +1,6 @@
 ---
 title: Commands
+description: Complete reference for all DocsLit CLI commands including dev, build, init, import, publish, and validate.
 tag: CLI reference
 readtime: 5 min read
 ---

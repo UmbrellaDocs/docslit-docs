@@ -1,5 +1,6 @@
 ---
 title: File trees
+description: Display interactive file and directory trees with icons, highlighting, and collapsible folders.
 tag: Components
 readtime: 3 min read
 ---

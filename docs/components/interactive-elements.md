@@ -1,5 +1,6 @@
 ---
 title: Interactive elements
+description: Add buttons, tooltips, badges, copy-to-clipboard prompts, and other interactive elements to your documentation.
 tag: Components
 readtime: 3 min read
 ---

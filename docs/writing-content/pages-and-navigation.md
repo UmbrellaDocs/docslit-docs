@@ -1,5 +1,6 @@
 ---
 title: Pages and navigation
+description: Organize your documentation with sidebar groups, page ordering, and navigation links in docslit.json.
 tag: Writing
 readtime: 4 min read
 ---

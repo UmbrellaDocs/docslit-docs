@@ -1,5 +1,6 @@
 ---
 title: What's new
+description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
 readtime: 3 min read
 ---

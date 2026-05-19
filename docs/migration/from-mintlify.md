@@ -1,5 +1,6 @@
 ---
 title: From Mintlify
+description: Migrate your Mintlify documentation project to DocsLit with a single command that converts MDX to Markdown.
 tag: Migration
 readtime: 4 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: From Fern
+description: Migrate your Fern documentation project to DocsLit with automatic component and configuration conversion.
 tag: Migration
 readtime: 3 min read
 ---

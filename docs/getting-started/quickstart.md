@@ -1,5 +1,6 @@
 ---
 title: Quickstart
+description: Create and preview a DocsLit documentation site in under 3 minutes with a single command.
 tag: Getting started
 readtime: 3 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: Static hosting
+description: Deploy your DocsLit site as static files to Netlify, Vercel, Cloudflare Pages, GitHub Pages, or any CDN.
 tag: Deployment
 readtime: 4 min read
 ---

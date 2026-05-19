@@ -1,5 +1,6 @@
 ---
 title: Custom components
+description: Build your own web components with Lit or vanilla JS and use them alongside the built-in DocsLit components.
 tag: Customization
 readtime: 4 min read
 ---

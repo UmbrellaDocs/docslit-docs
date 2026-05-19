@@ -1,5 +1,6 @@
 ---
 title: Frontmatter
+description: Configure page metadata like title, description, tags, and layout using YAML frontmatter at the top of each Markdown file.
 tag: Writing
 readtime: 3 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: Tabs and accordions
+description: Organize content into switchable tabs and collapsible accordion sections to reduce page length.
 tag: Components
 readtime: 4 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: Versioning
+description: Serve multiple documentation versions side by side with branch-based versioning and a version selector.
 tag: Customization
 readtime: 4 min read
 ---

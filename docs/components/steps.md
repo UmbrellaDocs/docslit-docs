@@ -1,5 +1,6 @@
 ---
 title: Steps
+description: Present sequential instructions as numbered steps with titles and rich content for tutorials and guides.
 tag: Components
 readtime: 3 min read
 ---

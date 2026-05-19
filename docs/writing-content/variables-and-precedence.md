@@ -1,5 +1,6 @@
 ---
 title: Variables and precedence
+description: Use inline variables in your docs that readers can edit, with cascading precedence rules for defaults and overrides.
 tag: Writing
 readtime: 4 min read
 ---

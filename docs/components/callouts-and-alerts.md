@@ -1,5 +1,6 @@
 ---
 title: Callouts and alerts
+description: Highlight important information with callout and alert components for tips, warnings, errors, and notes.
 tag: Components
 readtime: 4 min read
 ---

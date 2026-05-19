@@ -1,5 +1,6 @@
 ---
 title: From GitBook
+description: Migrate your GitBook documentation to DocsLit with automatic content and structure conversion.
 tag: Migration
 readtime: 3 min read
 ---

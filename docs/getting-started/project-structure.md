@@ -1,5 +1,6 @@
 ---
 title: Project structure
+description: Understand the file and folder layout of a DocsLit project, including docslit.json, the docs directory, and build output.
 tag: Getting started
 readtime: 3 min read
 ---

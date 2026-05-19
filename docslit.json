@@ -6,6 +6,7 @@
       "group": "Getting started",
       "pages": [
         "getting-started/introduction",
+        "getting-started/why-docslit",
         "getting-started/installation",
         "getting-started/quickstart",
         "getting-started/project-structure"

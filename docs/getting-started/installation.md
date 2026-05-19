@@ -1,5 +1,6 @@
 ---
 title: Installation
+description: Install DocsLit and set up your development environment to start building documentation sites.
 tag: Getting started
 readtime: 2 min read
 ---

@@ -1,5 +1,6 @@
 ---
 title: API reference components
+description: Document API endpoints with parameter fields, response schemas, runnable request builders, and method badges.
 tag: Components
 readtime: 5 min read
 ---

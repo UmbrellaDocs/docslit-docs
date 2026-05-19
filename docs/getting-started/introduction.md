@@ -1,5 +1,6 @@
 ---
 title: Introduction
+description: DocsLit is a documentation framework that combines Markdown with interactive web components — no build tools, no JSX, no imports.
 tag: Overview
 readtime: 2 min read
 ---

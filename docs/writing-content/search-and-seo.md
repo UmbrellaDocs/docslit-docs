@@ -1,5 +1,6 @@
 ---
 title: Search and SEO
+description: Built-in full-text search, sitemap generation, meta tags, and AI agent discovery with llms.txt for every DocsLit site.
 tag: Writing
 readtime: 3 min read
 ---

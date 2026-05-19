@@ -1,5 +1,6 @@
 ---
 title: DocsLit Cloud
+description: Publish your documentation instantly with DocsLit Cloud — managed hosting with custom domains and automatic builds.
 tag: Deployment
 readtime: 3 min read
 ---

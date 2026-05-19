@@ -1,5 +1,6 @@
 ---
 title: Offline builds
+description: Generate a single self-contained HTML file that works offline, from a file:// URL, or on air-gapped networks.
 tag: Deployment
 readtime: 2 min read
 ---

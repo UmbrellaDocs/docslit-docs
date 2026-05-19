@@ -1,5 +1,6 @@
 ---
 title: Validation
+description: Run docslit validate to check for broken links, missing assets, invalid components, and other project issues.
 tag: CLI reference
 readtime: 3 min read
 ---

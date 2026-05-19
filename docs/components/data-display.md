@@ -1,5 +1,6 @@
 ---
 title: Data display
+description: Render tables, key-value lists, color swatches, and Mermaid diagrams from structured data in your docs.
 tag: Components
 readtime: 4 min read
 ---

@@ -1,6 +1,7 @@
 {
   "name": "DocsLit",
   "description": "Documentation for DocsLit — build beautiful docs with Markdown and web components",
+  "editUrl": "https://www.draftview.app/edit?url=https://github.com/UmbrellaDocs/docslit-docs/blob/main/docs",
   "sidebar": [
     {
       "group": "Getting started",

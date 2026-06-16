@@ -9,86 +9,88 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
-## 0.1.8
+## 0.1.9
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.9" date="June 2026" type="added">
 **Accessibility settings widget:** a new accessibility button in the navbar opens a settings panel with text size adjustment, high contrast mode, grayscale mode, and underline links toggle. Settings are stored in localStorage and persist across page reloads. The widget works in all three modes (dev, static, offline) and respects the offline security model with event delegation.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.9" date="June 2026" type="added">
 **Favicon and edit-this-page link:** static builds now include a favicon and an "Edit this page" link on every page. The edit URL is auto-detected from your Git remote, so no manual configuration is needed for GitHub-hosted projects.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="improved">
+<wc-update version="0.1.9" date="June 2026" type="improved">
 **Typography refinements:** text rendering is improved across all platforms with font smoothing, OpenType features (ligatures, kerning, contextual alternates), and refined letter and word spacing for body text, headings, and code blocks.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.9" date="June 2026" type="fixed">
+`wc-tree-item` now accepts a `title` attribute as an alias for `label`, improving compatibility with imported content.
+</wc-update>
+
+## 0.1.8
+
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Multi-file offline builds with lazy loading:** offline mode now splits into per-page JS files that load on demand via script injection, working directly from `file://` URLs without a server. Vendor JS is inlined as data URIs to avoid CORS restrictions. Hash-based navigation handles `file://` with History API fallback, and delegated click handlers support links inside web components. SEO-only artifacts are skipped in offline mode. See [Offline builds](../deployment/offline-builds).
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Parallel builds and caching:** page builds now run in parallel, Shiki syntax highlighting results are cached, and languages load lazily on demand. The dev server caches build artifacts for faster reloads. Build timing is reported so you can see where time is spent.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Reduced layout shift and faster loading:** `docslit-app.js` is now deferred and Google Fonts CSS loads asynchronously with metric-matched fallback fonts. Layout space is reserved for `wc-columns`, `wc-tiles`, `wc-tabs`, and `wc-accordion` before component upgrade to eliminate cumulative layout shift.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Dynamic meta descriptions:** the SPA shell now includes a `<meta name="description">` tag that updates dynamically during navigation across all three modes. Falls back to `config.description` when pages lack a frontmatter description.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Reusable content includes:** DocsLit now supports compile-time includes with `pass:[<wc-include src="..."/>]`. Includes are intentionally strict: targets must be Markdown files under `docs/_reusables/**`, include tags must be self-closing, and unsafe paths are blocked.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Variable precedence for compile-time rendering:** `pass:[{{VAR}}]` placeholders in prose now resolve with clear precedence: global `attributes` in `docslit.json`, then page frontmatter `attributes`, then page-local `pass:[<wc-var name="X" value="Y" />]` declarations.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Pass-through escape syntax:** use `pass:[pass:[...]]` to render syntax literally when you are documenting templates or components. Example: `pass:[{{TOKEN}}]` or `pass:[<wc-include src="..." />]`.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Expanded Markdown for AI consumers:** markdown output now uses preprocessed content (includes and compile-time variables resolved), improving quality for `llms-full.txt`, search indexing, and markdown-based AI ingestion.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="added">
+<wc-update version="0.1.8" date="May 2026" type="added">
 **Version-aware global variables:** two built-in globals are now available on every page: `{{DOCSLIT_VERSION}}` and `{{DOCSLIT_BRANCH}}`.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="improved">
+<wc-update version="0.1.8" date="May 2026" type="improved">
 **Offline build security hardening:** offline builds are now hardened for secure, air-gapped environments. All inline event handlers (`onclick`, `oninput`, etc.) are replaced with event delegation. User-facing values are HTML-escaped to prevent DOM-based XSS. Google Fonts and all external requests are removed.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="improved">
+<wc-update version="0.1.8" date="May 2026" type="improved">
 **WCAG contrast improvements:** light-mode text and accent colors are darkened for WCAG AA compliance. Theme toggle and copy buttons get proper `aria-label` attributes, and the menu button meets minimum touch target size requirements.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="fixed">
+<wc-update version="0.1.8" date="May 2026" type="fixed">
 Nested include checks no longer fail when reusable files contain include syntax only inside fenced code examples.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="fixed">
+<wc-update version="0.1.8" date="May 2026" type="fixed">
 Inline literal rendering now uses explicit `pass:[...]` behavior, avoiding accidental formatting regressions while keeping variable syntax usable in normal prose.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="fixed">
+<wc-update version="0.1.8" date="May 2026" type="fixed">
 Validator now resolves relative internal links correctly and excludes reusable files under `docs/_reusables/` from validation.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="fixed">
+<wc-update version="0.1.8" date="May 2026" type="fixed">
 Versioned offline builds no longer write null shared files to disk.
 </wc-update>
 
-<wc-update version="0.1.8" date="June 2026" type="fixed">
+<wc-update version="0.1.8" date="May 2026" type="fixed">
 Mobile sidebar now extends to the full viewport height instead of stopping short on pages with little content.
-</wc-update>
-
-<wc-update version="0.1.8" date="June 2026" type="fixed">
-`wc-tree-item` now accepts a `title` attribute as an alias for `label`, improving compatibility with imported content.
 </wc-update>
 
 ## 0.1.7

@@ -1,24 +1,30 @@
 ---
 title: Introduction
-description: DocsLit is a documentation framework that combines Markdown with interactive web components — no build tools, no JSX, no imports.
+description: DocsLit helps teams publish beautiful, interactive documentation with plain Markdown and zero framework overhead.
 tag: Overview
 readtime: 2 min read
 ---
 
 # Introduction
 
-DocsLit is a documentation framework that combines Markdown with interactive web components. You write content in Markdown, drop in `<wc-*>` components for rich interactions, and deploy a fast static site — no build tools, no JSX, no imports.
+DocsLit turns plain Markdown into polished, interactive docs that teams actually enjoy writing and users actually enjoy reading.
+
+You stay in Markdown. You drop in powerful `<wc-*>` components when needed. You ship a fast documentation site without wrestling with build tools, JSX, or import chains.
+
+<wc-callout type="tip" title="Built for technical teams">
+Ship quickly with a low-friction writing workflow, while still delivering the rich experience modern docs readers expect.
+</wc-callout>
 
 <wc-tiles>
-<wc-tile icon-name="zap" title="Zero config" description="Write Markdown, run one command, get a production-ready docs site." href="getting-started/quickstart"></wc-tile>
-<wc-tile icon-name="plus" title="40+ components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
-<wc-tile icon-name="globe" title="Static or cloud" description="Deploy anywhere as static files, or publish instantly with DocsLit Cloud." href="deployment/static-hosting"></wc-tile>
-<wc-tile icon-name="right-left" title="Easy migration" description="Move from Mintlify, Fern, or GitBook with a single command." href="migration/from-mintlify"></wc-tile>
+<wc-tile icon-name="zap" title="From zero to live in minutes" description="Create a full docs site with one command and start publishing immediately." href="getting-started/quickstart"></wc-tile>
+<wc-tile icon-name="plus" title="Rich docs without complexity" description="Use built-in components for alerts, tabs, API references, and interactive UI." href="components/callouts-and-alerts"></wc-tile>
+<wc-tile icon-name="globe" title="Deploy your way" description="Generate static files for any host, or publish instantly with DocsLit Cloud." href="deployment/static-hosting"></wc-tile>
+<wc-tile icon-name="right-left" title="Migrate without pain" description="Bring existing docs from Mintlify, Fern, or GitBook with minimal effort." href="migration/from-mintlify"></wc-tile>
 </wc-tiles>
 
 ## Try it now
 
-Set your project name: <wc-var name="PROJECT" default="my-docs"></wc-var>
+Pick a project name: <wc-var name="PROJECT" default="my-docs"></wc-var>
 
 ```bash
 npx docslit init {{PROJECT}}
@@ -26,11 +32,15 @@ cd {{PROJECT}}
 npx docslit dev
 ```
 
-Open `http://localhost:3000` to see your **{{PROJECT}}** site running locally.
+Open `http://localhost:3000` and you are live.
+
+In less than a minute, you have a complete docs project with navigation, search, themed UI, and production-ready output.
 
 ## How it works
 
-DocsLit takes a different approach from tools that require JSX, MDX, or framework-specific syntax. You write standard Markdown and enhance it with HTML-native web components.
+Most docs frameworks ask you to learn framework syntax before you can write great content. DocsLit flips that.
+
+You write standard Markdown first, then enhance key sections with native web components only when you need more expressive UI.
 
 <wc-columns cols="2">
 <div>
@@ -55,29 +65,34 @@ Run `npx docslit dev` to start.
 </div>
 </wc-columns>
 
-No imports. No build step. No configuration. The components just work because they are standard web components rendered by the browser.
+No imports. No JS boilerplate. No component setup. The browser renders standard web components directly, so your authoring workflow stays clean.
 
 ## What you get
 
 <wc-accordion-group>
 <wc-accordion title="Full-text search">
 
-Every build generates a search index automatically. Your readers can find content instantly with the built-in search bar — no external service required.
+Search is generated automatically at build time. Readers can find answers instantly with no external indexing service.
 
 </wc-accordion>
 <wc-accordion title="Dark and light themes">
 
-DocsLit respects system preferences and lets readers toggle between themes. Every component adapts automatically.
+Your docs look polished in both dark and light mode, with automatic theme adaptation across all components.
 
 </wc-accordion>
 <wc-accordion title="SEO and AI discovery">
 
-Static builds produce individual HTML pages for search engines, `sitemap.xml` for crawlers, and `llms.txt` / `llms-full.txt` for AI agents.
+Each build outputs SEO-friendly HTML pages, `sitemap.xml` for crawlers, plus `llms.txt` and `llms-full.txt` for AI discovery.
 
 </wc-accordion>
 <wc-accordion title="Hot reload">
 
-The dev server watches your files and reloads the browser instantly when you save. No manual refresh needed.
+The dev server watches your files and refreshes instantly on save, so iteration feels fast and effortless.
+
+</wc-accordion>
+<wc-accordion title="Scales with your docs">
+
+From a small guide to a full product portal, DocsLit keeps the writing model simple while giving you room to grow.
 
 </wc-accordion>
 </wc-accordion-group>
@@ -87,17 +102,17 @@ The dev server watches your files and reloads the browser instantly when you sav
 <wc-steps>
 <wc-step title="Install DocsLit">
 
-Follow the [installation guide](installation) to set up DocsLit on your machine.
+Follow the [installation guide](installation) to set up your environment.
 
 </wc-step>
 <wc-step title="Build your first site">
 
-Walk through the [quickstart](quickstart) to create and preview a documentation site in under 3 minutes.
+Use the [quickstart](quickstart) to create and preview your first docs site.
 
 </wc-step>
 <wc-step title="Explore components">
 
-Browse the [components section](../components/callouts-and-alerts) to see everything you can use in your docs.
+Explore [components](../components/callouts-and-alerts) to see how far you can push Markdown-powered docs.
 
 </wc-step>
 </wc-steps>

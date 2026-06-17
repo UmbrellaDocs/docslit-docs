@@ -1,7 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "docslit": "0.1.9"
+    "docslit": "0.1.9",
+    "esbuild": "^0.28.1"
   },
   "scripts": {
     "build": "docslit build"

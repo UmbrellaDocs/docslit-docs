@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "docslit": "0.1.9"
+  },
+  "scripts": {
+    "build": "docslit build"
+  }
+}

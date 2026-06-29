@@ -61,7 +61,7 @@ docslit dev
 docslit dev --port 4000
 ```
 
-The server watches `docs/`, `components/`, and `docslit.json` for changes. The browser reloads automatically via WebSocket when any file is saved.
+The server watches `docs/`, `components/`, `docslit.json`, and your brand theme file (if configured) for changes. The browser reloads automatically via WebSocket when any file is saved.
 
 <wc-fields header="Options">
 <wc-field name="--port" type="number" default="3000">
@@ -143,6 +143,22 @@ Custom output directory. Defaults to `{source-dir}-docslit`.
 Scan and report without writing any files.
 </wc-field>
 </wc-fields>
+
+## theme
+
+Manage color presets and corporate brand themes.
+
+<wc-endpoint method="GET" url="docslit theme init [file]"></wc-endpoint>
+
+```bash
+docslit theme init
+docslit theme init themes/acme.json
+docslit theme list
+```
+
+`theme init` scaffolds a `brand-theme.json` file with starter brand colors and fonts, and wires it into `docslit.json` when no theme is set. `theme list` prints built-in presets and overridable theme variables.
+
+See [Theming](../customization/theming) for the full guide.
 
 ## openapi scaffold
 

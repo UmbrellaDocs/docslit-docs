@@ -29,7 +29,9 @@ The output shows errors, warnings, and informational messages with colored indic
   { "Check": "Page titles", "Level": "Warning", "Description": "Every page should have a title in its frontmatter" },
   { "Check": "Component tags", "Level": "Warning", "Description": "All wc-* tags must be built-in or defined in components/" },
   { "Check": "Duplicate slugs", "Level": "Warning", "Description": "Each page slug should appear only once in the sidebar" },
-  { "Check": "Orphaned pages", "Level": "Info", "Description": "Markdown files in docs/ that are not listed in the sidebar" }
+  { "Check": "Orphaned pages", "Level": "Info", "Description": "Markdown files in docs/ that are not listed in the sidebar" },
+  { "Check": "Theme preset", "Level": "Error", "Description": "theme must reference a valid built-in preset or a readable theme JSON file" },
+  { "Check": "Theme file", "Level": "Error", "Description": "Brand theme JSON must parse and use valid variable keys" }
 ]
 </wc-table>
 

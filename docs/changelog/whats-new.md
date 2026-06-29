@@ -9,12 +9,6 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
-## 0.1.11
-
-<wc-update version="0.1.11" date="June 2026" type="added">
-**Announcement banner:** add an `announcement` block to `docslit.json` to show a dismissible site-wide banner at the top of every page. The message supports Markdown and HTML. Readers can dismiss it; updating the message brings it back. Version-specific overrides are supported in `versions.list`. Fern imports pick up `announcement` from `docs.yml`. See [Announcement banner](../customization/announcement-banner).
-</wc-update>
-
 ## 0.1.10
 
 <wc-update version="0.1.10" date="June 2026" type="added">
@@ -23,6 +17,14 @@ All notable changes to DocsLit, organized by release.
 
 <wc-update version="0.1.10" date="June 2026" type="added">
 **Chapter PDF export:** run `docslit build --pdf` to generate chapter PDFs (one per sidebar group), per-page PDFs, and a full documentation PDF in `dist/pdf/`. Readers get a **Download PDF** dropdown on each page. Configure via the `pdf` block in `docslit.json`, or enable permanently with `"enabled": true`. Requires Playwright as an optional peer dependency. See [Chapter PDF export](../deployment/chapter-pdf-export).
+</wc-update>
+
+<wc-update version="0.1.10" date="June 2026" type="added">
+**Color presets and brand themes:** set `"theme": "ocean"` (or `teal`, `slate`, `forest`, `violet`, `rose`, `amber`, `graphite`) in `docslit.json` to apply a professional color palette with full light and dark support. Define corporate branding with `docslit theme init`, which scaffolds a `brand-theme.json` file you can extend from any preset and override accent colors, surfaces, fonts, and radius. See [Theming](../customization/theming).
+</wc-update>
+
+<wc-update version="0.1.10" date="June 2026" type="added">
+**Announcement banner:** add an `announcement` block to `docslit.json` to show a dismissible site-wide banner at the top of every page. The message supports Markdown and HTML. Readers can dismiss it; updating the message brings it back. Version-specific overrides are supported in `versions.list`. Fern imports pick up `announcement` from `docs.yml`. See [Announcement banner](../customization/announcement-banner).
 </wc-update>
 
 ## 0.1.9

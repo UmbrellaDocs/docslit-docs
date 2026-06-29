@@ -100,15 +100,19 @@ The table of contents highlights the current section as readers scroll. A colore
 
 ## Page toolbar
 
-Every page displays a toolbar below the title with three actions:
+Every page displays a toolbar below the title with actions for Markdown and PDF:
 
 | Button | Description |
 |---|---|
 | **Copy as Markdown** | Copies the raw Markdown source of the page to your clipboard |
 | **View as Markdown** | Opens the `.md` source file in a new browser tab |
-| **Save as PDF** | Opens the browser print dialog with optimized print styles -- all accordions and tab panels are expanded, page chrome is hidden, and page breaks are prevented inside code blocks, tables, and images |
+| **Save as PDF** | Opens the browser print dialog with optimized print styles (default when PDFs are not built at deploy time) |
+| **Download PDF** | Dropdown with print, chapter download, and full documentation download — shown when you build with `--pdf` or `pdf.enabled` |
+
+When you run `docslit build --pdf`, sidebar groups also become downloadable chapter PDFs. See [Chapter PDF export](../deployment/chapter-pdf-export).
 
 ## Next steps
 
+- Generate downloadable manuals with [Chapter PDF export](../deployment/chapter-pdf-export)
 - Optimize for search and AI agents with [search and SEO](search-and-seo)
 - Start adding components to your pages — begin with [callouts and alerts](../components/callouts-and-alerts)

@@ -12,7 +12,7 @@ DocsLit provides a set of CLI commands for creating, developing, building, and d
 ## Usage
 
 ```bash
-npx docslit <command> [options]
+docslit <command> [options]
 ```
 
 Or if installed globally:
@@ -39,7 +39,7 @@ Scaffold a new documentation project with starter pages and configuration.
 <wc-endpoint method="GET" url="docslit init [directory]"></wc-endpoint>
 
 ```bash
-npx docslit init my-docs
+docslit init my-docs
 ```
 
 Creates a project directory with `docslit.json`, three starter pages in `docs/`, and a `components/` directory.
@@ -57,8 +57,8 @@ Start a development server with hot reload.
 <wc-endpoint method="GET" url="docslit dev"></wc-endpoint>
 
 ```bash
-npx docslit dev
-npx docslit dev --port 4000
+docslit dev
+docslit dev --port 4000
 ```
 
 The server watches `docs/`, `components/`, and `docslit.json` for changes. The browser reloads automatically via WebSocket when any file is saved.
@@ -76,12 +76,13 @@ Generate a static site for deployment.
 <wc-endpoint method="GET" url="docslit build"></wc-endpoint>
 
 ```bash
-npx docslit build
-npx docslit build --offline
-npx docslit build --out public
+docslit build
+docslit build --offline
+docslit build --out public
+docslit build --pdf
 ```
 
-Produces HTML pages, search index, sitemap, and AI discovery files in the output directory.
+Produces HTML pages, search index, sitemap, and AI discovery files in the output directory. With `--pdf`, also generates chapter, page, and full documentation PDFs in `dist/pdf/`. See [Chapter PDF export](../deployment/chapter-pdf-export).
 
 <wc-fields header="Options">
 <wc-field name="--out" type="string" default="dist">
@@ -89,6 +90,15 @@ The output directory for the built site.
 </wc-field>
 <wc-field name="--offline" type="flag">
 Build a self-contained offline site with lazy-loaded pages. No server needed — works from `file://` URLs.
+</wc-field>
+<wc-field name="--pdf" type="flag">
+Generate chapter, page, and full documentation PDFs. Requires Playwright (`npm install -D playwright` and `npx playwright install chromium`).
+</wc-field>
+<wc-field name="--no-pdf" type="flag">
+Skip PDF generation even when `pdf.enabled` is `true` in `docslit.json`.
+</wc-field>
+<wc-field name="--pdf-dir" type="string" default="pdf">
+PDF output directory inside `--out`. Overrides `pdf.outputDir` in config.
 </wc-field>
 </wc-fields>
 
@@ -99,8 +109,8 @@ Check your project for errors and warnings.
 <wc-endpoint method="GET" url="docslit validate [directory]"></wc-endpoint>
 
 ```bash
-npx docslit validate
-npx docslit validate --strict
+docslit validate
+docslit validate --strict
 ```
 
 See [validation](validation) for details on what gets checked.
@@ -118,9 +128,9 @@ Migrate documentation from another platform.
 <wc-endpoint method="GET" url="docslit import <source-dir>"></wc-endpoint>
 
 ```bash
-npx docslit import ./my-mintlify-docs
-npx docslit import ./my-fern-docs --out converted
-npx docslit import ./my-gitbook --dry-run
+docslit import ./my-mintlify-docs
+docslit import ./my-fern-docs --out converted
+docslit import ./my-gitbook --dry-run
 ```
 
 Automatically detects the source platform (Mintlify, Fern, GitBook, or generic Markdown).
@@ -141,9 +151,9 @@ Generate API reference pages from an OpenAPI 3.x specification.
 <wc-endpoint method="GET" url="docslit openapi scaffold <spec.yaml>"></wc-endpoint>
 
 ```bash
-npx docslit openapi scaffold api-spec.yaml
-npx docslit openapi scaffold api-spec.yaml --overlay overlay.yaml
-npx docslit openapi scaffold api-spec.yaml --new-only
+docslit openapi scaffold api-spec.yaml
+docslit openapi scaffold api-spec.yaml --overlay overlay.yaml
+docslit openapi scaffold api-spec.yaml --new-only
 ```
 
 Creates a Markdown page per endpoint in `docs/api/`, an `introduction.md` from the spec's `info` block, and updates `docslit.json` with the OpenAPI config and sidebar structure. Tags and `x-tagGroups` in the spec are used to build sidebar hierarchy with method badges.

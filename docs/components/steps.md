@@ -18,7 +18,7 @@ Use steps to guide readers through sequential procedures. Steps auto-number them
 Run the init command to scaffold a new project.
 
 \```bash
-npx docslit init my-docs
+docslit init my-docs
 \```
 
 </wc-step>
@@ -27,7 +27,7 @@ npx docslit init my-docs
 Launch the development server.
 
 \```bash
-npx docslit dev
+docslit dev
 \```
 
 </wc-step>
@@ -45,7 +45,7 @@ Visit `http://localhost:3000` to see your site.
 Run the init command to scaffold a new project.
 
 ```bash
-npx docslit init my-docs
+docslit init my-docs
 ```
 
 </wc-step>
@@ -54,7 +54,7 @@ npx docslit init my-docs
 Launch the development server.
 
 ```bash
-npx docslit dev
+docslit dev
 ```
 
 </wc-step>

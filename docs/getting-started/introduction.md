@@ -21,9 +21,9 @@ DocsLit is a documentation framework that combines Markdown with interactive web
 Set your project name: <wc-var name="PROJECT" default="my-docs"></wc-var>
 
 ```bash
-npx docslit init {{PROJECT}}
+docslit init {{PROJECT}}
 cd {{PROJECT}}
-npx docslit dev
+docslit dev
 ```
 
 Open `http://localhost:3000` to see your **{{PROJECT}}** site running locally.
@@ -39,7 +39,7 @@ DocsLit takes a different approach from tools that require JSX, MDX, or framewor
 
 ```markdown
 <wc-callout type="tip" title="Quick start">
-Run `npx docslit dev` to start.
+Run `docslit dev` to start.
 </wc-callout>
 ```
 
@@ -49,7 +49,7 @@ Run `npx docslit dev` to start.
 **Your readers see this:**
 
 <wc-callout type="tip" title="Quick start">
-Run `npx docslit dev` to start.
+Run `docslit dev` to start.
 </wc-callout>
 
 </div>

@@ -9,6 +9,16 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
+## 0.1.10
+
+<wc-update version="0.1.10" date="June 2026" type="added">
+**Custom logo:** set `"logo": "logo.svg"` in `docslit.json` to replace the default favicon in the navigation bar with your own logo. Place the image file in your project root and it will be copied to the build output automatically. When no logo is configured, the default favicon is used.
+</wc-update>
+
+<wc-update version="0.1.10" date="June 2026" type="added">
+**Chapter PDF export:** run `docslit build --pdf` to generate chapter PDFs (one per sidebar group), per-page PDFs, and a full documentation PDF in `dist/pdf/`. Readers get a **Download PDF** dropdown on each page. Configure via the `pdf` block in `docslit.json`, or enable permanently with `"enabled": true`. Requires Playwright as an optional peer dependency. See [Chapter PDF export](../deployment/chapter-pdf-export).
+</wc-update>
+
 ## 0.1.9
 
 <wc-update version="0.1.9" date="June 2026" type="added">

@@ -12,7 +12,7 @@ DocsLit can build your entire documentation site as a self-contained folder. No 
 ## Build an offline site
 
 ```bash
-npx docslit build --offline
+docslit build --offline
 ```
 
 This produces a `dist/` folder with everything needed to run offline:
@@ -60,5 +60,5 @@ Offline builds are hardened for safe use in restricted environments:
 ## Custom output directory
 
 ```bash
-npx docslit build --offline --out my-offline-docs
+docslit build --offline --out my-offline-docs
 ```

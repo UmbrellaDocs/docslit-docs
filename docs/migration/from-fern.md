@@ -14,7 +14,7 @@ DocsLit can import documentation from a Fern project. The import command reads y
 <wc-var name="FERN_DIR" default="my-fern-docs"></wc-var>
 
 ```bash
-npx docslit import {{FERN_DIR}}
+docslit import {{FERN_DIR}}
 ```
 
 DocsLit detects Fern projects by looking for `fern/fern.config.json` in the source directory.
@@ -23,7 +23,7 @@ DocsLit detects Fern projects by looking for `fern/fern.config.json` in the sour
 Use `--dry-run` to preview the migration without writing files:
 
 ```bash
-npx docslit import {{FERN_DIR}} --dry-run
+docslit import {{FERN_DIR}} --dry-run
 ```
 
 </wc-callout>
@@ -43,14 +43,14 @@ npx docslit import {{FERN_DIR}} --dry-run
 
 ```bash
 cd {{FERN_DIR}}-docslit
-npx docslit dev
+docslit dev
 ```
 
 </wc-step>
 <wc-step title="Validate">
 
 ```bash
-npx docslit validate
+docslit validate
 ```
 
 Fix any broken links or unknown component tags.
@@ -66,5 +66,5 @@ Check the migration report for any pages marked as "needs review". These contain
 ## Custom output directory
 
 ```bash
-npx docslit import {{FERN_DIR}} --out my-new-docs
+docslit import {{FERN_DIR}} --out my-new-docs
 ```

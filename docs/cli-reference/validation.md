@@ -12,7 +12,7 @@ The `docslit validate` command checks your project for common errors — broken 
 ## Run validation
 
 ```bash
-npx docslit validate
+docslit validate
 ```
 
 The output shows errors, warnings, and informational messages with colored indicators.
@@ -38,14 +38,15 @@ The output shows errors, warnings, and informational messages with colored indic
 By default, `validate` exits with code 0 if there are only warnings. Use `--strict` to treat warnings as errors:
 
 ```bash
-npx docslit validate --strict
+docslit validate --strict
 ```
 
 This is useful in CI pipelines where you want to enforce documentation quality:
 
 ```yaml filename=".github/workflows/validate.yml"
+- run: npm install -g docslit
 - name: Validate docs
-  run: npx docslit validate --strict
+  run: docslit validate --strict
 ```
 
 ## Exit codes

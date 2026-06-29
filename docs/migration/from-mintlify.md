@@ -14,7 +14,7 @@ DocsLit can automatically convert a Mintlify documentation project. The import c
 <wc-var name="MINTLIFY_DIR" default="my-mintlify-docs"></wc-var>
 
 ```bash
-npx docslit import {{MINTLIFY_DIR}}
+docslit import {{MINTLIFY_DIR}}
 ```
 
 This creates a `{{MINTLIFY_DIR}}-docslit/` directory with your converted documentation.
@@ -23,7 +23,7 @@ This creates a `{{MINTLIFY_DIR}}-docslit/` directory with your converted documen
 Run `--dry-run` first to see what the import will do without writing any files:
 
 ```bash
-npx docslit import {{MINTLIFY_DIR}} --dry-run
+docslit import {{MINTLIFY_DIR}} --dry-run
 ```
 
 </wc-callout>
@@ -72,7 +72,7 @@ The import prints a report showing converted pages, items needing manual review,
 
 ```bash
 cd {{MINTLIFY_DIR}}-docslit
-npx docslit dev
+docslit dev
 ```
 
 Preview every page and check that components render correctly.
@@ -81,7 +81,7 @@ Preview every page and check that components render correctly.
 <wc-step title="Run validation">
 
 ```bash
-npx docslit validate
+docslit validate
 ```
 
 This catches broken links, missing pages, and unknown component tags.
@@ -97,5 +97,5 @@ Some components do not have a direct equivalent and need manual attention. The i
 ## Custom output directory
 
 ```bash
-npx docslit import {{MINTLIFY_DIR}} --out my-new-docs
+docslit import {{MINTLIFY_DIR}} --out my-new-docs
 ```

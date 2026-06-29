@@ -53,6 +53,7 @@
       "group": "Deployment",
       "pages": [
         "deployment/static-hosting",
+        "deployment/chapter-pdf-export",
         "deployment/offline-builds",
         "deployment/docslit-cloud"
       ]

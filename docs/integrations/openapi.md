@@ -17,7 +17,7 @@ DocsLit can generate full API reference documentation from an OpenAPI 3.x specif
 Run the `openapi scaffold` command with your OpenAPI spec file:
 
 ```bash
-npx docslit openapi scaffold api-spec.yaml
+docslit openapi scaffold api-spec.yaml
 ```
 
 This creates one Markdown page per endpoint in `docs/api/`, generates an `introduction.md` from the spec's `info` block, and updates `docslit.json` with the `openapi` config and sidebar structure.
@@ -28,7 +28,7 @@ This creates one Markdown page per endpoint in `docs/api/`, generates an `introd
 Start the dev server to see the generated API reference:
 
 ```bash
-npx docslit dev
+docslit dev
 ```
 
 The dev server loads the OpenAPI spec, resolves all `<wc-endpoint ref="...">` tags, and renders the full endpoint documentation with parameters, request bodies, and response schemas.
@@ -37,7 +37,7 @@ The dev server loads the OpenAPI spec, resolves all `<wc-endpoint ref="...">` ta
 <wc-step title="Build for production" n="3">
 
 ```bash
-npx docslit build
+docslit build
 ```
 
 The static build enriches all API pages with full spec data and generates Markdown files with complete endpoint documentation for AI agents.
@@ -83,7 +83,7 @@ Path to an OpenAPI overlay file. Applied after the spec is bundled and dereferen
 ## The scaffold command
 
 ```bash
-npx docslit openapi scaffold <spec.yaml> [options]
+docslit openapi scaffold <spec.yaml> [options]
 ```
 
 <wc-fields header="Options">

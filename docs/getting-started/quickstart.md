@@ -17,7 +17,7 @@ Set your project name: <wc-var name="PROJECT" default="my-docs"></wc-var>
 Scaffold a new documentation project:
 
 ```bash
-npx docslit init {{PROJECT}}
+docslit init {{PROJECT}}
 ```
 
 This creates a `{{PROJECT}}/` directory with a starter configuration and three example pages.
@@ -33,7 +33,7 @@ cd {{PROJECT}}
 <wc-step title="Start the dev server">
 
 ```bash
-npx docslit dev
+docslit dev
 ```
 
 The dev server starts on `http://localhost:3000` with hot reload enabled. Every time you save a file, the browser updates automatically.
@@ -120,7 +120,7 @@ The dev server picks up the config change automatically. Your new page appears i
 When you are ready to deploy, build a static site:
 
 ```bash
-npx docslit build
+docslit build
 ```
 
 This creates a `dist/` directory with everything you need to deploy. See [static hosting](../deployment/static-hosting) for deployment guides.

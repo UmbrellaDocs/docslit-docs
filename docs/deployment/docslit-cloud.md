@@ -15,7 +15,7 @@ DocsLit Cloud is a managed hosting service for your documentation. Build and dep
 <wc-step title="Log in">
 
 ```bash
-npx docslit login
+docslit login
 ```
 
 This opens your browser to authenticate. Your token is stored securely at `~/.docslit/config.json`.
@@ -24,7 +24,7 @@ This opens your browser to authenticate. Your token is stored securely at `~/.do
 <wc-step title="Publish">
 
 ```bash
-npx docslit publish
+docslit publish
 ```
 
 DocsLit builds your site, compresses it, and uploads it to the cloud. Your docs are live in seconds.

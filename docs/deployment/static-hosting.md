@@ -12,7 +12,7 @@ DocsLit builds a standard static site that you can deploy to any hosting provide
 ## Build your site
 
 ```bash
-npx docslit build
+docslit build
 ```
 
 This generates a `dist/` directory with HTML pages, a search index, sitemap, and AI discovery files.
@@ -37,7 +37,7 @@ npm install -g vercel
 <wc-step title="Deploy">
 
 ```bash
-npx docslit build
+docslit build
 cd dist
 vercel --prod
 ```
@@ -45,7 +45,7 @@ vercel --prod
 </wc-step>
 </wc-steps>
 
-Alternatively, connect your git repository to Vercel and set the build command to `npx docslit build` with the output directory set to `dist`.
+Alternatively, connect your git repository to Vercel and set the build command to `docslit build` with the output directory set to `dist`.
 
 </wc-tab>
 <wc-tab label="Netlify">
@@ -61,14 +61,14 @@ npm install -g netlify-cli
 <wc-step title="Deploy">
 
 ```bash
-npx docslit build
+docslit build
 netlify deploy --prod --dir=dist
 ```
 
 </wc-step>
 </wc-steps>
 
-For continuous deployment, connect your repository and set the build command to `npx docslit build` with the publish directory set to `dist`.
+For continuous deployment, connect your repository and set the build command to `docslit build` with the publish directory set to `dist`.
 
 </wc-tab>
 <wc-tab label="GitHub Pages">
@@ -95,7 +95,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npx docslit build
+      - run: npm install -g docslit
+      - run: docslit build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -117,7 +118,7 @@ Go to your repository **Settings** > **Pages** and set the source to **GitHub Ac
 <wc-step title="Build and sync">
 
 ```bash
-npx docslit build
+docslit build
 aws s3 sync dist/ s3://your-bucket-name --delete
 ```
 
@@ -150,11 +151,16 @@ Every build produces these files:
 | `vercel.json` | Content negotiation for AI agents (Vercel) |
 | `.well-known/agent.json` | Machine-readable agent discovery |
 | `mcp-server.js` | MCP server for AI tool integration |
+| `pdf/` | Chapter, page, and full documentation PDFs (when built with `--pdf`) |
+
+<wc-callout type="tip" title="Chapter PDFs">
+Run `docslit build --pdf` to generate downloadable PDF manuals alongside your HTML site. See [Chapter PDF export](chapter-pdf-export).
+</wc-callout>
 
 ## Custom output directory
 
 Use the `--out` flag to change the output directory:
 
 ```bash
-npx docslit build --out public
+docslit build --out public
 ```

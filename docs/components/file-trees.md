@@ -121,7 +121,7 @@ Download the sample PDF
 Add a standalone copy-to-clipboard button:
 
 ```markdown
-<wc-copy text="npx docslit init my-docs">Copy install command</wc-copy>
+<wc-copy text="docslit init my-docs">Copy install command</wc-copy>
 ```
 
-<wc-copy text="npx docslit init my-docs">Copy install command</wc-copy>
+<wc-copy text="docslit init my-docs">Copy install command</wc-copy>

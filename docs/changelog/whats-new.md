@@ -9,10 +9,16 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
+## 0.1.11
+
+<wc-update version="0.1.11" date="June 2026" type="added">
+**Announcement banner:** add an `announcement` block to `docslit.json` to show a dismissible site-wide banner at the top of every page. The message supports Markdown and HTML. Readers can dismiss it; updating the message brings it back. Version-specific overrides are supported in `versions.list`. Fern imports pick up `announcement` from `docs.yml`. See [Announcement banner](../customization/announcement-banner).
+</wc-update>
+
 ## 0.1.10
 
 <wc-update version="0.1.10" date="June 2026" type="added">
-**Custom logo:** set `"logo": "logo.svg"` in `docslit.json` to replace the default favicon in the navigation bar with your own logo. Place the image file in your project root and it will be copied to the build output automatically. When no logo is configured, the default favicon is used.
+**Custom logo:** set `"logo": "logo.svg"` in `docslit.json` to replace the default favicon in the navigation bar with your own logo. Place the image file in your project root and it will be copied to the build output automatically. See [Logo](../customization/logo).
 </wc-update>
 
 <wc-update version="0.1.10" date="June 2026" type="added">

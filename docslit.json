@@ -3,6 +3,10 @@
   "name": "DocsLit",
   "description": "Documentation for DocsLit — build beautiful docs with Markdown and web components",
   "editUrl": "https://www.draftview.app/edit?url=https://github.com/UmbrellaDocs/docslit-docs/blob/main/docs",
+  "announcement": {
+    "message": "🚀 DocsLit v0.1.10 is out — custom logos and chapter PDF export. <a href=\"changelog/whats-new\">See what's new</a>",
+    "type": "info"
+  },
   "sidebar": [
     {
       "group": "Getting started",
@@ -45,6 +49,8 @@
       "group": "Customization",
       "pages": [
         "customization/theming",
+        "customization/logo",
+        "customization/announcement-banner",
         "customization/custom-components",
         "customization/versioning"
       ]

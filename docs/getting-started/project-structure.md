@@ -91,6 +91,12 @@ An array of groups, each containing a `group` name and a `pages` array of page s
 <wc-field name="versions" type="object">
 Multi-version configuration. See [versioning](../customization/versioning) for details.
 </wc-field>
+<wc-field name="logo" type="string">
+Path to a custom logo image for the navigation bar. See [logo](../customization/logo).
+</wc-field>
+<wc-field name="announcement" type="object">
+Site-wide announcement banner with a `message` string and optional `type` and `dismissible` fields. See [announcement banner](../customization/announcement-banner).
+</wc-field>
 <wc-field name="openapi" type="string | object">
 Path to an OpenAPI 3.x spec file, or an object with `spec` and `overlay` keys. Enables spec-driven API reference generation. See [OpenAPI integration](../integrations/openapi) for details.
 </wc-field>

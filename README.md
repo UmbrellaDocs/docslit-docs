@@ -21,7 +21,7 @@ docs/               Markdown source files
   getting-started/  Installation, quickstart, and project structure
   writing-content/  Markdown, frontmatter, navigation, and SEO
   components/       40+ built-in web components
-  customization/    Theming, custom components, versioning
+  customization/    Theming, logo, announcement banner, custom components, versioning
   deployment/       Static hosting, offline builds, DocsLit Cloud
   migration/        Guides for Mintlify, Fern, and GitBook
   cli-reference/    CLI commands and validation

@@ -34,6 +34,7 @@ docslit import {{FERN_DIR}} --dry-run
 - **MDX components** — Converted to `<wc-*>` equivalents
 - **Import/export statements** — Stripped
 - **Sidebar structure** — Generated from the Fern navigation config
+- **Announcement banner** — `announcement.message` from `fern/docs.yml` is copied to `docslit.json`
 - **Static assets** — Copied to the output directory
 
 ## After migration

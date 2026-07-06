@@ -62,7 +62,19 @@ A standalone MCP server that agents like Claude Desktop can connect to over stdi
 </wc-field>
 </wc-fields>
 
-These files are generated automatically from your page content and frontmatter descriptions.
+These files are generated automatically from your page content and frontmatter descriptions. Every page also includes an agent directive (in HTML and Markdown) pointing to your `llms.txt` index, following the [Agent-Friendly Documentation Spec](https://agentdocsspec.com/spec/).
+
+Validate your deployed site with [afdocs](https://github.com/agent-ecosystem/afdocs):
+
+```bash
+npx afdocs check https://docs.example.com
+```
+
+For versioned sites, pass the version-specific index if needed:
+
+```bash
+npx afdocs check https://docs.example.com --llms-txt-url https://docs.example.com/0.1/llms.txt --doc-version 0.1
+```
 
 ### MCP server
 
@@ -154,7 +166,7 @@ For static builds, DocsLit generates platform-specific files to handle this nego
 <wc-tabs>
 <wc-tab label="Cloudflare Pages">
 
-DocsLit generates a `_middleware.js` that Cloudflare Pages picks up automatically from your output directory. No additional configuration is needed.
+DocsLit generates `functions/_middleware.js` at your project root on each build. Cloudflare Pages picks this up automatically when you deploy — no additional configuration is needed. The build also writes `_headers` into `dist/` so `.md` files are served with `Content-Type: text/markdown`.
 
 </wc-tab>
 <wc-tab label="Vercel">

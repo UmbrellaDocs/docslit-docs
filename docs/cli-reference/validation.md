@@ -48,8 +48,24 @@ This is useful in CI pipelines where you want to enforce documentation quality:
 ```yaml filename=".github/workflows/validate.yml"
 - run: npm install -g docslit
 - name: Validate docs
-  run: docslit validate --strict
+  run: docslit validate --strict --external --format github
 ```
+
+## External links
+
+```bash
+docslit validate --external
+```
+
+Checks `http(s)` links with HEAD (falls back to GET), 8s timeout, limited concurrency.
+
+## GitHub Actions annotations
+
+```bash
+docslit validate --format github
+```
+
+Prints `::error file=…,line=…::message` so failures show inline on pull requests.
 
 ## Exit codes
 

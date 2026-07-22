@@ -102,6 +102,26 @@ PDF output directory inside `--out`. Overrides `pdf.outputDir` in config.
 </wc-field>
 </wc-fields>
 
+## new
+
+Create a new Markdown page and optionally append it to the sidebar.
+
+```bash
+docslit new getting-started/advanced --title "Advanced" --group "Getting started"
+```
+
+## deploy
+
+Write hosting recipe files (does not upload). Keep `docslit publish` for DocsLit Cloud.
+
+```bash
+docslit deploy --github-pages
+docslit deploy --netlify
+docslit deploy --cloudflare
+```
+
+For GitHub project pages, set `"basePath": "/your-repo"` in `docslit.json` first. See [Site chrome](../customization/site-chrome) and [Static hosting](../deployment/static-hosting).
+
 ## validate
 
 Check your project for errors and warnings.
@@ -111,6 +131,7 @@ Check your project for errors and warnings.
 ```bash
 docslit validate
 docslit validate --strict
+docslit validate --external --format github
 ```
 
 See [validation](validation) for details on what gets checked.
@@ -118,6 +139,12 @@ See [validation](validation) for details on what gets checked.
 <wc-fields header="Options">
 <wc-field name="--strict" type="flag">
 Treat warnings as errors. Exits with code 1 if any warnings are found.
+</wc-field>
+<wc-field name="--external" type="flag">
+Also check external `http(s)` links (HEAD, then GET fallback).
+</wc-field>
+<wc-field name="--format" type="string" default="pretty">
+Output format: `pretty` or `github` (GitHub Actions annotations).
 </wc-field>
 </wc-fields>
 

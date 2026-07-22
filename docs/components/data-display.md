@@ -2,7 +2,7 @@
 title: Data display
 description: Render tables, key-value lists, color swatches, and Mermaid diagrams from structured data in your docs.
 tag: Components
-readtime: 4 min read
+readtime: 5 min read
 ---
 
 # Data display
@@ -10,6 +10,12 @@ readtime: 4 min read
 Components for displaying structured data — tables, diagrams, colors, and version-specific content.
 
 ## Tables
+
+DocsLit supports three table styles:
+
+- **Markdown (GFM)** — small, simple tables in plain Markdown
+- **`wc-table`** — JSON-driven tables with sticky headers
+- **`wc-asciidoc-table`** — AsciiDoc syntax for spans, column specs, multi-line cells, and CSV/DSV — see [AsciiDoc tables](asciidoc-tables)
 
 Create tables from JSON data with `wc-table`:
 
@@ -33,8 +39,8 @@ Create tables from JSON data with `wc-table`:
 ]
 </wc-table>
 
-<wc-callout type="tip" title="When to use wc-table vs Markdown tables">
-Use `wc-table` for large datasets that benefit from sticky headers. Use standard Markdown tables for small, simple data.
+<wc-callout type="tip" title="When to use which table">
+Use Markdown tables for small grids. Use `wc-table` for structured JSON data. Use [`wc-asciidoc-table`](asciidoc-tables) when you need AsciiDoc features such as cell spans, column widths, or CSV input.
 </wc-callout>
 
 ## Mermaid diagrams

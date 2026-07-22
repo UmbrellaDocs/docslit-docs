@@ -40,7 +40,7 @@ The dev server loads the OpenAPI spec, resolves all `<wc-endpoint ref="...">` ta
 docslit build
 ```
 
-The static build enriches all API pages with full spec data and generates Markdown files with complete endpoint documentation for AI agents.
+The static build enriches all API pages with full spec data and generates Markdown files with complete endpoint documentation for AI agents. Resolved endpoints also include a `<wc-playground>` panel for live “Try it” requests (CORS permitting). Set `playground.proxyUrl` in `docslit.json` if you run a CORS proxy.
 
 </wc-step>
 </wc-steps>

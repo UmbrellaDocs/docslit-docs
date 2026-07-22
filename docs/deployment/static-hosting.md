@@ -21,6 +21,18 @@ This generates a `dist/` directory with HTML pages, a search index, sitemap, and
 Add `"url": "https://docs.example.com"` to your `docslit.json` before building. This enables absolute URLs in your sitemap and `llms.txt`.
 </wc-callout>
 
+## Deploy recipes
+
+Generate host-specific config files from the CLI:
+
+```bash
+docslit deploy --github-pages
+docslit deploy --netlify
+docslit deploy --cloudflare
+```
+
+For GitHub project sites (`https://user.github.io/repo/`), set `"basePath": "/repo"` in `docslit.json` so asset and navigation URLs stay correct.
+
 ## Deploy to a hosting provider
 
 <wc-tabs>
@@ -94,7 +106,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
       - run: npm install -g docslit
       - run: docslit build
       - uses: actions/upload-pages-artifact@v3

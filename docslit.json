@@ -4,7 +4,7 @@
   "description": "Documentation for DocsLit — build beautiful docs with Markdown and web components",
   "editUrl": "https://www.draftview.app/edit?url=https://github.com/UmbrellaDocs/docslit-docs/blob/main/docs",
   "announcement": {
-    "message": "🚀 DocsLit v0.1.10 is out — custom logos and chapter PDF export. <a href=\"changelog/whats-new\">See what's new</a>",
+    "message": "DocsLit v0.1.11 is out — Apache-2.0, site chrome, basePath, API playground, and more. <a href=\"changelog/whats-new\">See what's new</a>",
     "type": "info"
   },
   "sidebar": [
@@ -40,6 +40,7 @@
         "components/layout",
         "components/api-reference-components",
         "components/data-display",
+        "components/asciidoc-tables",
         "components/file-trees",
         "components/interactive-elements",
         "components/icons"
@@ -50,6 +51,8 @@
       "pages": [
         "customization/theming",
         "customization/logo",
+        "customization/site-chrome",
+        "customization/i18n",
         "customization/announcement-banner",
         "customization/custom-components",
         "customization/versioning"
@@ -93,6 +96,42 @@
       ]
     }
   ],
+  "footer": {
+    "copyright": "© 2026 DocsLit. Apache-2.0 licensed.",
+    "columns": [
+      {
+        "title": "Getting started",
+        "links": [
+          { "label": "Introduction", "href": "/getting-started/introduction" },
+          { "label": "Why DocsLit", "href": "/getting-started/why-docslit" },
+          { "label": "Installation", "href": "/getting-started/installation" },
+          { "label": "Quickstart", "href": "/getting-started/quickstart" }
+        ]
+      },
+      {
+        "title": "Guides",
+        "links": [
+          { "label": "Writing content", "href": "/writing-content/markdown-basics" },
+          { "label": "Components", "href": "/components/callouts-and-alerts" },
+          { "label": "Customization", "href": "/customization/theming" },
+          { "label": "Deployment", "href": "/deployment/static-hosting" }
+        ]
+      },
+      {
+        "title": "Reference",
+        "links": [
+          { "label": "CLI commands", "href": "/cli-reference/commands" },
+          { "label": "Integrations", "href": "/integrations/openapi" },
+          { "label": "Migration", "href": "/migration/from-mintlify" },
+          { "label": "Changelog", "href": "/changelog/whats-new" }
+        ]
+      }
+    ],
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/UmbrellaDocs/docslit-cli" },
+      { "label": "npm", "href": "https://www.npmjs.com/package/docslit" }
+    ]
+  },
   "versions": {
     "default": "0.1",
     "list": [

@@ -76,6 +76,8 @@ Write headings in sentence case: "Getting started with components" not "Getting 
 | Web components | Supported |
 | JSX | Not needed |
 
+For larger or more structured tables, use [`wc-table`](../components/data-display) (JSON) or [`wc-asciidoc-table`](../components/asciidoc-tables) (AsciiDoc syntax with spans, column specs, and CSV/DSV).
+
 ## Code blocks
 
 Use fenced code blocks with a language identifier for syntax highlighting:

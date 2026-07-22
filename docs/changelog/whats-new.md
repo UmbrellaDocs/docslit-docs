@@ -2,12 +2,84 @@
 title: What's new
 description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
+layout: changelog
+date: 2026-07-22
 readtime: 3 min read
 ---
 
 # What's new
 
 All notable changes to DocsLit, organized by release.
+
+## 0.1.11
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**AsciiDoc tables:** author tables with AsciiDoc syntax via `<wc-asciidoc-table>`. Column specs, spans, alignment, cell styles, CSV/DSV/TSV, titles, and footers. Parsed at build time into real HTML tables. See [AsciiDoc tables](../components/asciidoc-tables).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="changed">
+**Apache-2.0 license:** the DocsLit CLI is now licensed under Apache-2.0 (was AGPL-3.0). DocsLit Cloud remains a separate proprietary product.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="changed">
+**Node.js `>=20.19.0`:** engines no longer require Node 24. Installs work on common CI images and corporate machines running Node 20 or 22.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="improved">
+**Vendored FlexSearch:** client search loads a local FlexSearch bundle instead of `esm.sh`, so air-gapped and CSP-restricted environments work reliably.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Site chrome:** configure `navbar`, `footer`, `head`, `css`, `analytics` (Plausible, PostHog, GA4, Fathom), and `favicon` in `docslit.json`. See [Site chrome](../customization/site-chrome).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**`basePath`:** deploy under a subpath such as GitHub Pages project sites (`https://user.github.io/repo/`). Asset URLs, SPA navigation, and sitemaps respect the prefix.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Redirects:** site-level `redirects` in `docslit.json` and frontmatter `redirect` emit meta-refresh stubs plus `_redirects` / `vercel.json` entries for Netlify, Vercel, and Cloudflare.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**API playground:** `<wc-playground>` lets readers try OpenAPI endpoints from the docs (auth, params, live response). Scaffold and `ref` resolution wire it automatically. Optional `playground.proxyUrl` for CORS proxies. See [OpenAPI integration](../integrations/openapi).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Changelog / blog + RSS:** pages with `layout: changelog|blog` (or under `changelog/` / `blog/`) get dated collection support and build-time `rss.xml` / `atom.xml` feeds when `url` is set.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Images:** lazy loading, lightbox zoom via `<wc-image>`, dark-mode variants (`#dark=` / `dark-src`), and build-time width/height for CLS. Docs assets are served in `dev` and copied on build.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Social / OG images:** each page gets a build-time card (`og/{page}.png`) with title and site name; `og:image` and `twitter:card=summary_large_image` are set automatically. Opt out with `ogImage: false`.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="improved">
+**Section search:** headings get stable IDs at build time; the search index returns `Page → Heading` chunks with anchor links, and page bodies are trimmed to keep the index smaller.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="improved">
+**Sitemap `lastmod`:** uses git history (mtime fallback) per page instead of stamping today’s date on every URL.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**i18n:** locale trees like `docs.fr/` / `docs.ja/`, locale switcher, `hreflang` tags, and per-locale sidebars. See [Internationalization](../customization/i18n).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**`docslit new` and `docslit deploy`:** scaffold pages into the sidebar; write GitHub Pages, Netlify, or Cloudflare recipe files. See [Commands](../cli-reference/commands) and [Static hosting](../deployment/static-hosting).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Validate for CI:** `docslit validate --external` checks outbound links; `--format github` prints Actions annotations for inline PR feedback. See [Validation](../cli-reference/validation).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Plugin hooks:** optional `docslit.config.js` with `transformPage` and `onBuildEnd` escape hatches. Shiki highlighting now persists a disk cache across runs for faster rebuilds.
+</wc-update>
 
 ## 0.1.10
 

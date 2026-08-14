@@ -64,6 +64,21 @@ A standalone MCP server that agents like Claude Desktop can connect to over stdi
 
 These files are generated automatically from your page content and frontmatter descriptions. Every page also includes an agent directive (in HTML and Markdown) pointing to your `llms.txt` index, following the [Agent-Friendly Documentation Spec](https://agentdocsspec.com/spec/).
 
+### Versioned sites
+
+For versioned sites (using the `versions` block in `docslit.json`), the build generates a root `/llms.txt` that acts as a version index:
+
+```
+# My Docs
+> Version-specific documentation indexes are listed below.
+
+## Versions
+- [0.2.0 (default)](https://docs.example.com/0.2.0/llms.txt): Documentation for version 0.2.0
+- [0.1.0](https://docs.example.com/0.1.0/llms.txt): Documentation for version 0.1.0
+```
+
+Each version's own `llms.txt` then lists the individual pages for that version. AI agents can start at the root index and navigate to the relevant version automatically.
+
 Validate your deployed site with [afdocs](https://github.com/agent-ecosystem/afdocs):
 
 ```bash
@@ -75,6 +90,17 @@ For versioned sites, pass the version-specific index if needed:
 ```bash
 npx afdocs check https://docs.example.com --llms-txt-url https://docs.example.com/0.1/llms.txt --doc-version 0.1
 ```
+
+### Copy page dropdown
+
+Every page includes a **Copy page** split button in the page action bar. Readers can use it to:
+
+- **Copy page** — copy the page as Markdown, ready to paste into any LLM chat
+- **Open in ChatGPT** — opens ChatGPT pre-seeded with a question about the page URL
+- **Open in Claude** — opens Claude pre-seeded with the page URL
+- **Copy MCP install command** — copies the `npx` command to install your site's MCP server
+
+No configuration is needed — the button appears automatically on every page.
 
 ### MCP server
 

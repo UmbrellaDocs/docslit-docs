@@ -81,6 +81,22 @@ All notable changes to DocsLit, organized by release.
 **Plugin hooks:** optional `docslit.config.js` with `transformPage` and `onBuildEnd` escape hatches. Shiki highlighting now persists a disk cache across runs for faster rebuilds.
 </wc-update>
 
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Copy page dropdown:** the per-page action bar replaces the old copy/view Markdown buttons with a split **Copy page** dropdown. Options: copy the page as Markdown for LLMs, open the page in ChatGPT, open in Claude, and copy the `npx` MCP install command for the site's MCP server.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="added">
+**Agent directives and root `llms.txt` for versioned sites:** every HTML page and Markdown output file now includes an in-band agent directive pointing to the documentation index. Versioned sites get a root `/llms.txt` that acts as a version index, listing each version with a link to its own `llms.txt`. Follows the [Agent-Friendly Documentation Spec](https://agentdocsspec.com/spec/).
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="fixed">
+**Frontmatter titles in sidebar:** pages now use their frontmatter `title` in the sidebar instead of falling back to the filename when a title is set.
+</wc-update>
+
+<wc-update version="0.1.11" date="August 2026" type="fixed">
+**Versioned doc links:** links inside web components in versioned sites now resolve correctly relative to the page's URL rather than the site root.
+</wc-update>
+
 ## 0.1.10
 
 <wc-update version="0.1.10" date="June 2026" type="added">

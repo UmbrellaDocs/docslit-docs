@@ -11,7 +11,7 @@ DocsLit is a documentation framework that combines Markdown with interactive web
 
 <wc-tiles>
 <wc-tile icon-name="zap" title="Zero config" description="Write Markdown, run one command, get a production-ready docs site." href="getting-started/quickstart"></wc-tile>
-<wc-tile icon-name="plus" title="40+ components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
+<wc-tile icon-name="plus" title="50+ components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
 <wc-tile icon-name="globe" title="Static or cloud" description="Deploy anywhere as static files, or publish instantly with DocsLit Cloud." href="deployment/static-hosting"></wc-tile>
 <wc-tile icon-name="right-left" title="Easy migration" description="Move from Mintlify, Fern, or GitBook with a single command." href="migration/from-mintlify"></wc-tile>
 </wc-tiles>

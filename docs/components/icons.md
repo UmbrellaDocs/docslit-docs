@@ -33,16 +33,16 @@ These 33 icons are built in and render immediately with no network request:
 
 ## Font Awesome fallback
 
-If you use an icon name that is not in the built-in set, DocsLit loads the Font Awesome (v6.7.2) icon with that name. Use the plain icon name. Brand names such as `github` and `docker` load from the brands set, and other names load from the solid set:
+If you use an icon name that is not in the built-in set, DocsLit loads the Font Awesome (v6.7.2) icon with that name. Use the plain icon name. Brand names such as `github` and `docker` load from the brands set, and other names load from the solid set. You can also write Font Awesome classes: `fa-brands fa-github`, `fa-solid fa-gear` and `fa-regular fa-star` (or `fab`, `fas` and `far`). Size and animation classes such as `fa-lg` are ignored. Use `size` and `color` instead:
 
 ```markdown
 <wc-icon name="github"></wc-icon>
-<wc-icon name="docker"></wc-icon>
+<wc-icon name="fa-brands fa-docker"></wc-icon>
 <wc-icon name="rocket"></wc-icon>
 ```
 
 <wc-callout type="info" title="CDN loading">
-Font Awesome icons load from the CDN on first use. Built-in icons render immediately with no network request.
+Font Awesome icons load from the CDN on first use, so they need a network connection and do not render in an offline build opened from disk. Built-in icons render immediately with no network request.
 </wc-callout>
 
 ## Icons in other components
@@ -65,7 +65,7 @@ Configure your project with docslit.json.
 
 <wc-fields header="wc-icon">
 <wc-field name="name" type="string" required>
-The icon name. Use a built-in icon name, or a Font Awesome icon name such as `github`.
+The icon name. Use a built-in icon name, or a Font Awesome icon as a name (`github`) or classes (`fa-brands fa-github`).
 </wc-field>
 <wc-field name="size" type="number">
 The icon size in pixels.

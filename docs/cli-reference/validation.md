@@ -29,10 +29,12 @@ Line numbers count from the first line of the file, including the frontmatter, s
 | Sidebar structure | Error | The sidebar array must exist in the config |
 | Page files exist | Error | Every slug in the sidebar must have a matching .md file in docs/ |
 | Internal links | Error | Links to other pages must point to valid page slugs |
-| Asset references | Error | Images whose path starts with `/`, `./` or `../` must exist. `wc-image` and `wc-download` paths are not checked |
+| Asset references | Error | Markdown images and HTML `img` tags must point at an existing file, whether the path starts with `/`, `./`, `../` or is a bare relative path like `images/x.png`. `wc-image` and `wc-download` paths are not checked |
 | Code imports | Error | `file=` imports must find the file, region and line range. See [Import code from files](../writing-content/code-import) |
 | Page titles | Warning | Every page should have a title in its frontmatter |
 | Component tags | Warning | All wc-* tags must be built-in or defined in components/ |
+| Component markup | Error or warning | Unclosed, stray or malformed tags are errors. Unknown attributes, invalid attribute values, missing required attributes and bad nesting are warnings |
+| Math | Warning | Formulas that KaTeX cannot parse. The build prints the same warning |
 | Duplicate slugs | Warning | Each page slug should appear only once in the sidebar |
 | Orphaned pages | Info | Markdown files in docs/ that are not listed in the sidebar. Pages with `sidebar: false` are skipped |
 | Includes and variables | Error or warning | `wc-include` targets, `wc-var` names and undefined `{{NAME}}` placeholders |

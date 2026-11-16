@@ -35,8 +35,14 @@ Click the variable values above and type your own to see both code blocks update
 <wc-field name="name" type="string" required>
 The variable name. Use `UPPER_SNAKE_CASE`. Referenced in code blocks as `{{NAME}}`.
 </wc-field>
-<wc-field name="default" type="string" required>
+<wc-field name="default" type="string">
 The default value shown before the reader edits it.
+</wc-field>
+<wc-field name="value" type="string">
+Compile-time form only: `<wc-var name="X" value="Y" />` declares a page-level variable. See [Variables and precedence](../writing-content/variables-and-precedence).
+</wc-field>
+<wc-field name="readonly" type="boolean">
+Prevent the reader from editing the value.
 </wc-field>
 </wc-fields>
 

@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "docslit": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "docslit",
+        "mcp"
+      ]
+    }
+  }
+}

@@ -51,7 +51,7 @@ Open `docs/introduction.md` in your editor and make a change. The browser reload
 After running `init`, your project looks like this:
 
 <wc-files>
-<wc-dir name="{{PROJECT}}" open>
+<wc-dir name="my-docs" open>
 <wc-file name="docslit.json" highlight></wc-file>
 <wc-dir name="docs" open>
 <wc-file name="introduction.md"></wc-file>

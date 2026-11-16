@@ -1,5 +1,5 @@
 ---
-title: From Mintlify
+title: Migrate from Mintlify
 description: Migrate your Mintlify documentation project to DocsLit with a single command that converts MDX to Markdown.
 tag: Migration
 readtime: 4 min read
@@ -34,29 +34,33 @@ The import command handles these transformations automatically:
 
 ### Component mapping
 
-<wc-table>
-[
-  { "Mintlify": "<Note>", "DocsLit": "<wc-callout type=\"info\">" },
-  { "Mintlify": "<Info>", "DocsLit": "<wc-callout type=\"info\">" },
-  { "Mintlify": "<Warning>", "DocsLit": "<wc-callout type=\"warning\">" },
-  { "Mintlify": "<Tip>", "DocsLit": "<wc-callout type=\"tip\">" },
-  { "Mintlify": "<Check>", "DocsLit": "<wc-callout type=\"success\">" },
-  { "Mintlify": "<Card>", "DocsLit": "<wc-card>" },
-  { "Mintlify": "<CardGroup>", "DocsLit": "<wc-tiles>" },
-  { "Mintlify": "<Tabs> / <Tab>", "DocsLit": "<wc-tabs> / <wc-tab>" },
-  { "Mintlify": "<Accordion>", "DocsLit": "<wc-accordion>" },
-  { "Mintlify": "<Steps> / <Step>", "DocsLit": "<wc-steps> / <wc-step>" },
-  { "Mintlify": "<CodeGroup>", "DocsLit": "<wc-code-group>" },
-  { "Mintlify": "<Frame>", "DocsLit": "<wc-frame>" },
-  { "Mintlify": "<ParamField>", "DocsLit": "<wc-field>" }
-]
-</wc-table>
+| Mintlify | DocsLit |
+|---|---|
+| `<Note>`, `<Info>` | `<wc-callout type="info">` |
+| `<Warning>`, `<Caution>` | `<wc-callout type="warning">` |
+| `<Danger>` | `<wc-callout type="error">` |
+| `<Tip>` | `<wc-callout type="tip">` |
+| `<Check>`, `<Success>` | `<wc-callout type="success">` |
+| `<Card>` | `<wc-card>` (`icon` becomes `icon-name`; `color` is dropped) |
+| `<CardGroup>` | `<wc-tiles>` |
+| `<Tabs>` / `<Tab>` | `<wc-tabs>` / `<wc-tab>` (`title` becomes `label`) |
+| `<Accordion>` / `<AccordionGroup>` | `<wc-accordion>` / `<wc-accordion-group>` |
+| `<Steps>` / `<Step>` | `<wc-steps>` / `<wc-step>` |
+| `<CodeGroup>` | `<wc-code-group>` |
+| `<Frame>` | `<wc-frame>` (`type` is dropped) |
+| `<Badge>` | `<wc-badge>` (`color` becomes `variant`: green is `success`, red is `danger`, orange and yellow are `warning`, blue is `info`, gray is `neutral`) |
+| `<Expandable>` | `<wc-expandable>` (`defaultOpen` becomes `open`) |
+| `<Update>` | `<wc-update>` (`label` becomes `version`) |
+| `<ParamField>` | `<wc-field>` (`path`, `query`, `body` or `header` becomes `name` plus `in`) |
+| `<ResponseField>` | `<wc-field>` |
+| `<Tooltip>` | Plain text |
+| `<Icon>` | Removed |
 
 ### Other transformations
 
 - **MDX imports and exports** — Stripped automatically
 - **JSX props** — Converted to HTML attributes
-- **Font Awesome icons** — Mapped to built-in Lucide equivalents (50+ mappings)
+- **Font Awesome icons** — Mapped to built-in icon names where a match exists
 - **Sidebar structure** — Generated from `mint.json` navigation
 - **Static assets** — Copied to the output directory
 

@@ -79,7 +79,7 @@ Document request parameters with `wc-fields` and `wc-field`. The `title` attribu
 
 <wc-fields header="wc-fields attributes">
 <wc-field name="title" type="string" default="Parameter">
-The section header text. When populated from an OpenAPI spec, this is set automatically to values like "Headers", "Query Parameters", or "Body application/json".
+The section header text. `header` is an alias of `title`. When populated from an OpenAPI spec, this is set automatically to values like "Headers", "Query Parameters", or "Body application/json".
 </wc-field>
 </wc-fields>
 
@@ -198,10 +198,10 @@ The account status. Always `active` for new users.
 
 ## Schema
 
-Display type definitions with `wc-schema`:
+Display type definitions with `wc-schema`. The `type` attribute is the type name shown in the header; the element has no `name` attribute:
 
 ```markdown
-<wc-schema name="User" extends="BaseModel">
+<wc-schema type="User" extends="BaseModel">
 <wc-field name="id" type="number" required>
 Unique identifier.
 </wc-field>
@@ -214,7 +214,7 @@ List of permission slugs.
 </wc-schema>
 ```
 
-<wc-schema name="User" extends="BaseModel">
+<wc-schema type="User" extends="BaseModel">
 <wc-field name="id" type="number" required>
 Unique identifier.
 </wc-field>

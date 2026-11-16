@@ -11,7 +11,7 @@ Use cards and tiles to create navigation grids, feature highlights, and content 
 
 ## Cards
 
-Cards are clickable containers with an optional icon, title, and description:
+Cards are clickable containers with an optional icon and title. The text inside the tags is the description:
 
 ```markdown
 <wc-card icon-name="book" title="Documentation" href="getting-started/introduction">
@@ -33,10 +33,12 @@ The link destination. Can be a page slug or an external URL.
 <wc-field name="icon-name" type="string">
 A built-in icon name. See [icons](icons) for the full list.
 </wc-field>
-<wc-field name="description" type="string">
-A short description. Alternatively, use the slot content (the content between the tags).
+<wc-field name="icon" type="string">
+An emoji or short text icon. Use `icon-name` for a named icon.
 </wc-field>
 </wc-fields>
+
+A card has no `description` attribute. The text between the tags is the description, and it can use Markdown.
 
 ## Tiles
 
@@ -71,11 +73,14 @@ The link destination.
 <wc-field name="icon-name" type="string">
 A built-in icon name displayed above the title.
 </wc-field>
+<wc-field name="icon" type="string">
+An emoji or short text icon. Use `icon-name` for a named icon.
+</wc-field>
 </wc-fields>
 
 <wc-fields header="wc-tiles">
 <wc-field name="cols" type="number">
-The number of columns in the grid. Defaults to automatic sizing based on content. Collapses to fewer columns on smaller screens.
+The number of columns in the grid. Defaults to automatic sizing. A `wc-tiles` can hold `wc-tile` or `wc-card` children.
 </wc-field>
 </wc-fields>
 

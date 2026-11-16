@@ -5,6 +5,8 @@ tag: Components
 readtime: 4 min read
 ---
 
+<!-- docslit-lint-disable raw-html-block -->
+
 # Layout
 
 DocsLit provides layout components for multi-column grids, panels, frames, and side content.
@@ -158,6 +160,9 @@ Frames wrap images or media with an optional caption:
 <wc-fields header="wc-frame">
 <wc-field name="caption" type="string">
 A caption displayed below the content.
+</wc-field>
+<wc-field name="border" type="boolean">
+Draw a border around the framed content.
 </wc-field>
 </wc-fields>
 

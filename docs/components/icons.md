@@ -1,13 +1,13 @@
 ---
 title: Icons
-description: Use built-in Lucide icons and Font Awesome brand icons by name in any DocsLit component or inline.
+description: Use the 33 built-in icons and any Font Awesome icon by name in DocsLit components or inline.
 tag: Components
 readtime: 2 min read
 ---
 
 # Icons
 
-DocsLit includes a set of built-in Lucide icons and supports the full Font Awesome library as a fallback.
+DocsLit includes a set of built-in icons and supports the full Font Awesome library as a fallback.
 
 ## Using icons
 
@@ -27,64 +27,22 @@ DocsLit includes a set of built-in Lucide icons and supports the full Font Aweso
 
 ## Built-in icons
 
-The following Lucide icons are included and load instantly with no external requests:
+These 33 icons are built in and render immediately with no network request:
 
-<wc-columns cols="3">
-<div>
-
-- `zap`
-- `book`
-- `search`
-- `settings`
-- `globe`
-- `code`
-- `terminal`
-- `file`
-- `folder`
-- `package`
-
-</div>
-<div>
-
-- `blocks`
-- `palette`
-- `eye`
-- `lock`
-- `unlock`
-- `check`
-- `x`
-- `plus`
-- `minus`
-- `arrow-right`
-
-</div>
-<div>
-
-- `arrow-left`
-- `arrow-up`
-- `arrow-down`
-- `external-link`
-- `copy`
-- `download`
-- `upload`
-- `warning`
-- `info`
-- `heart`
-
-</div>
-</wc-columns>
+`arrow-down`, `arrow-left`, `arrow-right`, `arrow-up`, `book`, `check`, `chevron-down`, `chevron-right`, `code`, `copy`, `cpu`, `download`, `error`, `external-link`, `eye`, `file`, `folder`, `globe`, `grid`, `home`, `info`, `link`, `list`, `lock`, `package`, `search`, `settings`, `star`, `terminal`, `user`, `warning`, `x`, `zap`
 
 ## Font Awesome fallback
 
-If you use an icon name that is not in the built-in set, DocsLit automatically loads it from Font Awesome (v6.7.2):
+If you use an icon name that is not in the built-in set, DocsLit loads the Font Awesome (v6.7.2) icon with that name. Use the plain icon name. Brand names such as `github` and `docker` load from the brands set, and other names load from the solid set:
 
 ```markdown
-<wc-icon name="fa-brands fa-github"></wc-icon>
-<wc-icon name="fa-brands fa-docker"></wc-icon>
+<wc-icon name="github"></wc-icon>
+<wc-icon name="docker"></wc-icon>
+<wc-icon name="rocket"></wc-icon>
 ```
 
 <wc-callout type="info" title="CDN loading">
-Font Awesome icons load from the CDN on first use. Built-in Lucide icons render immediately with no network request.
+Font Awesome icons load from the CDN on first use. Built-in icons render immediately with no network request.
 </wc-callout>
 
 ## Icons in other components
@@ -96,7 +54,9 @@ Many components accept an `icon-name` attribute:
 Build your entire docs site in seconds.
 </wc-card>
 
+<wc-tiles>
 <wc-tile icon-name="search" title="Search" description="Built-in full-text search."></wc-tile>
+</wc-tiles>
 
 <wc-panel icon="settings" title="Configuration">
 Configure your project with docslit.json.
@@ -105,6 +65,12 @@ Configure your project with docslit.json.
 
 <wc-fields header="wc-icon">
 <wc-field name="name" type="string" required>
-The icon name. Use a built-in Lucide name or a Font Awesome class like `fa-brands fa-github`.
+The icon name. Use a built-in icon name, or a Font Awesome icon name such as `github`.
+</wc-field>
+<wc-field name="size" type="number">
+The icon size in pixels.
+</wc-field>
+<wc-field name="color" type="string">
+The icon color, as any CSS color.
 </wc-field>
 </wc-fields>

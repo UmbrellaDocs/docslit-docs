@@ -63,8 +63,8 @@ The file name.
 <wc-field name="highlight" type="boolean" default="false">
 Highlight this file to draw attention to it.
 </wc-field>
-<wc-field name="icon" type="string">
-Custom icon name to override the default file icon.
+<wc-field name="comment" type="string">
+A short comment displayed after the file name.
 </wc-field>
 </wc-fields>
 
@@ -107,21 +107,45 @@ For non-file hierarchies, use `wc-tree` and `wc-tree-item`:
 Provide file downloads with `wc-download`:
 
 ```markdown
-<wc-download href="/files/sample.pdf" filename="sample.pdf">
-Download the sample PDF
-</wc-download>
+<wc-download href="/files/sample.pdf" filename="sample.pdf" label="Download the sample PDF"></wc-download>
 ```
 
-<wc-download href="/files/sample.pdf" filename="sample.pdf">
-Download the sample PDF
-</wc-download>
+<wc-download href="/files/sample.pdf" filename="sample.pdf" label="Download the sample PDF"></wc-download>
+
+The link text comes from the `label` attribute, not from the body. The element has no content.
+
+<wc-fields header="wc-download">
+<wc-field name="href" type="string" required>
+The URL or path of the file.
+</wc-field>
+<wc-field name="filename" type="string">
+The suggested file name for the download.
+</wc-field>
+<wc-field name="label" type="string">
+The link text. Defaults to the file name, then "Download".
+</wc-field>
+<wc-field name="size" type="string">
+File size text shown in parentheses, such as `2.4 MB`.
+</wc-field>
+</wc-fields>
 
 ## Copy button
 
 Add a standalone copy-to-clipboard button:
 
 ```markdown
-<wc-copy text="docslit init my-docs">Copy install command</wc-copy>
+<wc-copy text="docslit init my-docs" label="Copy install command"></wc-copy>
 ```
 
-<wc-copy text="docslit init my-docs">Copy install command</wc-copy>
+<wc-copy text="docslit init my-docs" label="Copy install command"></wc-copy>
+
+The button text comes from `label`, not from the body.
+
+<wc-fields header="wc-copy">
+<wc-field name="text" type="string" required>
+The text copied to the clipboard.
+</wc-field>
+<wc-field name="label" type="string">
+The button label. Defaults to the copied text.
+</wc-field>
+</wc-fields>

@@ -5,6 +5,8 @@ tag: Customization
 readtime: 3 min read
 ---
 
+<!-- docslit-lint-disable raw-html-block -->
+
 # Announcement banner
 
 Use an announcement banner to highlight new features, releases, or important information. The banner appears at the top of every page, above the navigation bar.

@@ -14,33 +14,28 @@ Components for displaying structured data — tables, diagrams, colors, and vers
 DocsLit supports three table styles:
 
 - **Markdown (GFM)** — small, simple tables in plain Markdown
-- **`wc-table`** — JSON-driven tables with sticky headers
+- **`wc-table`** — a table from JSON in two attributes, with sticky headers
 - **`wc-asciidoc-table`** — AsciiDoc syntax for spans, column specs, multi-line cells, and CSV/DSV — see [AsciiDoc tables](asciidoc-tables)
 
-Create tables from JSON data with `wc-table`:
+`wc-table` reads its data from two attributes, `headers` and `rows`. Both are JSON. Wrap the attribute values in single quotes so the double quotes inside the JSON stay intact. The element has no body.
 
 ```markdown
-<wc-table>
-[
-  { "Command": "init", "Description": "Scaffold a new project", "Default": "my-docs" },
-  { "Command": "dev", "Description": "Start dev server", "Default": "port 3000" },
-  { "Command": "build", "Description": "Generate static site", "Default": "dist/" },
-  { "Command": "validate", "Description": "Check project health", "Default": "-" }
-]
-</wc-table>
+<wc-table headers='["Command","Description","Default"]' rows='[["init","Scaffold a new project","my-docs"],["dev","Start dev server","port 3000"],["build","Generate static site","dist/"],["validate","Check project health","-"]]'></wc-table>
 ```
 
-<wc-table>
-[
-  { "Command": "init", "Description": "Scaffold a new project", "Default": "my-docs" },
-  { "Command": "dev", "Description": "Start dev server", "Default": "port 3000" },
-  { "Command": "build", "Description": "Generate static site", "Default": "dist/" },
-  { "Command": "validate", "Description": "Check project health", "Default": "-" }
-]
-</wc-table>
+<wc-table headers='["Command","Description","Default"]' rows='[["init","Scaffold a new project","my-docs"],["dev","Start dev server","port 3000"],["build","Generate static site","dist/"],["validate","Check project health","-"]]'></wc-table>
+
+<wc-fields header="wc-table">
+<wc-field name="headers" type="string">
+A JSON array of header strings, such as `["Name","Type"]`.
+</wc-field>
+<wc-field name="rows" type="string">
+A JSON array of rows, each an array of cell values, such as `[["a","b"]]`.
+</wc-field>
+</wc-fields>
 
 <wc-callout type="tip" title="When to use which table">
-Use Markdown tables for small grids. Use `wc-table` for structured JSON data. Use [`wc-asciidoc-table`](asciidoc-tables) when you need AsciiDoc features such as cell spans, column widths, or CSV input.
+Use Markdown tables for most tables, because they are easier to write and to read in source. Use `wc-table` when the data is already JSON. Use [`wc-asciidoc-table`](asciidoc-tables) when you need AsciiDoc features such as cell spans, column widths, or CSV input.
 </wc-callout>
 
 ## Mermaid diagrams
@@ -89,6 +84,9 @@ Click a swatch to copy the hex value. Use this component for design system docum
 <wc-field name="hex" type="string" required>
 The color in hex format (e.g., `#3b82f6`).
 </wc-field>
+<wc-field name="name" type="string">
+The display name shown next to the swatch.
+</wc-field>
 <wc-field name="variable" type="string">
 The CSS custom property name for this color.
 </wc-field>
@@ -100,12 +98,12 @@ Show different content based on the selected version with `wc-versions` and `wc-
 
 ```markdown
 <wc-versions>
-<wc-version version="0.2">
+<wc-version name="0.2">
 
 The `build` command now generates `llms.txt` and `llms-full.txt` automatically.
 
 </wc-version>
-<wc-version version="0.1">
+<wc-version name="0.1">
 
 Run `docslit build` to generate your static site.
 
@@ -114,17 +112,29 @@ Run `docslit build` to generate your static site.
 ```
 
 <wc-versions>
-<wc-version version="0.2">
+<wc-version name="0.2">
 
 The `build` command now generates `llms.txt` and `llms-full.txt` automatically.
 
 </wc-version>
-<wc-version version="0.1">
+<wc-version name="0.1">
 
 Run `docslit build` to generate your static site.
 
 </wc-version>
 </wc-versions>
+
+<wc-fields header="wc-version">
+<wc-field name="name" type="string" required>
+The label on the switcher button, such as `0.2`. The attribute is `name`, not `version`.
+</wc-field>
+</wc-fields>
+
+<wc-fields header="wc-versions">
+<wc-field name="default" type="string">
+The `name` of the version shown first. Defaults to the first child.
+</wc-field>
+</wc-fields>
 
 ## Visibility badges
 

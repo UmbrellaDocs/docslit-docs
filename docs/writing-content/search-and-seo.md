@@ -45,7 +45,7 @@ The build generates a `robots.txt` file that allows all major search engines and
 
 ## AI agent discovery
 
-DocsLit generates several files to make your documentation accessible to AI agents:
+DocsLit generates several files to make your documentation accessible to AI agents. This page is a summary. [How agents read your site](../ai-and-agents/reading-agents) has the details, and [MCP server](../ai-and-agents/mcp-server) covers connecting a client.
 
 <wc-fields header="AI discovery files">
 <wc-field name="llms.txt" type="file">
@@ -68,7 +68,7 @@ These files are generated automatically from your page content and frontmatter d
 
 For versioned sites (using the `versions` block in `docslit.json`), the build generates a root `/llms.txt` that acts as a version index:
 
-```
+```markdown
 # My Docs
 > Version-specific documentation indexes are listed below.
 
@@ -112,9 +112,9 @@ The generated `mcp-server.js` is a self-contained Node script that implements th
 | `get_page` | Get the full Markdown content of a page by slug |
 | `search_docs` | Search documentation by keyword with excerpts |
 
-After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`.
+After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`. It works for sites without `versions`. For a versioned site, use [reader mode](../ai-and-agents/mcp-server#reader-mode) against the published URL instead.
 
-<wc-tabs>
+<wc-tabs sync="mcp-client">
 <wc-tab label="Claude Code">
 
 Add it to your project's `.claude/settings.json`:
@@ -167,7 +167,7 @@ Add it to your project's `.cursor/mcp.json`:
 ```
 
 </wc-tab>
-<wc-tab label="Other MCP clients">
+<wc-tab label="Other clients">
 
 Any MCP client that supports stdio transport can use the server. Point it at `node dist/mcp-server.js` as the command.
 

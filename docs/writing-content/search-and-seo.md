@@ -192,7 +192,7 @@ For static builds, DocsLit generates platform-specific files to handle this nego
 <wc-tabs>
 <wc-tab label="Cloudflare Pages">
 
-DocsLit generates `functions/_middleware.js` at your project root on each build. Cloudflare Pages picks this up automatically when you deploy — no additional configuration is needed. The build also writes `_headers` into `dist/` so `.md` files are served with `Content-Type: text/markdown`.
+`docslit build` writes the middleware to `dist/functions/_middleware.js` and never touches your source tree. Cloudflare Pages reads Functions from `functions/` at your project root, so run `docslit deploy --cloudflare` once (after a build) to install it there; later builds keep that copy up to date. The build also writes `_headers` into `dist/` so `.md` files are served with `Content-Type: text/markdown`.
 
 </wc-tab>
 <wc-tab label="Vercel">

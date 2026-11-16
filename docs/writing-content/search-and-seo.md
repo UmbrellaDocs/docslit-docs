@@ -112,7 +112,7 @@ The generated `mcp-server.js` is a self-contained Node script that implements th
 | `get_page` | Get the full Markdown content of a page by slug |
 | `search_docs` | Search documentation by keyword with excerpts |
 
-After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`. It works for sites without `versions`. For a versioned site, use [reader mode](../ai-and-agents/mcp-server#reader-mode) against the published URL instead.
+After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`. For a site with `versions` the tools take an optional `version` argument and default to the default version. You can also use [reader mode](../ai-and-agents/mcp-server#reader-mode) against the published URL.
 
 <wc-tabs sync="mcp-client">
 <wc-tab label="Claude Code">
@@ -175,7 +175,7 @@ Any MCP client that supports stdio transport can use the server. Point it at `no
 </wc-tabs>
 
 <wc-callout type="tip" title="Keep it in your repo">
-Commit `dist/mcp-server.js` to your repository so that contributors and AI tools can use it without needing to rebuild. The server reads from the sibling `.md` and `search-index.json` files in the same directory.
+Commit `dist/mcp-server.js` to your repository so that contributors and AI tools can use it without needing to rebuild. The server reads the `.md` and `search-index.json` files from the same output folder (from the version folders on a versioned site).
 </wc-callout>
 
 ### Content negotiation

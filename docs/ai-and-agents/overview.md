@@ -69,8 +69,8 @@ The agent edits the file at the reported `file` and `line`, then runs both comma
 
 See [Machine-readable CLI](machine-readable-cli) for real output and the full list of issue codes.
 
-<wc-callout type="warning" title="Attribute checks live in the MCP server">
-`docslit validate` flags unknown `wc-*` tags, but it does not check attribute names or values. The MCP tool `check_markup` does, and so do `create_page` and `update_page`. Without MCP, check each attribute you use with `docslit components <tag> --json`.
+<wc-callout type="info" title="Attribute checks">
+`docslit validate` flags unknown `wc-*` tags, unknown attributes, invalid attribute values, missing required attributes, bad nesting and unclosed tags. The MCP tool `check_markup` runs the same checks on a snippet before you write it, and `create_page` and `update_page` run them on what they write. Check an attribute you are unsure of with `docslit components <tag> --json`.
 </wc-callout>
 
 ## Pick an interface

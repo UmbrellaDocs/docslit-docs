@@ -90,6 +90,18 @@ All notable changes to DocsLit, organized by release.
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="fixed">
+**Code blocks:** multi-line code blocks no longer render double-spaced, and line numbers no longer count a phantom last line. Fenced `filename` and `linenumbers` now take effect.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Versioned `mcp-server.js`:** the generated server now reads each version's folder, takes an optional `version` argument and defaults to your default version.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Validation:** `validate` now checks component attributes, values and nesting, reports code-import failures and invalid math with their own codes, understands runtime `wc-var` variables, and checks bare relative image paths. `lint --fix` is gone, and `sidebar_title`, `new --position` and `deploy --out` work as documented.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
 **Asset paths:** `logo`, `favicon` and `css` files are copied to the same relative path the HTML references, including files in subfolders.
 </wc-update>
 

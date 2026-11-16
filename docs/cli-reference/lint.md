@@ -94,7 +94,7 @@ That line turns off the listed rules for the whole file. With no rule names it t
 
 ## Fixing findings
 
-`lint` has no auto-fix. `--fix` is accepted but prints a note and changes nothing, because no rule has a fix that is always safe. Each issue includes a `fix` sentence that says what to change.
+`lint` has no auto-fix, because no rule has a fix that is always safe, and it has no `--fix` option (passing one is an error). Each issue includes a `fix` sentence that says what to change.
 
 Run `lint` together with `validate` in CI:
 

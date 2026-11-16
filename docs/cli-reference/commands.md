@@ -21,7 +21,7 @@ Without a global install, run any command through `npx`, for example `npx docsli
 
 <wc-fields header="Global options">
 <wc-field name="--help, -h" type="flag">
-Display help information for any command.
+Display help. `docslit --help` lists every command with all of its options. `docslit <command> --help` (or `docslit help <command>`) shows one command. A mistyped command suggests the nearest real one.
 </wc-field>
 <wc-field name="--version, -v" type="flag">
 Print the DocsLit version number.
@@ -72,7 +72,7 @@ The sidebar group to add the page to. It is created when missing. Ignored for au
 The frontmatter description. Default: empty.
 </wc-field>
 <wc-field name="--position" type="number">
-Writes `sidebar_position` into the frontmatter. It does not move the page within an explicit sidebar group.
+Writes `sidebar_position` into the frontmatter. For an explicit sidebar group it also inserts the page at that 1-based position in the group. A position past the end appends it.
 </wc-field>
 <wc-field name="--json" type="flag">
 Print `{ id, file, sidebarUpdated, group }` as JSON. Errors print `{ "error": "..." }`.
@@ -146,6 +146,7 @@ Write hosting recipe files. It does not upload anything. Use `docslit publish` f
 docslit deploy --github-pages
 docslit deploy --netlify
 docslit deploy --cloudflare
+docslit deploy --cloudflare --out public
 ```
 
 <wc-fields header="Options">
@@ -156,7 +157,10 @@ Write a GitHub Pages workflow. `--gh-pages` is an alias.
 Write a Netlify config.
 </wc-field>
 <wc-field name="--cloudflare" type="flag">
-Write `wrangler.toml`. It also copies `dist/functions/_middleware.js` to `functions/_middleware.js` for Markdown negotiation on Cloudflare Pages. Run `docslit build` first. It looks in `dist`, whatever `--out` you used.
+Write `wrangler.toml`. It also copies `<out>/functions/_middleware.js` to `functions/_middleware.js` for Markdown negotiation on Cloudflare Pages. Run `docslit build` first.
+</wc-field>
+<wc-field name="--out" type="string" default="dist">
+The build output folder the recipes point at: the GitHub Pages artifact path, Netlify `publish`, the Cloudflare assets directory and the middleware lookup. Use the same value you pass to `docslit build --out`.
 </wc-field>
 </wc-fields>
 
@@ -185,7 +189,7 @@ Treat warnings as errors. Exits with code 1 if any warnings are found.
 Also check external `http(s)` links.
 </wc-field>
 <wc-field name="--format" type="string" default="pretty">
-`pretty`, `github` (Actions annotations) or `json` (one JSON document on stdout).
+`pretty`, `github` (Actions annotations) or `json` (one JSON document on stdout). With `json` and `github`, stdout carries only the report. Any other value is an error.
 </wc-field>
 </wc-fields>
 

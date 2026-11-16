@@ -5,15 +5,18 @@ tag: Overview
 readtime: 2 min read
 ---
 
+<!-- docslit-lint-disable raw-html-block -->
+
 # Introduction
 
 DocsLit is a documentation framework that combines Markdown with interactive web components. You write content in Markdown, drop in `<wc-*>` components for rich interactions, and deploy a fast static site — no build tools, no JSX, no imports.
 
 <wc-tiles>
 <wc-tile icon-name="zap" title="Zero config" description="Write Markdown, run one command, get a production-ready docs site." href="getting-started/quickstart"></wc-tile>
-<wc-tile icon-name="plus" title="50+ components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
+<wc-tile icon-name="grid" title="58 components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
+<wc-tile icon-name="cpu" title="Built for AI agents" description="An MCP server, agent setup files and JSON checks so AI tools write valid docs." href="ai-and-agents/overview"></wc-tile>
 <wc-tile icon-name="globe" title="Static or cloud" description="Deploy anywhere as static files, or publish instantly with DocsLit Cloud." href="deployment/static-hosting"></wc-tile>
-<wc-tile icon-name="right-left" title="Easy migration" description="Move from Mintlify, Fern, or GitBook with a single command." href="migration/from-mintlify"></wc-tile>
+<wc-tile icon-name="download" title="Easy migration" description="Move from Mintlify, Fern, or GitBook with a single command." href="migration/from-mintlify"></wc-tile>
 </wc-tiles>
 
 ## Try it now
@@ -26,7 +29,7 @@ cd {{PROJECT}}
 docslit dev
 ```
 
-Open `http://localhost:3000` to see your **{{PROJECT}}** site running locally.
+Open `http://localhost:3000` to see your site running locally.
 
 ## How it works
 
@@ -72,7 +75,7 @@ DocsLit respects system preferences and lets readers toggle between themes. Ever
 </wc-accordion>
 <wc-accordion title="SEO and AI discovery">
 
-Static builds produce individual HTML pages for search engines, `sitemap.xml` for crawlers, and `llms.txt` / `llms-full.txt` for AI agents.
+Static builds produce individual HTML pages for search engines, `sitemap.xml` for crawlers, and `llms.txt`, Markdown pages and an MCP server for AI agents. See [Built for AI agents](../ai-and-agents/overview).
 
 </wc-accordion>
 <wc-accordion title="Hot reload">

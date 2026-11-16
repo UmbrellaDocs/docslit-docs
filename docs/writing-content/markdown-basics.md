@@ -5,6 +5,8 @@ tag: Writing
 readtime: 4 min read
 ---
 
+<!-- docslit-lint-disable raw-html-block -->
+
 # Markdown basics
 
 DocsLit uses standard GitHub Flavored Markdown (GFM) with one superpower: you can drop web components directly into your Markdown without imports or configuration.

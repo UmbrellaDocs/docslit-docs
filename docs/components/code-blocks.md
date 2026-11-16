@@ -80,6 +80,12 @@ The syntax highlighting language. Examples: `javascript`, `python`, `bash`, `jso
 <wc-field name="filename" type="string">
 A filename displayed in the header bar above the code.
 </wc-field>
+<wc-field name="linenumbers" type="string">
+`true` or `false`. Set to `true` to show line numbers.
+</wc-field>
+<wc-field name="highlighted" type="boolean">
+Marks content that is already highlighted HTML. DocsLit sets this at build time; you rarely write it by hand.
+</wc-field>
 </wc-fields>
 
 ## Code block with line numbers
@@ -175,8 +181,14 @@ Click the variable values above and type your own — watch both code blocks upd
 <wc-field name="name" type="string" required>
 The variable name. Use `UPPER_SNAKE_CASE` by convention. Reference it in code blocks with `{{NAME}}`.
 </wc-field>
-<wc-field name="default" type="string" required>
+<wc-field name="default" type="string">
 The default value shown before the reader edits it.
+</wc-field>
+<wc-field name="value" type="string">
+Compile-time form only: `<wc-var name="X" value="Y" />` declares a page-level variable. See [Variables and precedence](../writing-content/variables-and-precedence).
+</wc-field>
+<wc-field name="readonly" type="boolean">
+Prevent the reader from editing the value.
 </wc-field>
 </wc-fields>
 

@@ -5,6 +5,8 @@ tag: Components
 readtime: 4 min read
 ---
 
+<!-- docslit-lint-disable callout-overuse -->
+
 # Callouts and alerts
 
 Use callouts to highlight important information, warnings, tips, and notes. They draw attention to content that readers should not miss.
@@ -116,6 +118,9 @@ DocsLit v0.2 is now available. See the changelog for details.
 <wc-field name="type" type="string">
 The visual style. Options: `info`, `warning`, `error`, `success`, `neutral`. Defaults to `neutral`.
 </wc-field>
+<wc-field name="dismissible" type="boolean">
+Show a close button so readers can dismiss the banner.
+</wc-field>
 </wc-fields>
 
 ## Badges
@@ -141,6 +146,9 @@ Inline badges for labeling and categorization:
 <wc-fields header="wc-badge">
 <wc-field name="variant" type="string">
 The color scheme. Options: `default`, `success`, `warning`, `danger`, `info`, `neutral`, `purple`.
+</wc-field>
+<wc-field name="label" type="string">
+The badge text. When omitted, the text between the tags is used.
 </wc-field>
 </wc-fields>
 

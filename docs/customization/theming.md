@@ -136,30 +136,28 @@ Use a theme file when the theme is large, shared across repos, or maintained by 
 
 Override any of these keys in `colors`, `dark`, or `light`. Keys accept camelCase (`accentLight`) or kebab-case (`accent-light`).
 
-<wc-table>
-[
-  { "Variable": "accent", "Description": "Primary brand color — links, active nav, buttons" },
-  { "Variable": "accentLight", "Description": "Lighter or darker accent for hover and emphasis" },
-  { "Variable": "accentDim", "Description": "Translucent accent for subtle backgrounds" },
-  { "Variable": "accentDim2", "Description": "Slightly stronger translucent accent" },
-  { "Variable": "bg", "Description": "Page background" },
-  { "Variable": "surface", "Description": "Card and panel background" },
-  { "Variable": "surface2", "Description": "Secondary surface (inputs, chips)" },
-  { "Variable": "surface3", "Description": "Tertiary surface (hover states)" },
-  { "Variable": "border", "Description": "Default border color" },
-  { "Variable": "border2", "Description": "Stronger border color" },
-  { "Variable": "text", "Description": "Primary text" },
-  { "Variable": "text2", "Description": "Secondary text" },
-  { "Variable": "text3", "Description": "Muted text" },
-  { "Variable": "sidebarBg", "Description": "Sidebar background" },
-  { "Variable": "codeBg", "Description": "Code block background" },
-  { "Variable": "codeText", "Description": "Code block text" },
-  { "Variable": "fontSans", "Description": "Body font stack (or use fonts.sans)" },
-  { "Variable": "fontMono", "Description": "Monospace font stack (or use fonts.mono)" },
-  { "Variable": "radius", "Description": "Default border radius" },
-  { "Variable": "radiusLg", "Description": "Large border radius" }
-]
-</wc-table>
+| Variable | Description |
+|---|---|
+| accent | Primary brand color — links, active nav, buttons |
+| accentLight | Lighter or darker accent for hover and emphasis |
+| accentDim | Translucent accent for subtle backgrounds |
+| accentDim2 | Slightly stronger translucent accent |
+| bg | Page background |
+| surface | Card and panel background |
+| surface2 | Secondary surface (inputs, chips) |
+| surface3 | Tertiary surface (hover states) |
+| border | Default border color |
+| border2 | Stronger border color |
+| text | Primary text |
+| text2 | Secondary text |
+| text3 | Muted text |
+| sidebarBg | Sidebar background |
+| codeBg | Code block background |
+| codeText | Code block text |
+| fontSans | Body font stack (or use fonts.sans) |
+| fontMono | Monospace font stack (or use fonts.mono) |
+| radius | Default border radius |
+| radiusLg | Large border radius |
 
 When you set `accent` to a hex color and omit `accentDim` / `accentDim2`, DocsLit derives translucent accent backgrounds automatically.
 

@@ -13,24 +13,24 @@ Use tabs to organize alternative content (like platform-specific instructions) a
 
 Tabs let readers switch between related content panels without leaving the page:
 
-```markdown
+````markdown
 <wc-tabs>
 <wc-tab label="macOS">
 
 Install with Homebrew:
 
-\```bash
+```bash
 brew install node
-\```
+```
 
 </wc-tab>
 <wc-tab label="Linux">
 
 Install with your package manager:
 
-\```bash
+```bash
 sudo apt install nodejs
-\```
+```
 
 </wc-tab>
 <wc-tab label="Windows">
@@ -39,7 +39,7 @@ Download the installer from [nodejs.org](https://nodejs.org).
 
 </wc-tab>
 </wc-tabs>
-```
+````
 
 <wc-tabs>
 <wc-tab label="macOS">
@@ -73,6 +73,55 @@ The text displayed on the tab button.
 </wc-field>
 </wc-fields>
 
+### Synced tabs
+
+Give several tab groups the same `sync` key and they switch together. A reader who picks "pnpm" in one place sees "pnpm" everywhere on the site. Tabs match by label, so the label text must be identical, and a group without a matching label stays as it is.
+
+````markdown
+<wc-tabs sync="pkg">
+<wc-tab label="npm">
+
+```bash
+npm install docslit
+```
+
+</wc-tab>
+<wc-tab label="pnpm">
+
+```bash
+pnpm add docslit
+```
+
+</wc-tab>
+</wc-tabs>
+````
+
+`sync` works on `wc-tabs` and on `wc-code-group`, and a `wc-tabs` can sync with a `wc-code-group` that uses the same key and labels. The choice is saved in the reader's browser. Try it here: switch either group and the other follows.
+
+<wc-tabs sync="demo-os">
+<wc-tab label="macOS">
+
+Use Homebrew on macOS.
+
+</wc-tab>
+<wc-tab label="Linux">
+
+Use your distribution's package manager.
+
+</wc-tab>
+</wc-tabs>
+
+<wc-code-group sync="demo-os">
+<wc-code-tab label="macOS">brew install node</wc-code-tab>
+<wc-code-tab label="Linux">sudo apt install nodejs</wc-code-tab>
+</wc-code-group>
+
+<wc-fields header="sync attribute">
+<wc-field name="sync" type="string">
+A key shared by every group that should switch together. Available on `wc-tabs` and `wc-code-group`.
+</wc-field>
+</wc-fields>
+
 ### When to use tabs
 
 - Platform-specific instructions (macOS, Linux, Windows)
@@ -85,6 +134,7 @@ The text displayed on the tab button.
 Accordions hide content behind a clickable title. Readers expand only the sections they need:
 
 ```markdown
+<wc-accordion-group>
 <wc-accordion title="How do I install DocsLit?">
 
 Run `npm install -g docslit` or use `npx` to run it without installing.
@@ -93,11 +143,13 @@ Run `npm install -g docslit` or use `npx` to run it without installing.
 
 <wc-accordion title="What Node.js version do I need?">
 
-DocsLit requires Node.js 24.0.0 or later.
+DocsLit requires Node.js 20.19.0 or later.
 
 </wc-accordion>
+</wc-accordion-group>
 ```
 
+<wc-accordion-group>
 <wc-accordion title="How do I install DocsLit?">
 
 Run `npm install -g docslit` or use `npx` to run it without installing.
@@ -106,16 +158,14 @@ Run `npm install -g docslit` or use `npx` to run it without installing.
 
 <wc-accordion title="What Node.js version do I need?">
 
-DocsLit requires Node.js 24.0.0 or later.
+DocsLit requires Node.js 20.19.0 or later.
 
 </wc-accordion>
+</wc-accordion-group>
 
 <wc-fields header="wc-accordion">
 <wc-field name="title" type="string" required>
 The clickable heading text that toggles the section.
-</wc-field>
-<wc-field name="open" type="boolean" default="false">
-Set to `true` to expand the accordion by default.
 </wc-field>
 </wc-fields>
 

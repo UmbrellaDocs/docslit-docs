@@ -106,6 +106,20 @@ GitHub Pages and plain object storage cannot negotiate content. Agents can still
 </wc-tab>
 </wc-tabs>
 
+## Agent-only and human-only content
+
+Agents read the generated Markdown, so you can tune it separately from the page. Wrap content in `wc-if` with `for="agents"` and it appears only in the `.md` files, `llms-full.txt` and everything built from them, such as MCP results. Content with `for="humans"` appears only on the web page. The condition is evaluated at build time, so nothing is hidden with CSS.
+
+```markdown
+<wc-if for="agents">
+
+The API base URL is `https://api.example.com/v2`. Send the key in the `Authorization` header.
+
+</wc-if>
+```
+
+See [Conditional content](../components/conditional-content) for the other conditions.
+
 ## DocsLit Cloud
 
 Sites on [DocsLit Cloud](../deployment/docslit-cloud) get all of this without setup, plus two extras.

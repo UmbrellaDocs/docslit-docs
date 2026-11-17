@@ -88,6 +88,7 @@ See [Machine-readable CLI](machine-readable-cli) for real output and the full li
 | Your agent reads instruction files (Claude Code, Cursor, Copilot, Windsurf, Codex, Gemini) | [`docslit agents init`](agent-setup) |
 | Your agent runs shell commands, or you want to script checks in CI | [Machine-readable CLI](machine-readable-cli) |
 | You want an agent to answer questions from published docs | [Reader mode](mcp-server#reader-mode) |
+| You are moving docs over from Mintlify, Fern or GitBook | [Migrate with your AI agent](../migration/migrate-with-ai): `docslit import`, then the MCP tool `convert_mdx` |
 
 ## What a published site exposes
 
@@ -100,6 +101,12 @@ Every `docslit build` also produces files for reading agents:
 - `mcp-server.js`, a standalone MCP server over stdio
 
 Sites on [DocsLit Cloud](../deployment/docslit-cloud) also get a hosted MCP endpoint and `Accept: text/markdown` negotiation with no extra setup. [How agents read your site](reading-agents) covers each file.
+
+## Write for agents and people differently
+
+Some context helps a model but would clutter the page for a person, and some page elements mean nothing in plain Markdown. The `wc-if` component includes content only for agents (`for="agents"`) or only for people (`for="humans"`), decided at build time. See [Conditional content](../components/conditional-content).
+
+The MCP server also knows your look and your migration path. `get_project_info` reports the current theme and the available themes and palettes, so an agent can change them with `docslit theme use`, and `convert_mdx` converts a Mintlify, Fern or GitBook page without writing anything.
 
 ## Get started in two commands
 

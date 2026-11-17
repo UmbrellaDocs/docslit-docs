@@ -203,7 +203,11 @@ Other formats are `--format pretty` (the default) and `--format github`, which p
 | `docs-dir-missing` | No `docs/` directory |
 | `directory-not-found` | The directory you passed does not exist |
 | `announcement-invalid` | The `announcement` block is invalid |
-| `theme-unknown-preset` | `theme` names a preset that does not exist |
+| `theme-unknown` | `theme` names no theme or palette. The `fix` suggests the nearest one |
+| `theme-unknown-theme`, `theme-unknown-palette`, `theme-unknown-preset` | A theme, palette or preset named inside a theme object does not exist |
+| `theme-name-typo` | A theme object's `name` looks like a mistyped theme id (warning) |
+| `theme-appearance-invalid`, `theme-strict-invalid`, `theme-radius-invalid` | `appearance`, `strict` or `radius` has an invalid value |
+| `theme-low-contrast` | An explicit theme color fails WCAG AA contrast (warning) |
 | `theme-invalid-value` | A theme value is not a string |
 | `theme-invalid-type` | `theme` has the wrong type |
 | `theme-file-missing` | The theme file was not found |
@@ -214,6 +218,25 @@ Other formats are `--format pretty` (the default) and `--format github`, which p
 | `openapi-invalid-ref` | A `wc-endpoint ref` does not exist in the spec |
 | `openapi-undocumented-endpoint` | An operation in the spec has no page |
 | `openapi-validation-failed` | The spec could not be checked |
+
+</wc-accordion>
+<wc-accordion title="Navigation, layout and icons">
+
+| Code | Meaning |
+|---|---|
+| `tabs-invalid` | `tabs` is not a usable array (error) |
+| `tab-duplicate-name`, `tab-duplicate-page`, `tab-empty` | Two tabs share a name, a page is listed in two tabs, or a tab has no pages |
+| `tab-landing-missing`, `tab-path-missing` | A tab's `landing` page or `path` folder does not exist |
+| `tab-href-with-pages` | A link tab also has a sidebar |
+| `tabs-sidebar-ignored` | A top-level `sidebar` is ignored because `tabs` is set |
+| `anchor-invalid` | An anchor is missing its `label` or `href` |
+| `navbar-link-invalid` | A navbar entry cannot be used, for example a dropdown with no links |
+| `layout-invalid` | A `layout` setting has an invalid length or value |
+| `logo-invalid` | A `logo` object has no `light`, `dark` or `text` |
+| `contextual-option-invalid` | An unknown or incomplete contextual menu option |
+| `frontmatter-invalid-layout`, `frontmatter-invalid-toc-depth`, `frontmatter-invalid-flag`, `frontmatter-invalid-text` | A page layout name, `toc_depth`, boolean switch or text key has an invalid value |
+| `frontmatter-unknown-tab` | The frontmatter `tab` matches no tab |
+| `unknown-icon` | An icon name exists in neither Lucide nor Font Awesome Free. The `suggestion` is the nearest name |
 
 </wc-accordion>
 <wc-accordion title="Pages, links and assets">
@@ -333,6 +356,23 @@ docslit lint --format json
 ```
 
 The output has the same shape as `validate`. No lint rule is an error by default, so `lint` exits with 0 unless you pass `--strict` or raise a rule to `error` in `docslit.json`.
+
+## theme
+
+`docslit theme list --json` prints `{ themes, palettes, radius, appearance, current, config }`, and `docslit theme tokens --json` prints every design token with its group, description, default and current value. An agent can pick a look with `docslit theme use <theme> [--palette <p>]`, which edits `docslit.json` in place. See [Themes](../customization/theming) and [Design tokens](../customization/design-tokens).
+
+```bash
+docslit theme list --json
+docslit theme tokens --json --theme folio
+```
+
+## import
+
+`docslit import <source> --json` prints the migration report as one JSON document: a `summary`, the `components` converted, the config `mapped` and `unmapped`, `items` that each have a stable `code`, `file`, `line`, `action` and `fix`, and the `validation` result. Add `--dry-run` to write nothing. See [Import reference](../migration/import-reference#json-report).
+
+```bash
+docslit import ./my-docs --dry-run --json
+```
 
 ## Use it in CI
 

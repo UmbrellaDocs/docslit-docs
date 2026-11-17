@@ -2,7 +2,6 @@
 title: What's new
 description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
-layout: changelog
 date: 2026-11-16
 readtime: 3 min read
 ---
@@ -14,7 +13,47 @@ All notable changes to DocsLit, organized by release.
 ## 0.2.0
 
 <wc-update version="0.2.0" date="November 2026" type="added">
-**MCP server:** `docslit mcp` runs a Model Context Protocol server over stdio. In a project it offers 13 authoring tools, resources and prompts. With a URL it reads and searches any published DocsLit site. `docslit mcp --print-config` prints client config. See [MCP server](../ai-and-agents/mcp-server).
+**Themes:** six prebuilt looks, `default`, `peppermint`, `frond`, `tonal`, `folio` and `ledger`, with thirteen palettes, brand colors, fonts, corner radius and appearance settings. Switch with `"theme": "peppermint"` or `docslit theme use`, try every combination live with `docslit dev --theme-picker` or the built-in `themePicker`, and read the design tokens with `docslit theme tokens`. Derived colors meet WCAG AA, and existing configs render exactly as before. See [Themes](../customization/theming), [Palettes and brand colors](../customization/palettes-and-brand) and [Design tokens](../customization/design-tokens).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Switch from Mintlify or Fern in one command:** `docslit import` was rewritten on a real MDX parser. It converts every Mintlify and Fern component, code block, snippet, link and asset, maps `docs.json`, `mint.json` and `docs.yml` navigation, branding, redirects and analytics, picks a matching theme, validates the result and writes `MIGRATION.md` with a file, line and fix for everything that needs a human. New flags are `--from`, `--theme`, `--no-theme`, `--versions`, `--force` and `--json`, and GitBook projects are covered too. See [Migrate from Mintlify](../migration/from-mintlify), [Migrate from Fern](../migration/from-fern), [Migrate from GitBook](../migration/from-gitbook) and the [component mapping](../migration/component-mapping).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern or GitBook page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Component parity with Mintlify and Fern:** new `wc-embed`, `wc-github-repo`, `wc-walkthrough`, `wc-colors` and `wc-if`, and new attributes across callouts (`danger`, `check`, `launch`, `icon`, `color`), banners, badges, tooltips, updates, frames, accordions, asides, steps, tabs, views, file trees, cards, tiles, buttons, prompts, tables, fields, downloads, copy chips, images and includes with props. See [Callouts and alerts](../components/callouts-and-alerts), [Embeds and media](../components/embeds-and-media), [Walkthrough](../components/walkthrough) and [Cards and tiles](../components/cards-and-tiles).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Conditional content:** `wc-if` includes or removes content at build time by version, locale, variable or audience. `for="agents"` appears only in the Markdown that AI agents read, and `for="humans"` only on the web. See [Conditional content](../components/conditional-content).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Build-time icons:** icons resolve to inline SVG from Lucide and Font Awesome Free, with no CDN request, so they work offline. Write a bare name, Font Awesome classes such as `fa-solid fa-gear`, `lucide:zap`, an emoji, an image or inline SVG, and set `icons.library` to choose which library wins. `docslit validate` flags unknown icons with a suggestion. See [Icons](../components/icons).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Code block features:** highlighted and focused lines, diff and error notation, line numbers with a start line, collapsible long blocks, wrapping, icons, and dropdown code groups that sync by language. Mintlify and Fern fence options work as they are. See [Code blocks](../components/code-blocks).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Navigation parity:** top-level `tabs` in the header or the sidebar, `anchors`, sidebar icons, badges, availability and hidden pages, external links in the sidebar, groups with a linked `root`, navbar dropdowns, buttons, a primary button and a GitHub star count, light and dark logos, footer columns and social icons, site layout settings, seven page layouts with `hide_toc`, `toc_depth` and more, and a configurable contextual menu. See [Tabs and anchors](../customization/tabs-and-anchors), [Page layout](../customization/page-layout), [Site chrome](../customization/site-chrome) and [Contextual menu](../customization/contextual-menu).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Behavior changes for Mintlify-style tags:** the build step that reads Mintlify tags written in Markdown no longer adds a title to callouts (`<Note>` is a plain `note` callout) and no longer numbers steps, because both are automatic. `Panel` becomes `wc-aside`, `Tabs` sync with each other, and `Icon` and `Tooltip` convert instead of being removed.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Hidden pages are built:** a page with `hidden: true` is built and reachable even when no sidebar lists it, and it stays out of the sidebar, search, `llms.txt` and the sitemap. Sidebar links are written as absolute paths, so they work from any page depth. In frontmatter, `tag` still means the page-header category, and the sidebar badge is `badge`. See [Pages and navigation](../writing-content/pages-and-navigation#hidden-pages).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**MCP server:** `docslit mcp` runs a Model Context Protocol server over stdio. In a project it offers 14 authoring tools, resources and prompts. With a URL it reads and searches any published DocsLit site. `docslit mcp --print-config` prints client config. See [MCP server](../ai-and-agents/mcp-server).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">

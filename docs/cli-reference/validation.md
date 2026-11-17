@@ -40,8 +40,9 @@ Line numbers count from the first line of the file, including the frontmatter, s
 | Includes and variables | Error or warning | `wc-include` targets, `wc-var` names and undefined `{{NAME}}` placeholders |
 | Frontmatter keys | Info | Keys that are not in the [frontmatter schema](../writing-content/frontmatter) |
 | OpenAPI | Error or warning | Spec and overlay files exist, `wc-endpoint ref` values exist, and every operation is documented |
-| Theme preset | Error | theme must reference a valid built-in preset or a readable theme JSON file |
-| Theme file | Error | Brand theme JSON must parse and use valid variable keys |
+| Theme | Error or warning | The theme, palette, preset, `appearance`, `strict` and `radius` values must be valid, and a theme file must exist and parse. Typos get the nearest name. Explicit colors that fail WCAG AA contrast are warnings (`theme-low-contrast`). See [Palettes and brand colors](../customization/palettes-and-brand#check-your-theme) |
+| Icons | Warning | An `icon`, `icon-name`, `right-icon` or `wc-icon` name that exists in neither Lucide nor Font Awesome Free (`unknown-icon`), with the nearest known name |
+| Navigation | Error or warning | Tabs, anchors, navbar links, the logo, layout settings and contextual options in `docslit.json`, and page keys such as `layout`, `toc_depth` and `tab` in frontmatter. See [Tabs and anchors](../customization/tabs-and-anchors#check-your-navigation) |
 
 ## Strict mode
 

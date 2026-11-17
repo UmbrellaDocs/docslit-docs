@@ -104,7 +104,50 @@ See [code blocks](../components/code-blocks) for advanced features like filename
 ![Alt text](https://example.com/image.png)
 ```
 
-Place image files in your `docs/` directory and reference them with relative paths.
+Place image files in your `docs/` directory and reference them with relative paths. On a site with [versioned docs](../customization/versioning), the build copies media once to the root of the output, so write the path from the site root instead, such as `/assets/themes/peppermint-light.webp`. This site does. Images load lazily, readers can click one to zoom it, and the build adds width and height so the page does not jump while it loads.
+
+### Dark-mode variants
+
+Add `#dark=` and the path of a second image. DocsLit shows the first in light mode and the second in dark mode:
+
+```markdown
+![Peppermint theme](/assets/themes/peppermint-light.webp#dark=/assets/themes/peppermint-dark.webp)
+```
+
+![Peppermint theme in light and dark mode](/assets/themes/peppermint-light.webp#dark=/assets/themes/peppermint-dark.webp)
+
+### Turn zoom off or set a size
+
+An image inside a link does not zoom. To turn zoom off for any image, use an HTML `img` with `noZoom`. For a fixed width, an alternate dark image or a size without HTML, use the `wc-image` component:
+
+```markdown
+<img src="/assets/themes/frond-light.webp" alt="Frond theme" noZoom />
+
+<wc-image src="/assets/themes/frond-light.webp" dark-src="/assets/themes/frond-dark.webp" alt="Frond theme" width="480" no-zoom></wc-image>
+```
+
+<wc-fields header="wc-image">
+<wc-field name="src" type="string" required>
+The image URL or path.
+</wc-field>
+<wc-field name="alt" type="string">
+Alternative text. Always provide it.
+</wc-field>
+<wc-field name="dark-src" type="string">
+The image shown when the dark theme is active.
+</wc-field>
+<wc-field name="width" type="number">
+The width in pixels.
+</wc-field>
+<wc-field name="height" type="number">
+The height in pixels.
+</wc-field>
+<wc-field name="no-zoom" type="boolean">
+Disable the click-to-zoom lightbox.
+</wc-field>
+</wc-fields>
+
+Video and other embeds have their own component. See [Embeds and media](../components/embeds-and-media).
 
 ## Internal links
 

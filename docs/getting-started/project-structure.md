@@ -98,7 +98,7 @@ Path to a custom logo image for the navigation bar. See [logo](../customization/
 Site-wide announcement banner with a `message` string and optional `type` and `dismissible` fields. See [announcement banner](../customization/announcement-banner).
 </wc-field>
 <wc-field name="theme" type="string | object">
-Color preset name (e.g. `ocean`), path to a brand theme JSON file (e.g. `./brand-theme.json`), or an inline theme object with `extends`, `colors`, `dark`, and `light`. See [theming](../customization/theming).
+A theme (`peppermint`, `frond`, `tonal`, `folio`, `ledger` or `default`), a palette name (e.g. `ocean`), a path to a brand theme JSON file (e.g. `./brand-theme.json`), or an inline theme object with `name`, `palette`, `colors`, `fonts`, `radius`, `appearance` and `strict`. See [Themes](../customization/theming).
 </wc-field>
 <wc-field name="openapi" type="string | object">
 Path to an OpenAPI 3.x spec file, or an object with `spec` and `overlay` keys. Enables spec-driven API reference generation. See [OpenAPI integration](../integrations/openapi) for details.

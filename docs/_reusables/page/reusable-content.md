@@ -35,6 +35,20 @@ You can also use an absolute docs path:
 <wc-include src="/docs/_reusables/shared/install-cli.md" />
 ```
 
+## Pass props to a snippet
+
+Any attribute on `wc-include` other than `src` is a **prop**. It fills the matching `{{name}}` placeholder inside the snippet, so one snippet can serve several pages:
+
+```markdown title="docs/_reusables/water.md"
+Water your {{plant}} every {{interval}}.
+```
+
+```markdown
+<wc-include src="water.md" plant="fern" interval="week" />
+```
+
+This renders as "Water your fern every week." Props are lowercase-friendly, so you do not need `UPPER_SNAKE_CASE` names inside reusable files. Page and global [variables](../writing-content/variables-and-precedence) still work inside snippets.
+
 ## Include rules
 
 - only `.md` files can be included

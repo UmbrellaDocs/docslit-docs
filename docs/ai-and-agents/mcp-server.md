@@ -136,7 +136,7 @@ An agent should call `get_project_info` first. It returns the site name, the sid
 
 | Tool | Arguments | Description |
 |---|---|---|
-| `get_project_info` | none | Start here. Site name, sidebar tree, page count, versions, i18n, features, custom components |
+| `get_project_info` | none | Start here. Site name, sidebar tree, page count, versions, i18n, features, the current theme and the available themes and palettes, custom components |
 | `list_pages` | none | Every page with `id`, `title`, `description`, `group`, `file` and `inSidebar` |
 | `read_page` | `page` | Raw Markdown of one page, with frontmatter |
 | `search_docs` | `query`, `limit` (1 to 25, default 8) | Ranked search over the project's source pages, with section, line number and snippet |
@@ -148,6 +148,7 @@ An agent should call `get_project_info` first. It returns the site name, the sid
 | `update_page` | `page`, then `content`, or `old_string` with `new_string`, or `frontmatter` | Edit an existing page. A targeted edit must match exactly once |
 | `validate` | `page`, `strict` (both optional) | Run the validator and, when available, the linter. Returns issues with code, line and fix |
 | `check_markup` | `markdown` | Check a snippet without writing it: unknown tags and attributes, invalid values, nesting, unclosed tags |
+| `convert_mdx` | `source`, `from` (optional: `mintlify`, `fern` or `gitbook`) | Convert one Mintlify, Fern or GitBook page or snippet into DocsLit Markdown without writing anything. Returns the Markdown, the `issues` that need a human and the components converted. See [Migrate with your AI agent](../migration/migrate-with-ai) |
 | `preview_page` | `page`, `html` (optional) | Render through the real pipeline and return the heading outline, components used and word count |
 
 Five behaviors are worth knowing:
@@ -169,24 +170,25 @@ Here is `check_markup` catching three mistakes in a snippet. The agent sends:
 }
 ```
 
-The tool returns this JSON in the text content:
+The tool returns this JSON in the text content. All three problems are warnings, so `ok` stays `true`, and each carries a `fix` the agent can apply:
 
 ```json
 {
-  "ok": false,
-  "summary": { "errors": 2, "warnings": 1 },
+  "ok": true,
+  "summary": { "errors": 0, "warnings": 3 },
   "issues": [
     {
-      "level": "error",
+      "level": "warning",
       "code": "invalid-attribute-value",
-      "message": "<wc-callout type=\"tipp\"> is not valid. Allowed: info, tip, warning, error, success, note. Did you mean \"tip\"?",
+      "message": "<wc-callout type=\"tipp\"> is not valid. Allowed: info, tip, warning, error, danger, success, check, note, launch. Did you mean \"tip\"?",
       "line": 1,
       "tag": "wc-callout",
       "attribute": "type",
-      "suggestion": "tip"
+      "suggestion": "tip",
+      "fix": "Use type=\"tip\"."
     },
     {
-      "level": "error",
+      "level": "warning",
       "code": "missing-required-attribute",
       "message": "<wc-step> requires the \"title\" attribute.",
       "line": 2,
@@ -228,7 +230,7 @@ Prompts are reusable task templates. A client shows them as slash commands or si
 | `write-page` | `topic` (required), `audience` | Research the project, draft, check and create a new page |
 | `document-api-endpoint` | `endpoint` (required), `details` | Write an API reference page with `wc-endpoint` and `wc-fields` |
 | `review-page` | `page` (required) | Review a page for accuracy and conventions, then optionally fix it |
-| `migrate-page` | `source` (required), `id` | Convert a page from another docs system into DocsLit markup |
+| `migrate-page` | `source` (required), `id` | Convert a page from another docs system into DocsLit markup. The prompt tells the agent to start with `convert_mdx` |
 
 ## Reader mode
 

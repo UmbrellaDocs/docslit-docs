@@ -17,7 +17,7 @@ Most documentation tools are built on React. That means your docs site ships a J
 <wc-tile icon-name="package" title="16 KB total" description="Lit runtime + all 54 components, gzipped. No React, no router, no hydration layer."></wc-tile>
 <wc-tile icon-name="zap" title="0 s build" description="No webpack, no Vite, no bundler. Plain HTML served from the edge."></wc-tile>
 <wc-tile icon-name="blocks" title="54 components" description="Callouts, tabs, code blocks, API explorer, file trees, and more — all built in."></wc-tile>
-<wc-tile icon-name="right-left" title="11 migration paths" description="One command converts Mintlify, Docusaurus, Nextra, GitBook, MkDocs, and more."></wc-tile>
+<wc-tile icon="right-left" title="One-command migration" description="Move from Mintlify, Fern or GitBook with one command and a report of what needs a human."></wc-tile>
 </wc-tiles>
 
 ## Client-side JavaScript
@@ -138,9 +138,9 @@ Request any page with `Accept: text/markdown` and get raw Markdown back. APIs an
 Run `docslit build --offline` to produce a self-contained site with lazy-loaded pages. Works without a server, from a `file://` URL, or on an air-gapped network. No external requests, no inline event handlers — hardened for secure environments.
 
 </wc-accordion>
-<wc-accordion title="11-format migration">
+<wc-accordion title="One-command migration">
 
-`docslit import` auto-detects and converts projects from Mintlify, Docusaurus, Nextra, GitBook, MkDocs, Sphinx, ReadMe, VuePress, VitePress, Starlight, and Fern. One command, no manual rewriting.
+`docslit import` auto-detects and converts Mintlify, Fern and GitBook projects: pages, components, code blocks, navigation, branding and redirects, with a `MIGRATION.md` report for everything that needs a human. Other Markdown or MDX folders import with an automatic sidebar. See [Migrate from Mintlify](../migration/from-mintlify).
 
 </wc-accordion>
 </wc-accordion-group>

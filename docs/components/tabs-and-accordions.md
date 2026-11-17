@@ -1,6 +1,6 @@
 ---
 title: Tabs and accordions
-description: Organize content into switchable tabs and collapsible accordion sections to reduce page length.
+description: Organize content into switchable tabs, view toggles and collapsible accordion sections, with icons, deep links, default selection and synced choices.
 tag: Components
 readtime: 4 min read
 ---
@@ -67,11 +67,59 @@ Download the installer from [nodejs.org](https://nodejs.org).
 </wc-tab>
 </wc-tabs>
 
-<wc-fields header="wc-tab">
-<wc-field name="label" type="string" required>
-The text displayed on the tab button.
+<wc-fields header="wc-tabs">
+<wc-field name="default-tab" type="number" default="0">
+The zero-based index of the tab shown first.
+</wc-field>
+<wc-field name="border-bottom" type="boolean">
+Add a bottom border and spacing below the tabs, to separate them from the content that follows.
+</wc-field>
+<wc-field name="sync" type="string">
+A key shared by groups that should switch together. See [Synced tabs](#synced-tabs).
+</wc-field>
+<wc-field name="theme" type="string">
+Pin the tabs to `dark` or `light`.
 </wc-field>
 </wc-fields>
+
+<wc-fields header="wc-tab">
+<wc-field name="label" type="string" required>
+The text on the tab button. Inline Markdown works. It is also the deep-link id: its slug opens the tab.
+</wc-field>
+<wc-field name="icon" type="string">
+An [icon](icons) before the label.
+</wc-field>
+</wc-fields>
+
+Arrow keys, Home and End move between tabs, and a `#` fragment in the URL that matches a tab's slug opens that tab. For example, `#windows` opens the Windows tab above. Tabs with icons and a default tab:
+
+```markdown
+<wc-tabs default-tab="1">
+<wc-tab label="npm" icon="box">
+
+Install with npm.
+
+</wc-tab>
+<wc-tab label="Docker" icon="fa-brands fa-docker">
+
+Run the image. This tab is open first.
+
+</wc-tab>
+</wc-tabs>
+```
+
+<wc-tabs default-tab="1">
+<wc-tab label="npm" icon="box">
+
+Install with npm.
+
+</wc-tab>
+<wc-tab label="Docker" icon="fa-brands fa-docker">
+
+Run the image. This tab is open first.
+
+</wc-tab>
+</wc-tabs>
 
 ### Synced tabs
 
@@ -116,12 +164,6 @@ Use your distribution's package manager.
 <wc-code-tab label="Linux">sudo apt install nodejs</wc-code-tab>
 </wc-code-group>
 
-<wc-fields header="sync attribute">
-<wc-field name="sync" type="string">
-A key shared by every group that should switch together. Available on `wc-tabs` and `wc-code-group`.
-</wc-field>
-</wc-fields>
-
 ### When to use tabs
 
 - Platform-specific instructions (macOS, Linux, Windows)
@@ -165,9 +207,41 @@ DocsLit requires Node.js 20.19.0 or later.
 
 <wc-fields header="wc-accordion">
 <wc-field name="title" type="string" required>
-The clickable heading text that toggles the section.
+The clickable heading text that toggles the section. Inline Markdown works.
+</wc-field>
+<wc-field name="description" type="string">
+Smaller text under the title.
+</wc-field>
+<wc-field name="icon" type="string">
+A leading [icon](icons).
+</wc-field>
+<wc-field name="open" type="boolean">
+Expand the item by default.
+</wc-field>
+<wc-field name="id" type="string">
+The anchor id. A URL that ends in `#id` opens the item. Without it, the slug of the title is used.
 </wc-field>
 </wc-fields>
+
+An accordion is a real button with `aria-expanded`, so it works from the keyboard and with screen readers, and the in-page search can find text inside a closed item. Here is one with a description, an icon and a deep link:
+
+```markdown
+<wc-accordion-group>
+<wc-accordion title="Which Node.js version do I need?" description="Short answer: 20.19 or later" icon="circle-help" id="node-version">
+
+DocsLit requires Node.js 20.19.0 or later.
+
+</wc-accordion>
+</wc-accordion-group>
+```
+
+<wc-accordion-group>
+<wc-accordion title="Which Node.js version do I need?" description="Short answer: 20.19 or later" icon="circle-help" id="node-version">
+
+DocsLit requires Node.js 20.19.0 or later.
+
+</wc-accordion>
+</wc-accordion-group>
 
 ## Accordion groups
 
@@ -234,3 +308,85 @@ These options are for advanced users who need fine-grained control over the buil
 - `--out <dir>` — Custom output directory
 
 </wc-expandable>
+
+<wc-fields header="wc-expandable">
+<wc-field name="title" type="string">
+The clickable heading that toggles the section.
+</wc-field>
+<wc-field name="description" type="string">
+Smaller text under the title.
+</wc-field>
+<wc-field name="icon" type="string">
+A leading [icon](icons).
+</wc-field>
+<wc-field name="open" type="boolean">
+Expand the section by default.
+</wc-field>
+</wc-fields>
+
+`wc-expandable` behaves like `wc-accordion`. It is meant for nested content, such as the properties of an object in an [API field list](data-display#fields).
+
+## Views
+
+`wc-view` is a switcher for alternative views of the same content, such as a language or a platform. Its panels are `wc-view-panel` elements with a `label` and an optional `icon`. Give several view groups the same `sync` key, and they switch together.
+
+````markdown
+<wc-view sync="api-style">
+<wc-view-panel label="REST" icon="globe">
+
+Call the HTTP API directly.
+
+```bash
+curl https://api.example.com/events
+```
+
+</wc-view-panel>
+<wc-view-panel label="SDK" icon="package">
+
+Use the client library.
+
+```js
+await client.events.list();
+```
+
+</wc-view-panel>
+</wc-view>
+````
+
+<wc-view sync="api-style">
+<wc-view-panel label="REST" icon="globe">
+
+Call the HTTP API directly.
+
+```bash
+curl https://api.example.com/events
+```
+
+</wc-view-panel>
+<wc-view-panel label="SDK" icon="package">
+
+Use the client library.
+
+```js
+await client.events.list();
+```
+
+</wc-view-panel>
+</wc-view>
+
+<wc-fields header="wc-view">
+<wc-field name="sync" type="string">
+A key shared by view groups that switch together. Panels match by label.
+</wc-field>
+</wc-fields>
+
+<wc-fields header="wc-view-panel">
+<wc-field name="label" type="string" required>
+The text on the toggle button.
+</wc-field>
+<wc-field name="icon" type="string">
+An [icon](icons) before the label.
+</wc-field>
+</wc-fields>
+
+Use tabs for content that readers pick once, and views when the choice is a preference that applies across the page.

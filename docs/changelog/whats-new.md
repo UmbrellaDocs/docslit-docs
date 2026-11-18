@@ -49,7 +49,7 @@ All notable changes to DocsLit, organized by release.
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="changed">
-**Hidden pages are built:** a page with `hidden: true` is built and reachable even when no sidebar lists it, and it stays out of the sidebar, search, `llms.txt` and the sitemap. Sidebar links are written as absolute paths, so they work from any page depth. In frontmatter, `tag` still means the page-header category, and the sidebar badge is `badge`. See [Pages and navigation](../writing-content/pages-and-navigation#hidden-pages).
+**Hidden pages are built:** a page with `hidden: true` is built and reachable even when no sidebar lists it, and it stays out of the sidebar, search, `llms.txt` and the sitemap. Sidebar links are written as absolute paths, so they work from any page depth. `layout: changelog`, `blog` and `post` (and the aliases `landing` and `centre`) are valid page layouts. In frontmatter, `tag` still means the page-header category, and the sidebar badge is `badge`. See [Pages and navigation](../writing-content/pages-and-navigation#hidden-pages).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">

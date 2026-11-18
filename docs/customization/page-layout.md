@@ -60,7 +60,7 @@ Hide the [feedback widget](feedback-widget) on every page.
 `header` or `sidebar`. See [Tabs and anchors](tabs-and-anchors).
 </wc-field>
 <wc-field name="tabsStyle" type="string" default="underline">
-`underline` or `pill`.
+`underline` or `pill`. When set, it overrides a theme's own tab styling.
 </wc-field>
 <wc-field name="tabsAlign" type="string" default="left">
 `left` or `center`.

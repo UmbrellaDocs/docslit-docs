@@ -93,7 +93,8 @@ With `--no-theme` your brand colors are still applied. You can switch later with
 | `name`, `description`, `favicon` | `name`, `description`, `favicon` |
 | `logo` (`light`, `dark`, `href`) | `logo` with the same keys |
 | `colors` (`primary`, `light`, `dark`) | `theme` colors: `accent` in light and dark mode, plus a derived link color |
-| `fonts` | `theme.fonts.sans`, plus a `head` link for Google fonts |
+| `fonts` (body and heading) | `theme.fonts.sans` and `theme.fonts.heading`, plus a `head` link for Google fonts |
+| `appearance` (`default`, `strict`) | `theme.appearance` and `theme.strict`. See [Palettes and brand colors](../customization/palettes-and-brand#light-and-dark-appearance). |
 | `icons.library` | `icons.library` |
 | `navigation.tabs`, `groups`, `pages`, `products` | `tabs` and `sidebar`. See [Tabs and anchors](../customization/tabs-and-anchors). |
 | `navigation.global.anchors`, `anchors` | `anchors` |
@@ -139,7 +140,6 @@ The importer is honest about what it cannot convert. Each of these appears in `M
 - **Analytics and integrations without a preset** (such as Intercom) are listed. Paste the vendor's snippet into `head`.
 - **Content gated by login, roles or groups** cannot exist on a static site. It is removed and reported.
 - **Contextual menu options** for Cursor, Devin, Grok, AI Studio and the download actions are dropped. See [Contextual menu](../customization/contextual-menu) for the supported options.
-- **Appearance settings.** The importer does not convert `appearance`. Set `theme.appearance` and `theme.strict` yourself. See [Palettes and brand colors](../customization/palettes-and-brand#light-and-dark-appearance).
 - **Search prompt, background images, `directory` and drilldown navigation, and the `boost` page key** have no equivalent. Each is listed in the report.
 
 ## After the move

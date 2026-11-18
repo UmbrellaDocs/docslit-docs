@@ -83,7 +83,7 @@ See [Themes](../customization/theming).
 | `title`, `favicon`, `redirects` | `name`, `favicon`, `redirects` |
 | `instances[].custom-domain` | `url`. Fern's URL prefix is dropped, so add redirects at your host if old URLs had one. |
 | `logo` (`light`, `dark`, `href`, `height`) | `logo` with the same keys |
-| `colors` (`accent-primary`, `background`) and `typography` | `theme` colors and fonts. The importer reports the colors it cannot theme separately. |
+| `colors` (`accent-primary`, `background`) and `typography` (body and `headingsFont`) | `theme` colors and `theme.fonts` (`sans`, `heading`). The importer reports the colors it cannot theme separately. |
 | `tabs` and `navigation` | `tabs`. See [Tabs and anchors](../customization/tabs-and-anchors). |
 | `section` and `contents` | A group, with `pages` and nested groups. A section `path` becomes the group `root`. |
 | `page` (`path`, `icon`, `hidden`, `availability`) | A page entry with `icon`, `hidden` and `availability` |

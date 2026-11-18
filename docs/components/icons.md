@@ -22,9 +22,7 @@ The same value works in `wc-icon` and in the `icon` attribute of every component
 | An image path or URL | The image, for example an SVG or PNG | `img/mark.svg`, `https://example.com/logo.svg` |
 | Inline `<svg>` | Your own SVG, with scripts and event handlers removed | `<svg viewBox="0 0 24 24">…</svg>` |
 
-<wc-callout type="warning" title="Known issue with image icons">
-In 0.2.0, an image path or URL used as an icon is accepted but can render at zero size inside a component. Use a Lucide or Font Awesome name, an emoji or inline SVG, and check the built page if you use an image.
-</wc-callout>
+Image icons are sized to the icon box of the component, or to `size` on `wc-icon`, so an SVG or PNG fits wherever a named icon would.
 
 Here they are, live:
 
@@ -105,11 +103,14 @@ Browse the available names in the [Lucide](https://lucide.dev/icons) and [Font A
 ## wc-icon attributes
 
 <wc-fields header="wc-icon">
-<wc-field name="name" type="string" required>
-The icon: a bare name, Font Awesome classes, `lucide:name`, an emoji, an image path or URL, or inline `<svg>`.
+<wc-field name="name" type="string">
+The icon, unless you set `src`: a bare name, Font Awesome classes, `lucide:name`, an emoji, an image path or URL, or inline `<svg>`.
 </wc-field>
 <wc-field name="icon-type" type="string">
 The Font Awesome style for a bare name: `solid`, `regular` or `brands`.
+</wc-field>
+<wc-field name="src" type="string">
+An image path or URL to use as the icon. It wins over `name`, so `name` is not needed when you set it, as in `<wc-icon src="img/mark.svg"></wc-icon>`.
 </wc-field>
 <wc-field name="size" type="number" default="16">
 The icon size in pixels.

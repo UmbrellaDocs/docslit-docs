@@ -123,7 +123,7 @@ By default tabs sit in a bar under the header. Set `layout.tabsPlacement` to `"s
 `header` for a bar under the header, or `sidebar` for tabs at the top of the sidebar.
 </wc-field>
 <wc-field name="layout.tabsStyle" type="string" default="underline">
-`underline` or `pill`. Themes that restyle the tab bar ignore this setting. See [Themes](theming#what-themes-change).
+`underline` or `pill`. When set, it overrides a theme's own tab styling. See [Themes](theming#what-themes-change).
 </wc-field>
 <wc-field name="layout.tabsAlign" type="string" default="left">
 `left` or `center`, for the header placement.

@@ -26,10 +26,10 @@ All navigation, search, and theme switching work without a server or internet co
 ## When to use offline builds
 
 <wc-tiles cols="2">
-<wc-tile icon-name="lock" title="Air-gapped environments" description="Distribute docs where internet access is not available."></wc-tile>
-<wc-tile icon-name="download" title="USB distribution" description="Copy the dist folder to a USB drive for offline access."></wc-tile>
-<wc-tile icon-name="archive" title="Archival" description="Create a self-contained snapshot of your docs at a point in time."></wc-tile>
-<wc-tile icon-name="shield" title="Secure environments" description="No inline event handlers, no external requests, XSS-safe output."></wc-tile>
+<wc-tile icon="lock" title="Air-gapped environments" description="Distribute docs where internet access is not available."></wc-tile>
+<wc-tile icon="download" title="USB distribution" description="Copy the dist folder to a USB drive for offline access."></wc-tile>
+<wc-tile icon="archive" title="Archival" description="Create a self-contained snapshot of your docs at a point in time."></wc-tile>
+<wc-tile icon="shield" title="Secure environments" description="No inline event handlers, no external requests, XSS-safe output."></wc-tile>
 </wc-tiles>
 
 ## Offline vs static builds

@@ -76,10 +76,10 @@ See [Machine-readable CLI](machine-readable-cli) for real output and the full li
 ## Pick an interface
 
 <wc-tiles cols="2">
-<wc-tile icon-name="link" title="MCP server" description="Typed tools, resources and prompts for Claude, Cursor, VS Code and any MCP client." href="mcp-server"></wc-tile>
-<wc-tile icon-name="file" title="Agent setup" description="One command writes AGENTS.md, Claude skills, editor rules and MCP config." href="agent-setup"></wc-tile>
-<wc-tile icon-name="terminal" title="Machine-readable CLI" description="JSON output for components, schemas, validation, lint and page creation." href="machine-readable-cli"></wc-tile>
-<wc-tile icon-name="globe" title="How agents read your site" description="llms.txt, Markdown URLs, content negotiation and a hosted MCP endpoint." href="reading-agents"></wc-tile>
+<wc-tile icon="link" title="MCP server" description="Typed tools, resources and prompts for Claude, Cursor, VS Code and any MCP client." href="mcp-server"></wc-tile>
+<wc-tile icon="file" title="Agent setup" description="One command writes AGENTS.md, Claude skills, editor rules and MCP config." href="agent-setup"></wc-tile>
+<wc-tile icon="terminal" title="Machine-readable CLI" description="JSON output for components, schemas, validation, lint and page creation." href="machine-readable-cli"></wc-tile>
+<wc-tile icon="globe" title="How agents read your site" description="llms.txt, Markdown URLs, content negotiation and a hosted MCP endpoint." href="reading-agents"></wc-tile>
 </wc-tiles>
 
 | Situation | Use |

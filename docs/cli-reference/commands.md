@@ -368,13 +368,13 @@ docslit theme init acme-theme.json
 Print the themes with their signature palettes, the palettes and the custom color variables. A `*` marks your project's current choice. `--json` prints `{ themes, palettes, radius, appearance, current, config }`.
 </wc-field>
 <wc-field name="theme use <theme>" type="command">
-Set the theme in `docslit.json`, keeping your other settings. Pass a palette id to change only the palette. `--palette <name>` pairs a theme with a palette. An unknown name exits with code 1 and suggests the nearest one.
+Set the theme in `docslit.json`, keeping your other settings, brand colors, fonts and file formatting. The palette resets to the theme's signature palette unless you pass `--palette <name>`. Pass a palette id instead of a theme to change only the palette. An unknown name exits with code 1 and suggests the nearest one.
 </wc-field>
 <wc-field name="theme tokens" type="command">
 Print the design-token reference with defaults and current values. `--json` prints it for agents, and `--theme <id>` shows the values for that theme instead of the project's. See [Design tokens](../customization/design-tokens).
 </wc-field>
 <wc-field name="theme init [file]" type="command">
-Scaffold a brand theme file, `brand-theme.json` by default, and reference it from `docslit.json` when no theme is set. The file's folder must already exist.
+Scaffold a brand theme file, `brand-theme.json` by default, creating its folder if needed, and reference it from `docslit.json` when no theme is set. It then lists every theme and palette, and edits `docslit.json` without reformatting it.
 </wc-field>
 </wc-fields>
 

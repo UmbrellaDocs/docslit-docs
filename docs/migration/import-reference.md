@@ -77,7 +77,7 @@ Every run prints a summary. This is the real output of importing the Mintlify fi
     … and 44 more
 
   Config keys mapped: 16   not converted: 3
-  Theme: {"name":"peppermint","light":{"accent":"#4F46E5", …
+  Theme: peppermint, brand colours from source, fonts Inter, system mode by default
 
   Needs attention: 2 errors, 3 warnings, 4 notes
     ✗ components/layout.mdx:31 Component <MyChart> is not a known Mintlify/Fern component and has no DocsLit equivalent.
@@ -197,8 +197,6 @@ Work through `items` in order, then run `docslit validate --strict` and `docslit
 - **API snippet components** from Fern are replaced by pointers to the API reference.
 - **Login, role and group content** is removed.
 - **One OpenAPI spec** per project is wired up.
-- **Heading fonts.** Mintlify's separate heading font is not applied. Set `theme.fonts.heading` yourself. See [Palettes and brand colors](../customization/palettes-and-brand#fonts-and-shape).
-- **Default appearance.** `appearance` is not converted. Set `theme.appearance` yourself.
 
 ## Convert one page at a time
 

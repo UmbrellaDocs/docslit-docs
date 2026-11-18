@@ -44,7 +44,7 @@ To keep the theme but change the colors, use the object form with a `palette`:
 }
 ```
 
-You can also change the theme from the command line. `theme use` edits `docslit.json` in place and keeps your other settings:
+You can also change the theme from the command line. `theme use` edits `docslit.json` in place. It keeps your other settings, brand colors and fonts, and the file's formatting:
 
 ```bash
 docslit theme use peppermint
@@ -52,7 +52,7 @@ docslit theme use tonal --palette ocean
 docslit theme use rose
 ```
 
-The last command passes a palette id, so it changes only the palette and keeps the current theme. A name that matches nothing exits with code 1 and suggests the closest one:
+The last command passes a palette id, so it changes only the palette and keeps the current theme. When you name a theme, the palette resets to that theme's signature palette unless you add `--palette`. A name that matches nothing exits with code 1 and suggests the closest one:
 
 ```text
 Unknown theme "pepermint". Did you mean "peppermint"?
@@ -156,7 +156,7 @@ Built for API reference: a dense 13.5px sidebar, a wide 760px column inside a 16
 
 ## What themes change
 
-- **Tabs.** Themes restyle the header tab bar: pills in `peppermint`, indicator tabs in `tonal`, underlines in the others. `layout.tabsStyle` is ignored by themes that restyle the tabs. Tabs placed in the sidebar keep the shared styling. See [Tabs and anchors](tabs-and-anchors).
+- **Tabs.** Themes restyle the header tab bar: pills in `peppermint`, indicator tabs in `tonal`, underlines in the others. An explicit `layout.tabsStyle` overrides the theme's tab styling. Tabs placed in the sidebar keep the shared styling. See [Tabs and anchors](tabs-and-anchors).
 - **Layout settings win.** `layout.contentWidth`, `layout.sidebarWidth` and the other [layout settings](page-layout) override a theme's tokens. `peppermint` and `folio` turn on `layout.showDescription` by default.
 - **Fonts.** The Google Fonts link is added only for the active theme, and `default` keeps its original link. Offline builds load no remote font. Each font stack ends in system fonts and uses a metric-matched fallback face, so a late font swap does not shift the layout.
 - **Components.** Cards, callouts, tabs and code chrome read theme tokens. Themes cannot style inside a component's shadow DOM beyond those tokens.

@@ -104,7 +104,7 @@ See [code blocks](../components/code-blocks) for advanced features like filename
 ![Alt text](https://example.com/image.png)
 ```
 
-Place image files in your `docs/` directory and reference them with relative paths. On a site with [versioned docs](../customization/versioning), the build copies media once to the root of the output, so write the path from the site root instead, such as `/assets/themes/peppermint-light.webp`. This site does. Images load lazily, readers can click one to zoom it, and the build adds width and height so the page does not jump while it loads.
+Place image files in your `docs/` directory and reference them with relative paths. On a site with [versioned docs](../customization/versioning), the build copies media into every version folder, so relative paths work in each version. Non-default versions use the media in your working tree. Images load lazily, readers can click one to zoom it, and the build adds width and height so the page does not jump while it loads.
 
 ### Dark-mode variants
 

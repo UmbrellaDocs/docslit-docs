@@ -7,7 +7,7 @@ readtime: 2 min read
 
 # Installation
 
-DocsLit requires Node.js 20.19 or later.
+DocsLit requires Node.js 22.22 or later.
 
 ## Prerequisites
 
@@ -17,8 +17,8 @@ Check your Node.js version:
 node --version
 ```
 
-<wc-callout type="warning" title="Node.js 20.19 or later">
-DocsLit is an ES module package that needs Node.js 20.19.0 or later. If you see syntax errors, upgrade your Node.js installation.
+<wc-callout type="warning" title="Node.js 22.22 or later">
+DocsLit is an ES module package that needs Node.js 22.22.0 or later. If you see syntax errors, upgrade your Node.js installation.
 </wc-callout>
 
 ## Install DocsLit

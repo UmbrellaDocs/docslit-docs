@@ -96,6 +96,7 @@
         "migration/from-mintlify",
         "migration/from-fern",
         "migration/from-gitbook",
+        "migration/from-mkdocs",
         "migration/import-reference",
         "migration/component-mapping",
         "migration/migrate-with-ai"
@@ -104,7 +105,8 @@
     {
       "group": "Integrations",
       "pages": [
-        "integrations/openapi"
+        "integrations/openapi",
+        "integrations/python-api"
       ]
     },
     {

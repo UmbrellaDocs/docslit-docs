@@ -103,6 +103,19 @@ A theme (`peppermint`, `frond`, `tonal`, `folio`, `ledger` or `default`), a pale
 <wc-field name="openapi" type="string | object">
 Path to an OpenAPI 3.x spec file, or an object with `spec` and `overlay` keys. Enables spec-driven API reference generation. See [OpenAPI integration](../integrations/openapi) for details.
 </wc-field>
+<wc-field name="python" type="object">
+Python API reference settings: `packages` (package names, with data in `api/python/<name>.json`), `docstringStyle` (`google`, `numpy` or `sphinx`) and `options` (default options for `:::` directives). See [Python API reference](../integrations/python-api).
+</wc-field>
+<wc-field name="ogImage" type="boolean" default="false">
+Set to `true` to generate an Open Graph image for every page at build time. Off by default. Pages keep their `og:title` and `og:description` tags either way. A page can opt out with `ogImage: false` in its frontmatter.
+</wc-field>
+<wc-field name="build" type="object">
+Build switches, equivalent to the `docslit build` flags. `ogImages` (default `false`) turns OG images on. `searchIndex`, `llmsTxt`, `mcp` and `sitemap` (default `true`) turn a generator off when `false`. `cache` (default `false`) enables incremental builds. See [Commands](../cli-reference/commands#faster-builds).
+
+```json
+{ "build": { "ogImages": true, "searchIndex": true, "llmsTxt": true, "mcp": true, "sitemap": true, "cache": true } }
+```
+</wc-field>
 </wc-fields>
 
 ## Page slugs

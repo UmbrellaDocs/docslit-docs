@@ -17,7 +17,7 @@ Most documentation tools are built on React. That means your docs site ships a J
 <wc-tile icon-name="package" title="16 KB total" description="Lit runtime + all 54 components, gzipped. No React, no router, no hydration layer."></wc-tile>
 <wc-tile icon-name="zap" title="0 s build" description="No webpack, no Vite, no bundler. Plain HTML served from the edge."></wc-tile>
 <wc-tile icon-name="blocks" title="54 components" description="Callouts, tabs, code blocks, API explorer, file trees, and more — all built in."></wc-tile>
-<wc-tile icon="right-left" title="One-command migration" description="Move from Mintlify, Fern or GitBook with one command and a report of what needs a human."></wc-tile>
+<wc-tile icon="right-left" title="One-command migration" description="Move from Mintlify, Fern, GitBook or MkDocs with one command and a report of what needs a human."></wc-tile>
 </wc-tiles>
 
 ## Client-side JavaScript
@@ -140,7 +140,7 @@ Run `docslit build --offline` to produce a self-contained site with lazy-loaded 
 </wc-accordion>
 <wc-accordion title="One-command migration">
 
-`docslit import` auto-detects and converts Mintlify, Fern and GitBook projects: pages, components, code blocks, navigation, branding and redirects, with a `MIGRATION.md` report for everything that needs a human. Other Markdown or MDX folders import with an automatic sidebar. See [Migrate from Mintlify](../migration/from-mintlify).
+`docslit import` auto-detects and converts Mintlify, Fern, GitBook and MkDocs projects: pages, components, code blocks, navigation, branding and redirects, with a `MIGRATION.md` report for everything that needs a human. Other Markdown or MDX folders import with an automatic sidebar. See [Migrate from Mintlify](../migration/from-mintlify).
 
 </wc-accordion>
 </wc-accordion-group>

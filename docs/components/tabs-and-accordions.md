@@ -185,7 +185,7 @@ Run `npm install -g docslit` or use `npx` to run it without installing.
 
 <wc-accordion title="What Node.js version do I need?">
 
-DocsLit requires Node.js 20.19.0 or later.
+DocsLit requires Node.js 22.22.0 or later.
 
 </wc-accordion>
 </wc-accordion-group>
@@ -200,7 +200,7 @@ Run `npm install -g docslit` or use `npx` to run it without installing.
 
 <wc-accordion title="What Node.js version do I need?">
 
-DocsLit requires Node.js 20.19.0 or later.
+DocsLit requires Node.js 22.22.0 or later.
 
 </wc-accordion>
 </wc-accordion-group>
@@ -227,18 +227,18 @@ An accordion is a real button with `aria-expanded`, so it works from the keyboar
 
 ```markdown
 <wc-accordion-group>
-<wc-accordion title="Which Node.js version do I need?" description="Short answer: 20.19 or later" icon="circle-help" id="node-version">
+<wc-accordion title="Which Node.js version do I need?" description="Short answer: 22.22 or later" icon="circle-help" id="node-version">
 
-DocsLit requires Node.js 20.19.0 or later.
+DocsLit requires Node.js 22.22.0 or later.
 
 </wc-accordion>
 </wc-accordion-group>
 ```
 
 <wc-accordion-group>
-<wc-accordion title="Which Node.js version do I need?" description="Short answer: 20.19 or later" icon="circle-help" id="node-version">
+<wc-accordion title="Which Node.js version do I need?" description="Short answer: 22.22 or later" icon="circle-help" id="node-version">
 
-DocsLit requires Node.js 20.19.0 or later.
+DocsLit requires Node.js 22.22.0 or later.
 
 </wc-accordion>
 </wc-accordion-group>

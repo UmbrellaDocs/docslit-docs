@@ -56,6 +56,7 @@ Everything after the language in the opening fence is read as options. The same 
 | `wrap` or `wordWrap` | `wrap` | Wrap long lines |
 | `expandable` | `expandable` | Collapse long blocks behind "Show more" (10 lines) |
 | `maxLines=5` | `max-lines="5"` | Collapse after N lines |
+| `annotate` | `annotate` | Turn `(1)` comment markers into numbered notes (see [Code annotations](#code-annotations)) |
 | `nocopy` | `nocopy` | Hide the copy button |
 | `for="npm"` | `for="npm"` | Sync token inside a code group |
 
@@ -297,6 +298,66 @@ Sync token inside a code group. See [Code groups](#code-groups).
 Marks content that is already highlighted HTML. DocsLit sets this at build time; you rarely write it by hand.
 </wc-field>
 </wc-fields>
+
+## Code annotations
+
+Code annotations attach numbered notes to specific lines. Add the `annotate` flag to the fence, end a comment on the line with a marker, and write the notes as an ordered list directly after the block.
+
+- `(1)`, `(2)`, ... at the end of a comment marks the line. The marker is replaced by a numbered badge and the comment stays visible.
+- `(1)!` hides the comment characters too, so only the badge remains.
+- The ordered list right after the block holds the notes. Item N is the note for marker `(N)`. Notes can contain inline Markdown such as code, links and emphasis.
+
+````markdown
+```python annotate
+import requests
+
+def fetch(url):
+    # Retry transient failures (1)
+    for attempt in range(3):
+        response = requests.get(url, timeout=10)  # (2)!
+        if response.ok:
+            return response.json()
+    raise RuntimeError("giving up")  # (3)
+```
+
+1. Only network errors and `5xx` responses are worth retrying.
+2. Always set a timeout, or a stalled server can hang the call forever.
+3. Callers should catch `RuntimeError` and report the URL.
+````
+
+```python annotate
+import requests
+
+def fetch(url):
+    # Retry transient failures (1)
+    for attempt in range(3):
+        response = requests.get(url, timeout=10)  # (2)!
+        if response.ok:
+            return response.json()
+    raise RuntimeError("giving up")  # (3)
+```
+
+1. Only network errors and `5xx` responses are worth retrying.
+2. Always set a timeout, or a stalled server can hang the call forever.
+3. Callers should catch `RuntimeError` and report the URL.
+
+### How it behaves
+
+- Clicking a badge opens its note in a popover next to the line. Clicking it again, clicking elsewhere or pressing `Escape` closes it, and focus returns to the badge. Opening one note closes any other open note.
+- Badges are real buttons, so they can be reached with `Tab` and opened with `Enter` or `Space`.
+- Markers are removed from the copy button, so copied code is clean.
+- Without JavaScript the badges are static and the ordered list stays visible under the code, so the notes are never lost.
+- Markers work with the other fence options, for example `annotate lines {2}`.
+
+### Build warnings
+
+`docslit validate` and `docslit build` report these problems. None of them stops the build.
+
+| Code | Cause |
+|---|---|
+| `code-annotation-no-list` | The block has `annotate` but no ordered list directly after it. Markers stay as plain text. |
+| `code-annotation-no-marker` | The block has `annotate` but no `(N)` marker in a comment. The list stays below the code. |
+| `code-annotation-missing-item` | A marker `(N)` has no matching list item. |
 
 ## Code groups
 

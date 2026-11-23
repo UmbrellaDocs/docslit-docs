@@ -10,6 +10,28 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
+## 0.2.1
+
+<wc-update version="0.2.1" date="November 2026" type="added">
+**Python API reference:** document a Python package with mkdocstrings-style `:::` directives and no Python at build time. `docslit api python mypkg --pages` runs Griffe once to write `api/python/mypkg.json` (commit it), adds a `python` setting to `docslit.json` and scaffolds one page per public module. Pages get headings, signatures, parameter tables, examples and callouts. `[text][pkg.Obj]` cross-references resolve across pages, the build writes an `objects.inv` for intersphinx, and `docslit validate` reports missing data, missing objects and unresolved references. `docslit import` keeps mkdocstrings directives and writes the `python` setting. See [Python API reference](../integrations/python-api) and [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="added">
+**Code annotations:** add the `annotate` flag to a fence (```` ```python annotate ````) and end a comment with `(1)`, `(2)`, and so on (`(1)!` hides the comment characters). The ordered list right after the block holds the notes. Each marker becomes a numbered badge that opens its note in a popover, and without JavaScript the list stays visible under the code. Missing lists, markers or items are reported as build warnings. `docslit import` converts Material for MkDocs code annotations to this syntax. See [Code blocks](../components/code-blocks#code-annotations).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Better MkDocs import:** Material grid cards become `wc-tiles` of `wc-card`. Material Design, Octicons and Simple Icons shortcodes are mapped to the closest Lucide or Font Awesome icon, and icons with no faithful match are listed in `MIGRATION.md`. Emoji shortcodes become Unicode. Blog plugin posts keep their metadata, get generated blog index, category and archive pages, and the old dated URLs redirect to the new pages. See [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Faster, leaner builds:** `--incremental` (or `"build": { "cache": true }`) reuses unchanged pages and assets. `--no-search-index`, `--no-llms-txt`, `--no-mcp` and `--no-sitemap` skip individual generators, `--profile` prints per-phase timings and `docslit cache clean` clears the build cache. OG images render in a worker pool, are cached and are about 5x smaller. Very large sites no longer run out of memory, and `docslit validate` is about 4x faster on large sites. See [Commands](../cli-reference/commands#faster-builds).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Open Graph images are opt-in:** `docslit build` no longer generates an image per page unless you pass `--og-images` or set `"ogImage": true` or `"build": { "ogImages": true }`. Pages keep their `og:title` and `og:description` tags either way, and `--no-og-images` turns them off for one build. Node.js 22.22.0 or later is now required.
+</wc-update>
+
 ## 0.2.0
 
 <wc-update version="0.2.0" date="November 2026" type="added">
@@ -21,7 +43,11 @@ All notable changes to DocsLit, organized by release.
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">
-**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern or GitBook page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
+**Switch from MkDocs, Material for MkDocs or Zensical in one command:** `docslit import` reads `mkdocs.yml` or `zensical.toml` and maps the navigation, site settings, branding, palette and fonts, analytics and redirects. Pages convert to plain Markdown: admonitions, collapsibles, content tabs, snippets, code block options, Mermaid, icons and math. `MIGRATION.md` lists every Jinja expression, theme override, plugin and mike version that was not carried over. See [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern, GitBook or MkDocs page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">

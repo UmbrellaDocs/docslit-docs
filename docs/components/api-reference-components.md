@@ -79,7 +79,7 @@ Document request parameters with `wc-fields` and `wc-field`. The `title` attribu
 
 <wc-fields header="wc-fields attributes">
 <wc-field name="title" type="string" default="Parameter">
-The section header text. When populated from an OpenAPI spec, this is set automatically to values like "Headers", "Query Parameters", or "Body application/json".
+The section header text. `header` is an alias of `title`. When populated from an OpenAPI spec, this is set automatically to values like "Headers", "Query Parameters", or "Body application/json".
 </wc-field>
 </wc-fields>
 
@@ -164,6 +164,37 @@ An example value for the field.
 <wc-field name="collapsible" type="boolean">
 When set, the field becomes a collapsible section. Nested `wc-field` children are hidden until the user expands it. Used automatically for nested object and array schemas from OpenAPI specs.
 </wc-field>
+<wc-field name="pre" type="string">
+Comma-separated labels shown before the field name, such as `new`.
+</wc-field>
+<wc-field name="post" type="string">
+Comma-separated labels shown after the field name and its flags, such as `beta`.
+</wc-field>
+<wc-field name="placeholder" type="string">
+Placeholder or example input text shown under the description.
+</wc-field>
+</wc-fields>
+
+Labels and a placeholder:
+
+```markdown
+<wc-fields header="Request parameters">
+<wc-field name="region" type="string" in="query" pre="new" post="beta" placeholder="eu-west-1">
+The region to run the job in.
+</wc-field>
+<wc-field name="legacy_id" type="string" deprecated>
+Use `id` instead.
+</wc-field>
+</wc-fields>
+```
+
+<wc-fields header="Request parameters">
+<wc-field name="region" type="string" in="query" pre="new" post="beta" placeholder="eu-west-1">
+The region to run the job in.
+</wc-field>
+<wc-field name="legacy_id" type="string" deprecated>
+Use `id` instead.
+</wc-field>
 </wc-fields>
 
 ## Response fields
@@ -198,10 +229,10 @@ The account status. Always `active` for new users.
 
 ## Schema
 
-Display type definitions with `wc-schema`:
+Display type definitions with `wc-schema`. The `type` attribute is the type name shown in the header; the element has no `name` attribute:
 
 ```markdown
-<wc-schema name="User" extends="BaseModel">
+<wc-schema type="User" extends="BaseModel">
 <wc-field name="id" type="number" required>
 Unique identifier.
 </wc-field>
@@ -214,7 +245,7 @@ List of permission slugs.
 </wc-schema>
 ```
 
-<wc-schema name="User" extends="BaseModel">
+<wc-schema type="User" extends="BaseModel">
 <wc-field name="id" type="number" required>
 Unique identifier.
 </wc-field>
@@ -228,7 +259,7 @@ List of permission slugs.
 
 ## Prompt component
 
-Display AI prompts with a copy button:
+Display AI prompts with a copy button. For the open-in-assistant actions, a description and custom buttons, see [Interactive elements](interactive-elements#copyable-prompts):
 
 ```markdown
 <wc-prompt>

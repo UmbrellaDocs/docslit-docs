@@ -7,7 +7,7 @@ readtime: 2 min read
 
 # Installation
 
-DocsLit requires Node.js 24 or later.
+DocsLit requires Node.js 20.19 or later.
 
 ## Prerequisites
 
@@ -17,13 +17,13 @@ Check your Node.js version:
 node --version
 ```
 
-<wc-callout type="warning" title="Node.js 24 required">
-DocsLit uses top-level await and modern ES module features that require Node.js 24.0.0 or later. If you see syntax errors, upgrade your Node.js installation.
+<wc-callout type="warning" title="Node.js 20.19 or later">
+DocsLit is an ES module package that needs Node.js 20.19.0 or later. If you see syntax errors, upgrade your Node.js installation.
 </wc-callout>
 
 ## Install DocsLit
 
-<wc-tabs>
+<wc-tabs sync="pkg">
 <wc-tab label="npm">
 
 ```bash
@@ -43,6 +43,15 @@ pnpm add -g docslit
 ```bash
 yarn global add docslit
 ```
+
+</wc-tab>
+<wc-tab label="npx">
+
+```bash
+npx docslit init my-docs
+```
+
+Run any command through `npx` without a global install, for example `npx docslit dev`.
 
 </wc-tab>
 </wc-tabs>

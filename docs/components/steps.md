@@ -67,14 +67,61 @@ Visit `http://localhost:3000` to see your site.
 
 ## Attributes
 
-<wc-fields header="wc-step">
-<wc-field name="title" type="string" required>
-The step heading displayed next to the step number.
-</wc-field>
-<wc-field name="n" type="number">
-Override the auto-generated step number. Use this when you need non-sequential numbering.
+<wc-fields header="wc-steps">
+<wc-field name="title-size" type="string" default="p">
+The level of the step titles: `p`, `h2`, `h3` or `h4`. With `h2`, `h3` or `h4`, each title is a real heading, so it appears in the page table of contents and gets an anchor.
 </wc-field>
 </wc-fields>
+
+<wc-fields header="wc-step">
+<wc-field name="title" type="string" required>
+The step heading displayed next to the step marker. Inline Markdown works.
+</wc-field>
+<wc-field name="icon" type="string">
+An [icon](icons) shown in the marker instead of the number.
+</wc-field>
+<wc-field name="n" type="number">
+Override the generated step number. Use this when you need non-sequential numbering.
+</wc-field>
+<wc-field name="title-size" type="string">
+The title level for this step. It overrides the value on `wc-steps`.
+</wc-field>
+<wc-field name="no-anchor" type="boolean">
+Hide the hover anchor link on a plain-text (`p`) title.
+</wc-field>
+</wc-fields>
+
+## Icons and headings
+
+Replace the number with an icon, and make titles real headings so readers can jump to a step from the table of contents:
+
+```markdown
+<wc-steps title-size="h3">
+<wc-step title="Build the site" icon="hammer">
+
+Run `docslit build`.
+
+</wc-step>
+<wc-step title="Publish it" icon="rocket">
+
+Run `docslit publish`.
+
+</wc-step>
+</wc-steps>
+```
+
+<wc-steps title-size="h3">
+<wc-step title="Build the site" icon="hammer">
+
+Run `docslit build`.
+
+</wc-step>
+<wc-step title="Publish it" icon="rocket">
+
+Run `docslit publish`.
+
+</wc-step>
+</wc-steps>
 
 ## Rich content in steps
 

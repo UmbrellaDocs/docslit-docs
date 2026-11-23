@@ -2,14 +2,159 @@
 title: What's new
 description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
-layout: changelog
-date: 2026-07-22
+date: 2026-11-23
 readtime: 3 min read
 ---
 
 # What's new
 
 All notable changes to DocsLit, organized by release.
+
+## 0.2.0
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Themes:** six prebuilt looks, `default`, `peppermint`, `frond`, `tonal`, `folio` and `ledger`, with thirteen palettes, brand colors, fonts, corner radius and appearance settings. Switch with `"theme": "peppermint"` or `docslit theme use`, try every combination live with `docslit dev --theme-picker` or the built-in `themePicker`, and read the design tokens with `docslit theme tokens`. Derived colors meet WCAG AA, and existing configs render exactly as before. See [Themes](../customization/theming), [Palettes and brand colors](../customization/palettes-and-brand) and [Design tokens](../customization/design-tokens).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Switch from Mintlify or Fern in one command:** `docslit import` was rewritten on a real MDX parser. It converts every Mintlify and Fern component, code block, snippet, link and asset, maps `docs.json`, `mint.json` and `docs.yml` navigation, branding, redirects and analytics, picks a matching theme, validates the result and writes `MIGRATION.md` with a file, line and fix for everything that needs a human. New flags are `--from`, `--theme`, `--no-theme`, `--versions`, `--force` and `--json`, and GitBook projects are covered too. See [Migrate from Mintlify](../migration/from-mintlify), [Migrate from Fern](../migration/from-fern), [Migrate from GitBook](../migration/from-gitbook) and the [component mapping](../migration/component-mapping).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern or GitBook page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Component parity with Mintlify and Fern:** new `wc-embed`, `wc-github-repo`, `wc-walkthrough`, `wc-colors` and `wc-if`, and new attributes across callouts (`danger`, `check`, `launch`, `icon`, `color`), banners, badges, tooltips, updates, frames, accordions, asides, steps, tabs, views, file trees, cards, tiles, buttons, prompts, tables, fields, downloads, copy chips, images and includes with props. See [Callouts and alerts](../components/callouts-and-alerts), [Embeds and media](../components/embeds-and-media), [Walkthrough](../components/walkthrough) and [Cards and tiles](../components/cards-and-tiles).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Conditional content:** `wc-if` includes or removes content at build time by version, locale, variable or audience. `for="agents"` appears only in the Markdown that AI agents read, and `for="humans"` only on the web. See [Conditional content](../components/conditional-content).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Build-time icons:** icons resolve to inline SVG from Lucide and Font Awesome Free, with no CDN request, so they work offline. Write a bare name, Font Awesome classes such as `fa-solid fa-gear`, `lucide:zap`, an emoji, an image or inline SVG, and set `icons.library` to choose which library wins. `docslit validate` flags unknown icons with a suggestion. See [Icons](../components/icons).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Code block features:** highlighted and focused lines, diff and error notation, line numbers with a start line, collapsible long blocks, wrapping, icons, and dropdown code groups that sync by language. Mintlify and Fern fence options work as they are. See [Code blocks](../components/code-blocks).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Navigation parity:** top-level `tabs` in the header or the sidebar, `anchors`, sidebar icons, badges, availability and hidden pages, external links in the sidebar, groups with a linked `root`, navbar dropdowns, buttons, a primary button and a GitHub star count, light and dark logos, footer columns and social icons, site layout settings, seven page layouts with `hide_toc`, `toc_depth` and more, and a configurable contextual menu. See [Tabs and anchors](../customization/tabs-and-anchors), [Page layout](../customization/page-layout), [Site chrome](../customization/site-chrome) and [Contextual menu](../customization/contextual-menu).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Behavior changes for Mintlify-style tags:** the build step that reads Mintlify tags written in Markdown no longer adds a title to callouts (`<Note>` is a plain `note` callout) and no longer numbers steps, because both are automatic. `Panel` becomes `wc-aside`, `Tabs` sync with each other, and `Icon` and `Tooltip` convert instead of being removed.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Hidden pages are built:** a page with `hidden: true` is built and reachable even when no sidebar lists it, and it stays out of the sidebar, search, `llms.txt` and the sitemap. Sidebar links are written as absolute paths, so they work from any page depth. `layout: changelog`, `blog` and `post` (and the aliases `landing` and `centre`) are valid page layouts. In frontmatter, `tag` still means the page-header category, and the sidebar badge is `badge`. See [Pages and navigation](../writing-content/pages-and-navigation#hidden-pages).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**MCP server:** `docslit mcp` runs a Model Context Protocol server over stdio. In a project it offers 14 authoring tools, resources and prompts. With a URL it reads and searches any published DocsLit site. `docslit mcp --print-config` prints client config. See [MCP server](../ai-and-agents/mcp-server).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Agent setup:** `docslit agents init` writes `AGENTS.md`, Claude Code skills, Cursor, Copilot, Windsurf and Gemini files, and merges MCP config. `docslit init` now writes `AGENTS.md` too. `docslit agents print` prints the skills. See [Agent setup](../ai-and-agents/agent-setup).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Machine-readable CLI:** `docslit components [tag] --json`, `docslit schema [config|frontmatter]`, `docslit new --json --description --position`, and a `$schema` key in new `docslit.json` files. See [Machine-readable CLI](../ai-and-agents/machine-readable-cli).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Validation as JSON:** `docslit validate --format json` prints `{ ok, summary, issues }` with a stable `code` and a `fix` for every issue. Line numbers now count from the first line of the file, including frontmatter. See [Validation](../cli-reference/validation).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Lint:** `docslit lint` checks documentation quality with 16 configurable rules, `--format pretty|json|github`, and disable comments. See [Lint](../cli-reference/lint).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Autogenerated sidebars:** `"sidebar": "auto"` or `autogenerate` on a group builds the sidebar from `docs/`. Order with `sidebar_position`, hide with `sidebar: false`, and label with `_category.json`. See [Autogenerated sidebars](../writing-content/autogenerated-sidebars).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Collapsible sidebar groups:** add `collapsed` to any group. The reader's choice is remembered.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Code import:** fence meta `file=`, `lines=` and `region=` pull code from real source files at build time. See [Import code from files](../writing-content/code-import).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Math:** `$$...$$` and `math` fences render with KaTeX at build time. Opt in to `$...$` with `math.singleDollar`, or turn math off with `"math": false`. See [Math](../writing-content/math).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Synced tabs:** give `wc-tabs` and `wc-code-group` the same `sync` key and they switch together, remembered across pages. See [Tabs and accordions](../components/tabs-and-accordions).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Page feedback widget:** the `feedback` option adds "Was this page helpful?" with an optional endpoint, analytics events and a `docslit:feedback` browser event. See [Page feedback widget](../customization/feedback-widget).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Reader polish:** headings show a copy-link icon, and `kbd` and `details` elements have styles.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**DocsLit Cloud for agents:** every published site has a hosted MCP endpoint at `/mcp`, a `/.well-known/mcp.json` descriptor, and `Accept: text/markdown` negotiation. See [DocsLit Cloud](../deployment/docslit-cloud).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Breaking: `docslit build` no longer writes `functions/` into your project.** It writes only into the output folder and refreshes an existing generated `functions/_middleware.js`. Run `docslit deploy --cloudflare` after a build to install it for Cloudflare Pages.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Breaking: `docslit login` uses your account password or a dashboard token.** It prompts for email and a hidden password, or takes `--token <token>`. It no longer creates accounts: sign up on the website and verify your email first. Use `DOCSLIT_TOKEN` and `DOCSLIT_API_URL` in CI, and `docslit logout` to remove and revoke the token. `docslit rollback` takes a deploy id. See [DocsLit Cloud](../deployment/docslit-cloud).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Cloud publishing limits:** uploads are limited in zip size, file count and file size, and plans limit projects, monthly deploys and rollback. Hosting files such as `_middleware.js`, `functions/`, `vercel.json`, `_headers`, `_redirects` and `mcp-server.js` are not served.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Importer mappings:** Mintlify `Danger` becomes a callout of type `error`. `Badge` `color` becomes `variant`. `Expandable` `defaultOpen` becomes `open`. `Update` `label` becomes `version`. `ParamField` keeps its location as `in`. Unsupported attributes such as `Card` `color` and `Frame` `type` are dropped.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Search:** the bundled FlexSearch now keeps its default export, and `--offline` builds ship a classic-script copy, so search works again, including from `file://`.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Generated `mcp-server.js`:** it now uses newline-delimited JSON-RPC, the standard MCP stdio framing, and negotiates protocol versions correctly.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Code blocks:** multi-line code blocks no longer render double-spaced, and line numbers no longer count a phantom last line. Fenced `filename` and `linenumbers` now take effect.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Versioned `mcp-server.js`:** the generated server now reads each version's folder, takes an optional `version` argument and defaults to your default version.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Validation:** `validate` now checks component attributes, values and nesting, reports code-import failures and invalid math with their own codes, understands runtime `wc-var` variables, and checks bare relative image paths. `lint --fix` is gone, and `sidebar_title`, `new --position` and `deploy --out` work as documented.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Asset paths:** `logo`, `favicon` and `css` files are copied to the same relative path the HTML references, including files in subfolders.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Search engine 404s and canonical warnings:** every link the build generates, including OpenAPI sidebar items, the Docs and API Reference mode links and tab links, is now an absolute path with `basePath`, the locale and the version, so it resolves from any page depth. The site, version and locale roots redirect to the first page instead of copying it, and the sitemap lists only canonical page URLs. `robots.txt` no longer lists `llms.txt` as a sitemap, `basePath` reaches the sitemap, `robots.txt`, the version switcher and version links, untranslated locale pages are built with a canonical link to the default-locale page, and offline builds use `#page` links that work from `file://`. See [Search and SEO](../writing-content/search-and-seo#search-engine-optimization).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Markdown negotiation on Vercel:** the `Accept: text/markdown` rewrite in `dist/vercel.json` never ran. New `docslit deploy --vercel` writes a project-root `middleware.js` that serves a page's Markdown, plus a `vercel.json` if you have none. Every host's middleware now reads quality values in the `Accept` header, and `llms.txt` no longer contains a placeholder `{slug}.md` URL that link checkers flagged. See [Content negotiation](../ai-and-agents/reading-agents#content-negotiation).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="changed">
+**Docs:** the AI Skills page moved to [Agent setup](../ai-and-agents/agent-setup). The old URL redirects there.
+</wc-update>
 
 ## 0.1.11
 
@@ -25,7 +170,7 @@ All notable changes to DocsLit, organized by release.
 **Node.js `>=20.19.0`:** engines no longer require Node 24. Installs work on common CI images and corporate machines running Node 20 or 22.
 </wc-update>
 
-<wc-update version="0.1.11" date="August 2026" type="improved">
+<wc-update version="0.1.11" date="August 2026" type="changed">
 **Vendored FlexSearch:** client search loads a local FlexSearch bundle instead of `esm.sh`, so air-gapped and CSP-restricted environments work reliably.
 </wc-update>
 
@@ -57,11 +202,11 @@ All notable changes to DocsLit, organized by release.
 **Social / OG images:** each page gets a build-time card (`og/{page}.png`) with title and site name; `og:image` and `twitter:card=summary_large_image` are set automatically. Opt out with `ogImage: false`.
 </wc-update>
 
-<wc-update version="0.1.11" date="August 2026" type="improved">
+<wc-update version="0.1.11" date="August 2026" type="changed">
 **Section search:** headings get stable IDs at build time; the search index returns `Page → Heading` chunks with anchor links, and page bodies are trimmed to keep the index smaller.
 </wc-update>
 
-<wc-update version="0.1.11" date="August 2026" type="improved">
+<wc-update version="0.1.11" date="August 2026" type="changed">
 **Sitemap `lastmod`:** uses git history (mtime fallback) per page instead of stamping today’s date on every URL.
 </wc-update>
 
@@ -125,7 +270,7 @@ All notable changes to DocsLit, organized by release.
 **Favicon and edit-this-page link:** static builds now include a favicon and an "Edit this page" link on every page. The edit URL is auto-detected from your Git remote, so no manual configuration is needed for GitHub-hosted projects.
 </wc-update>
 
-<wc-update version="0.1.9" date="June 2026" type="improved">
+<wc-update version="0.1.9" date="June 2026" type="changed">
 **Typography refinements:** text rendering is improved across all platforms with font smoothing, OpenType features (ligatures, kerning, contextual alternates), and refined letter and word spacing for body text, headings, and code blocks.
 </wc-update>
 
@@ -171,11 +316,11 @@ All notable changes to DocsLit, organized by release.
 **Version-aware global variables:** two built-in globals are now available on every page: `{{DOCSLIT_VERSION}}` and `{{DOCSLIT_BRANCH}}`.
 </wc-update>
 
-<wc-update version="0.1.8" date="May 2026" type="improved">
+<wc-update version="0.1.8" date="May 2026" type="changed">
 **Offline build security hardening:** offline builds are now hardened for secure, air-gapped environments. All inline event handlers (`onclick`, `oninput`, etc.) are replaced with event delegation. User-facing values are HTML-escaped to prevent DOM-based XSS. Google Fonts and all external requests are removed.
 </wc-update>
 
-<wc-update version="0.1.8" date="May 2026" type="improved">
+<wc-update version="0.1.8" date="May 2026" type="changed">
 **WCAG contrast improvements:** light-mode text and accent colors are darkened for WCAG AA compliance. Theme toggle and copy buttons get proper `aria-label` attributes, and the menu button meets minimum touch target size requirements.
 </wc-update>
 
@@ -262,7 +407,7 @@ Mobile sidebar now extends to the full viewport height instead of stopping short
 </wc-update>
 
 <wc-update version="0.1.7" date="May 2026" type="added">
-**AI authoring and migration skills:** install skill files into Claude Code, Cursor, or Windsurf so your AI assistant knows how to write correct DocsLit pages and convert existing MDX docs. See [AI Skills](../integrations/skills).
+**AI authoring and migration skills:** install skill files into Claude Code, Cursor, or Windsurf so your AI assistant knows how to write correct DocsLit pages and convert existing MDX docs. See [Agent setup](../ai-and-agents/agent-setup).
 </wc-update>
 
 <wc-update version="0.1.7" date="May 2026" type="fixed">
@@ -379,6 +524,7 @@ Tiles grid layout no longer overlaps when using auto-fill columns.
 
 ## Earlier releases
 
+<wc-accordion-group>
 <wc-accordion title="0.1.4 — Component polish and shareable links">
 
 - Fixed padding in tabbed panels, file tree lines, highlighted filenames in light mode, and inline anchor layout
@@ -426,3 +572,4 @@ The first public release of DocsLit with:
 - DocsLit Cloud deployment
 
 </wc-accordion>
+</wc-accordion-group>

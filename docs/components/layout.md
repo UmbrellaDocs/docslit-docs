@@ -1,9 +1,11 @@
 ---
 title: Layout
-description: Structure page content with columns, panels, frames, expandable sections, and floating aside boxes.
+description: Structure page content with columns, panels, frames, indented blocks and floating aside boxes.
 tag: Components
 readtime: 4 min read
 ---
+
+<!-- docslit-lint-disable raw-html-block -->
 
 # Layout
 
@@ -133,23 +135,26 @@ Set `name` in your `docslit.json` to change the site title.
 The panel header text.
 </wc-field>
 <wc-field name="icon" type="string">
-An icon name displayed next to the title.
+An [icon](icons) displayed next to the title: a Lucide or Font Awesome name, or an emoji.
+</wc-field>
+<wc-field name="theme" type="string">
+Pin the panel to `dark` or `light`.
 </wc-field>
 </wc-fields>
 
 ## Frames
 
-Frames wrap images or media with an optional caption:
+Frames wrap images or media with an optional caption and hint:
 
 ```markdown
-<wc-frame caption="The DocsLit dashboard">
+<wc-frame caption="The DocsLit dashboard" hint="Click to enlarge" border background="subtle">
 
 ![Dashboard screenshot](https://placehold.co/600x300)
 
 </wc-frame>
 ```
 
-<wc-frame caption="The DocsLit dashboard">
+<wc-frame caption="The DocsLit dashboard" hint="Click to enlarge" border background="subtle">
 
 ![Dashboard screenshot](https://placehold.co/600x300)
 
@@ -157,29 +162,55 @@ Frames wrap images or media with an optional caption:
 
 <wc-fields header="wc-frame">
 <wc-field name="caption" type="string">
-A caption displayed below the content.
+A caption displayed below the content. Inline Markdown works.
+</wc-field>
+<wc-field name="hint" type="string">
+Text shown above the frame.
+</wc-field>
+<wc-field name="border" type="boolean">
+Draw a border around the framed content.
+</wc-field>
+<wc-field name="background" type="string" default="default">
+The frame background: `default` or `subtle`.
+</wc-field>
+<wc-field name="theme" type="string">
+Pin the frame to `dark` or `light`.
 </wc-field>
 </wc-fields>
 
+Images inside a frame keep their click-to-zoom behavior. See [Images](../writing-content/markdown-basics#images) for dark-mode variants and how to turn zoom off.
+
 ## Aside
 
-Float supplementary content to the side of your main text:
+Float supplementary content to the side of your main text. Add `sticky` to keep it in view while the reader scrolls:
 
 ```markdown
-<wc-aside>
+<wc-aside title="Related" sticky>
 
-**Related:** See [theming](../customization/theming) for customization options.
+See [theming](../customization/theming) for customization options.
 
 </wc-aside>
 ```
 
-<wc-aside>
+<wc-fields header="wc-aside">
+<wc-field name="title" type="string">
+A heading for the aside.
+</wc-field>
+<wc-field name="sticky" type="boolean">
+Pin the aside below the header while the page scrolls.
+</wc-field>
+<wc-field name="theme" type="string">
+Pin the aside to `dark` or `light`.
+</wc-field>
+</wc-fields>
 
-**Related:** See [theming](../customization/theming) for customization options.
+<wc-aside title="Related" sticky>
+
+See [theming](../customization/theming) for customization options.
 
 </wc-aside>
 
-The aside floats to the right on wide screens and collapses to full width on mobile.
+The aside floats to the right on wide screens and sits inline on small screens. Put it near the top of the section it belongs to, because it floats next to the text that follows it.
 
 ## Indent
 

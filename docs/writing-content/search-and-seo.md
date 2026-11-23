@@ -23,7 +23,13 @@ Add a `description` field to your frontmatter. It improves search relevance and 
 
 ### HTML pages
 
-Static builds generate individual HTML pages at `docs/{slug}.html` for every page in your sidebar. These pages contain the fully rendered content, making them crawlable by search engines.
+Static builds generate an HTML page at `{slug}.html` for every page in your sidebar. These pages contain the fully rendered content, making them crawlable by search engines.
+
+Every link the build generates resolves from any page depth. Sidebar items, previous and next buttons, tab links, OpenAPI sidebar items and the Docs and API Reference mode links use absolute paths that include `basePath`, the locale and the version, such as `/docs/fr/1.0/get-started/sign-in`.
+
+### Site root
+
+The site root `index.html` does not copy the first page. It redirects to the first page and carries a canonical link to it, so search engines never see two URLs with the same content. Each version root (`/<version>/`) and locale root (`/<locale>/`) works the same way.
 
 ### Sitemap
 
@@ -37,15 +43,17 @@ When you set the `url` field in `docslit.json`, the build generates a `sitemap.x
 }
 ```
 
+Every URL in the sitemap is the canonical URL of a page, including `basePath` and the version. Root URLs such as `/` and `/<version>/` are redirects, so the sitemap leaves them out.
+
 Submit this sitemap to Google Search Console and other search engines to improve indexing.
 
 ### Robots.txt
 
-The build generates a `robots.txt` file that allows all major search engines and AI crawlers by default.
+The build generates a `robots.txt` file that allows all major search engines and AI crawlers by default. Its `Sitemap:` lines point at `sitemap.xml`, one for each version on a versioned site, with `basePath` applied. `llms.txt` stays at its well-known path and is not listed as a sitemap.
 
 ## AI agent discovery
 
-DocsLit generates several files to make your documentation accessible to AI agents:
+DocsLit generates several files to make your documentation accessible to AI agents. This page is a summary. [How agents read your site](../ai-and-agents/reading-agents) has the details, and [MCP server](../ai-and-agents/mcp-server) covers connecting a client.
 
 <wc-fields header="AI discovery files">
 <wc-field name="llms.txt" type="file">
@@ -68,7 +76,7 @@ These files are generated automatically from your page content and frontmatter d
 
 For versioned sites (using the `versions` block in `docslit.json`), the build generates a root `/llms.txt` that acts as a version index:
 
-```
+```markdown
 # My Docs
 > Version-specific documentation indexes are listed below.
 
@@ -112,9 +120,9 @@ The generated `mcp-server.js` is a self-contained Node script that implements th
 | `get_page` | Get the full Markdown content of a page by slug |
 | `search_docs` | Search documentation by keyword with excerpts |
 
-After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`.
+After building your site with `docslit build`, the MCP server is ready to use at `dist/mcp-server.js`. For a site with `versions` the tools take an optional `version` argument and default to the default version. You can also use [reader mode](../ai-and-agents/mcp-server#reader-mode) against the published URL.
 
-<wc-tabs>
+<wc-tabs sync="mcp-client">
 <wc-tab label="Claude Code">
 
 Add it to your project's `.claude/settings.json`:
@@ -167,7 +175,7 @@ Add it to your project's `.cursor/mcp.json`:
 ```
 
 </wc-tab>
-<wc-tab label="Other MCP clients">
+<wc-tab label="Other clients">
 
 Any MCP client that supports stdio transport can use the server. Point it at `node dist/mcp-server.js` as the command.
 
@@ -175,12 +183,14 @@ Any MCP client that supports stdio transport can use the server. Point it at `no
 </wc-tabs>
 
 <wc-callout type="tip" title="Keep it in your repo">
-Commit `dist/mcp-server.js` to your repository so that contributors and AI tools can use it without needing to rebuild. The server reads from the sibling `.md` and `search-index.json` files in the same directory.
+Commit `dist/mcp-server.js` to your repository so that contributors and AI tools can use it without needing to rebuild. The server reads the `.md` and `search-index.json` files from the same output folder (from the version folders on a versioned site).
 </wc-callout>
 
 ### Content negotiation
 
 AI agents can request any page URL with an `Accept: text/markdown` header to receive raw Markdown instead of HTML. This works automatically in the dev server and in static builds deployed to platforms that support edge middleware.
+
+The middleware reads quality values in the `Accept` header. A request gets Markdown when it ranks `text/markdown` at least as high as `text/html`, so `text/markdown, text/html;q=0.9` gets Markdown. Browsers never ask for `text/markdown`, so they keep getting HTML.
 
 ```bash
 # Returns raw Markdown instead of the HTML page
@@ -192,18 +202,21 @@ For static builds, DocsLit generates platform-specific files to handle this nego
 <wc-tabs>
 <wc-tab label="Cloudflare Pages">
 
-DocsLit generates `functions/_middleware.js` at your project root on each build. Cloudflare Pages picks this up automatically when you deploy — no additional configuration is needed. The build also writes `_headers` into `dist/` so `.md` files are served with `Content-Type: text/markdown`.
+`docslit build` writes the middleware to `dist/functions/_middleware.js` and never touches your source tree. Cloudflare Pages reads Functions from `functions/` at your project root, so run `docslit deploy --cloudflare` once (after a build) to install it there; later builds keep that copy up to date. The build also writes `_headers` into `dist/` so `.md` files are served with `Content-Type: text/markdown`.
 
 </wc-tab>
 <wc-tab label="Vercel">
 
-DocsLit generates a `vercel.json` with header-based rewrites. Copy it to your project root before deploying:
+Run `docslit deploy --vercel` once in your project root and commit the two files it writes:
 
 ```bash
-cp dist/vercel.json vercel.json
+docslit deploy --vercel
 ```
 
-Or if you already have a `vercel.json`, merge the `rewrites` array into it.
+- `middleware.js` returns a page's Markdown when the `Accept` header prefers `text/markdown`. Vercel runs it before serving static files.
+- `vercel.json` sets the build command, the output directory, clean URLs and the `.md` content type. If you already have a `vercel.json`, the command keeps it. Make sure yours sets `"cleanUrls": true`.
+
+Vercel reads both files only from the project root, so deploy the project, not the `dist/` folder on its own. A `vercel.json` rewrite cannot do this negotiation, because Vercel applies rewrites only after a static file fails to match.
 
 </wc-tab>
 <wc-tab label="Netlify">

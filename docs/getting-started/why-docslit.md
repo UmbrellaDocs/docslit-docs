@@ -5,6 +5,8 @@ tag: Overview
 readtime: 5 min read
 ---
 
+<!-- docslit-lint-disable raw-html-block -->
+
 # Why DocsLit
 
 Most documentation tools are built on React. That means your docs site ships a JavaScript framework, hydrates static content the browser already rendered, and asks you to learn JSX just to add a callout. DocsLit takes a different approach: standard Markdown, native web components, and zero framework runtime.
@@ -15,22 +17,20 @@ Most documentation tools are built on React. That means your docs site ships a J
 <wc-tile icon-name="package" title="16 KB total" description="Lit runtime + all 54 components, gzipped. No React, no router, no hydration layer."></wc-tile>
 <wc-tile icon-name="zap" title="0 s build" description="No webpack, no Vite, no bundler. Plain HTML served from the edge."></wc-tile>
 <wc-tile icon-name="blocks" title="54 components" description="Callouts, tabs, code blocks, API explorer, file trees, and more — all built in."></wc-tile>
-<wc-tile icon-name="right-left" title="11 migration paths" description="One command converts Mintlify, Docusaurus, Nextra, GitBook, MkDocs, and more."></wc-tile>
+<wc-tile icon="right-left" title="One-command migration" description="Move from Mintlify, Fern or GitBook with one command and a report of what needs a human."></wc-tile>
 </wc-tiles>
 
 ## Client-side JavaScript
 
 This is the JavaScript your readers download on every page load. Less JS means faster Time to Interactive, better Lighthouse scores, and lower mobile data costs.
 
-<wc-table>
-[
-  { "Framework": "DocsLit", "Client JS (gzipped)": "16 KB", "React required": "No", "Hydration": "None" },
-  { "Framework": "Nextra 4", "Client JS (gzipped)": "106 KB", "React required": "Yes (React 19)", "Hydration": "Full page" },
-  { "Framework": "Fumadocs", "Client JS (gzipped)": "161 KB", "React required": "Yes (React 19)", "Hydration": "Partial (RSC)" },
-  { "Framework": "Docusaurus 3", "Client JS (gzipped)": "250–400 KB", "React required": "Yes (React 18)", "Hydration": "Full page" },
-  { "Framework": "Mintlify", "Client JS (gzipped)": "~100+ KB", "React required": "Yes (Next.js)", "Hydration": "Full page" }
-]
-</wc-table>
+| Framework | Client JS (gzipped) | React required | Hydration |
+|---|---|---|---|
+| DocsLit | 16 KB | No | None |
+| Nextra 4 | 106 KB | Yes (React 19) | Full page |
+| Fumadocs | 161 KB | Yes (React 19) | Partial (RSC) |
+| Docusaurus 3 | 250–400 KB | Yes (React 18) | Full page |
+| Mintlify | ~100+ KB | Yes (Next.js) | Full page |
 
 <wc-callout type="info" title="Where does 16 KB come from?">
 DocsLit ships Lit (the web component library) plus all 54 built-in components as a single ES module. There is no virtual DOM, no router library, no framework runtime. The browser loads 16,036 bytes gzipped from a CDN, and every component works immediately.
@@ -87,18 +87,31 @@ The build produces individual `.html` files, one CSS file, one JS file, and a se
 </div>
 </wc-columns>
 
+## Built for AI agents
+
+Docs are now written and read by AI tools as often as by people. Many docs frameworks treat that as an add-on. DocsLit treats it as a design goal, so its agent features are part of the CLI and work offline:
+
+| Capability | What DocsLit provides |
+|---|---|
+| Learn the component set | `docslit components --json` and `docslit schema` print attributes, allowed values, nesting and examples from the same manifest the validators use |
+| Write pages | `docslit new --json`, or the `create_page` tool in the MCP server |
+| Check the result | `docslit validate --format json` and `docslit lint --format json` return stable issue codes with a line number and a suggested fix |
+| Check markup before writing | The `check_markup` MCP tool flags unknown tags, bad attribute values and wrong nesting |
+| Set up any AI tool | `docslit agents init` writes `AGENTS.md`, Claude Code skills, Cursor, Copilot, Windsurf and Gemini files, and MCP config |
+| Read published docs | `llms.txt`, `.md` URLs, `Accept: text/markdown`, `agent.json` and an MCP server, hosted for you on DocsLit Cloud |
+
+The whole toolchain is open source. DocsLit does not call a language model and does not send your content anywhere. Start with [Built for AI agents](../ai-and-agents/overview).
+
 ## What you don't need
 
-<wc-table>
-[
-  { "Concept": "JSX / MDX", "React tools": "Required for any component", "DocsLit": "Standard Markdown + HTML tags" },
-  { "Concept": "Import statements", "React tools": "Every page needs component imports", "DocsLit": "None — components are globally available" },
-  { "Concept": "Webpack / Vite config", "React tools": "Often customized for plugins", "DocsLit": "No bundler at all" },
-  { "Concept": "node_modules (300–500 MB)", "React tools": "React, webpack, Babel, MDX, etc.", "DocsLit": "20 production dependencies" },
-  { "Concept": "React knowledge", "React tools": "Needed for custom components", "DocsLit": "Standard web components (Lit or vanilla)" },
-  { "Concept": "Hydration debugging", "React tools": "Common source of SSR/client mismatches", "DocsLit": "No hydration to debug" }
-]
-</wc-table>
+| Concept | React tools | DocsLit |
+|---|---|---|
+| JSX / MDX | Required for any component | Standard Markdown + HTML tags |
+| Import statements | Every page needs component imports | None — components are globally available |
+| Webpack / Vite config | Often customized for plugins | No bundler at all |
+| node_modules (300–500 MB) | React, webpack, Babel, MDX, etc. | 20 production dependencies |
+| React knowledge | Needed for custom components | Standard web components (Lit or vanilla) |
+| Hydration debugging | Common source of SSR/client mismatches | No hydration to debug |
 
 ## What you get for free
 
@@ -107,7 +120,7 @@ Features that require plugins, configuration, or paid tiers on other platforms a
 <wc-accordion-group>
 <wc-accordion title="AI agent discovery">
 
-Every static build generates `llms.txt`, `llms-full.txt`, and a working MCP server (`mcp-server.js`) that AI agents can use to search, list, and read your documentation. No plugin, no configuration, no third-party service.
+Every static build generates `llms.txt`, `llms-full.txt`, a `.md` file for every page, `.well-known/agent.json` and a standalone MCP server (`mcp-server.js`). No plugin, no configuration, no third-party service. See [How agents read your site](../ai-and-agents/reading-agents).
 
 </wc-accordion>
 <wc-accordion title="Full-text search">
@@ -125,9 +138,9 @@ Request any page with `Accept: text/markdown` and get raw Markdown back. APIs an
 Run `docslit build --offline` to produce a self-contained site with lazy-loaded pages. Works without a server, from a `file://` URL, or on an air-gapped network. No external requests, no inline event handlers — hardened for secure environments.
 
 </wc-accordion>
-<wc-accordion title="11-format migration">
+<wc-accordion title="One-command migration">
 
-`docslit import` auto-detects and converts projects from Mintlify, Docusaurus, Nextra, GitBook, MkDocs, Sphinx, ReadMe, VuePress, VitePress, Starlight, and Fern. One command, no manual rewriting.
+`docslit import` auto-detects and converts Mintlify, Fern and GitBook projects: pages, components, code blocks, navigation, branding and redirects, with a `MIGRATION.md` report for everything that needs a human. Other Markdown or MDX folders import with an automatic sidebar. See [Migrate from Mintlify](../migration/from-mintlify).
 
 </wc-accordion>
 </wc-accordion-group>

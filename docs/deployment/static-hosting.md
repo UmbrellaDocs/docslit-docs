@@ -29,6 +29,7 @@ Generate host-specific config files from the CLI:
 docslit deploy --github-pages
 docslit deploy --netlify
 docslit deploy --cloudflare
+docslit deploy --vercel
 ```
 
 For GitHub project sites (`https://user.github.io/repo/`), set `"basePath": "/repo"` in `docslit.json` so asset and navigation URLs stay correct.
@@ -46,18 +47,27 @@ npm install -g vercel
 ```
 
 </wc-step>
-<wc-step title="Deploy">
+<wc-step title="Write the Vercel files">
 
 ```bash
-docslit build
-cd dist
+docslit deploy --vercel
+```
+
+This writes `vercel.json`, which sets the build command, the `dist` output directory and clean URLs, and `middleware.js`, which serves Markdown to AI agents that send `Accept: text/markdown`. Commit both files.
+
+</wc-step>
+<wc-step title="Deploy">
+
+Run this from your project root, not from `dist/`:
+
+```bash
 vercel --prod
 ```
 
 </wc-step>
 </wc-steps>
 
-Alternatively, connect your git repository to Vercel and set the build command to `docslit build` with the output directory set to `dist`.
+Alternatively, connect your git repository to Vercel. It picks up the build command and output directory from `vercel.json`. If you deploy only the `dist/` folder, the site works but Markdown negotiation does not, because Vercel reads `middleware.js` from the project root.
 
 </wc-tab>
 <wc-tab label="Netlify">
@@ -151,16 +161,16 @@ Every build produces these files:
 
 | File | Purpose |
 |---|---|
-| `index.html` | App shell with navigation and components |
-| `docs/*.html` | Pre-rendered pages for SEO |
-| `docs/*.md` | Raw Markdown for programmatic access |
+| `index.html` | Redirect to the first page, with a canonical link to it |
+| `{slug}.html` | Pre-rendered pages for SEO |
+| `{slug}.md` | Raw Markdown for programmatic access |
 | `search-index.json` | Client-side full-text search |
 | `sitemap.xml` | Search engine sitemap |
 | `robots.txt` | Crawler directives |
 | `llms.txt` | AI agent discovery index |
 | `llms-full.txt` | Complete docs as plain text |
 | `_middleware.js` | Content negotiation for AI agents (Cloudflare/Netlify) |
-| `vercel.json` | Content negotiation for AI agents (Vercel) |
+| `vercel.json` | Clean URLs, redirects and the `.md` content type (Vercel) |
 | `.well-known/agent.json` | Machine-readable agent discovery |
 | `mcp-server.js` | MCP server for AI tool integration |
 | `pdf/` | Chapter, page, and full documentation PDFs (when built with `--pdf`) |

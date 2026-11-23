@@ -1,6 +1,6 @@
 ---
 title: Data display
-description: Render tables, key-value lists, color swatches, and Mermaid diagrams from structured data in your docs.
+description: Render sortable-style tables with sticky headers and search, color palettes, Mermaid diagrams and version-specific content from structured data.
 tag: Components
 readtime: 5 min read
 ---
@@ -14,33 +14,77 @@ Components for displaying structured data — tables, diagrams, colors, and vers
 DocsLit supports three table styles:
 
 - **Markdown (GFM)** — small, simple tables in plain Markdown
-- **`wc-table`** — JSON-driven tables with sticky headers
+- **`wc-table`** — a table from JSON in two attributes, with sticky headers
 - **`wc-asciidoc-table`** — AsciiDoc syntax for spans, column specs, multi-line cells, and CSV/DSV — see [AsciiDoc tables](asciidoc-tables)
 
-Create tables from JSON data with `wc-table`:
+`wc-table` reads its data from two attributes, `headers` and `rows`. Both are JSON. Wrap the attribute values in single quotes so the double quotes inside the JSON stay intact. The element has no body.
 
 ```markdown
-<wc-table>
-[
-  { "Command": "init", "Description": "Scaffold a new project", "Default": "my-docs" },
-  { "Command": "dev", "Description": "Start dev server", "Default": "port 3000" },
-  { "Command": "build", "Description": "Generate static site", "Default": "dist/" },
-  { "Command": "validate", "Description": "Check project health", "Default": "-" }
-]
+<wc-table headers='["Command","Description","Default"]' rows='[["init","Scaffold a new project","my-docs"],["dev","Start dev server","port 3000"],["build","Generate static site","dist/"],["validate","Check project health","-"]]'></wc-table>
+```
+
+<wc-table headers='["Command","Description","Default"]' rows='[["init","Scaffold a new project","my-docs"],["dev","Start dev server","port 3000"],["build","Generate static site","dist/"],["validate","Check project health","-"]]'></wc-table>
+
+<wc-fields header="wc-table">
+<wc-field name="headers" type="string">
+A JSON array of header strings, such as `["Name","Type"]`.
+</wc-field>
+<wc-field name="rows" type="string">
+A JSON array of rows, each an array of cell values, such as `[["a","b"]]`.
+</wc-field>
+</wc-fields>
+
+### Sticky header and search
+
+Wrap an ordinary Markdown table in `wc-table` to add a sticky header, a live search box, or both. Leave a blank line between the tags and the table. Type in the box to filter rows:
+
+```markdown
+<wc-table sticky searchable placeholder="Filter plants" max-height="14rem">
+
+| Plant | Light | Water |
+| --- | --- | --- |
+| Fern | Partial shade | Weekly |
+| Monstera | Bright indirect | Weekly |
+| Snake plant | Low to bright | Every 2 weeks |
+| Pothos | Low to bright | Weekly |
+| Peace lily | Partial shade | Weekly |
+| Aloe | Bright direct | Every 3 weeks |
+| Rubber plant | Bright indirect | Every 2 weeks |
+
 </wc-table>
 ```
 
-<wc-table>
-[
-  { "Command": "init", "Description": "Scaffold a new project", "Default": "my-docs" },
-  { "Command": "dev", "Description": "Start dev server", "Default": "port 3000" },
-  { "Command": "build", "Description": "Generate static site", "Default": "dist/" },
-  { "Command": "validate", "Description": "Check project health", "Default": "-" }
-]
+<wc-table sticky searchable placeholder="Filter plants" max-height="14rem">
+
+| Plant | Light | Water |
+| --- | --- | --- |
+| Fern | Partial shade | Weekly |
+| Monstera | Bright indirect | Weekly |
+| Snake plant | Low to bright | Every 2 weeks |
+| Pothos | Low to bright | Weekly |
+| Peace lily | Partial shade | Weekly |
+| Aloe | Bright direct | Every 3 weeks |
+| Rubber plant | Bright indirect | Every 2 weeks |
+
 </wc-table>
 
+<wc-fields header="More wc-table attributes">
+<wc-field name="sticky" type="boolean">
+Keep the header row visible while the table body scrolls. The scroll area height is `max-height`.
+</wc-field>
+<wc-field name="searchable" type="boolean">
+Show a search box that filters rows as you type, as a case-insensitive substring match.
+</wc-field>
+<wc-field name="placeholder" type="string" default="Filter rows…">
+The placeholder and accessible label of the search box.
+</wc-field>
+<wc-field name="max-height" type="string">
+The maximum height of the scroll area, as any CSS length. With `sticky` the default is `70vh`.
+</wc-field>
+</wc-fields>
+
 <wc-callout type="tip" title="When to use which table">
-Use Markdown tables for small grids. Use `wc-table` for structured JSON data. Use [`wc-asciidoc-table`](asciidoc-tables) when you need AsciiDoc features such as cell spans, column widths, or CSV input.
+Use Markdown tables for most tables, because they are easier to write and to read in source. Use `wc-table` when the data is already JSON. Use [`wc-asciidoc-table`](asciidoc-tables) when you need AsciiDoc features such as cell spans, column widths, or CSV input.
 </wc-callout>
 
 ## Mermaid diagrams
@@ -69,30 +113,97 @@ Mermaid diagrams support flowcharts, sequence diagrams, class diagrams, and more
 
 ## Colors
 
-Display color swatches with `wc-color`:
+Show swatches with `wc-color`, grouped in a `wc-colors` container. Click a swatch, or focus it and press Enter, to copy its value.
 
 ```markdown
-<wc-color hex="#3b82f6" variable="--color-primary"></wc-color>
-<wc-color hex="#10b981" variable="--color-success"></wc-color>
-<wc-color hex="#f59e0b" variable="--color-warning"></wc-color>
-<wc-color hex="#ef4444" variable="--color-danger"></wc-color>
+<wc-colors>
+<wc-color value="#3b82f6" name="Primary" variable="--color-primary"></wc-color>
+<wc-color value="#10b981" name="Success" variable="--color-success"></wc-color>
+<wc-color light="#ffffff" dark="#0b0b0b" name="Surface"></wc-color>
+</wc-colors>
 ```
 
-<wc-color hex="#3b82f6" variable="--color-primary"></wc-color>
-<wc-color hex="#10b981" variable="--color-success"></wc-color>
-<wc-color hex="#f59e0b" variable="--color-warning"></wc-color>
-<wc-color hex="#ef4444" variable="--color-danger"></wc-color>
-
-Click a swatch to copy the hex value. Use this component for design system documentation and style guides.
+<wc-colors>
+<wc-color value="#3b82f6" name="Primary" variable="--color-primary"></wc-color>
+<wc-color value="#10b981" name="Success" variable="--color-success"></wc-color>
+<wc-color light="#ffffff" dark="#0b0b0b" name="Surface"></wc-color>
+</wc-colors>
 
 <wc-fields header="wc-color">
-<wc-field name="hex" type="string" required>
-The color in hex format (e.g., `#3b82f6`).
+<wc-field name="value" type="string">
+The color in any CSS format: hex, `rgb()`, `hsl()`, `oklch()` and so on. `hex` is an older alias.
+</wc-field>
+<wc-field name="light" type="string">
+The color shown, and copied, in light mode.
+</wc-field>
+<wc-field name="dark" type="string">
+The color shown, and copied, in dark mode.
+</wc-field>
+<wc-field name="name" type="string">
+The display name shown next to the swatch.
 </wc-field>
 <wc-field name="variable" type="string">
-The CSS custom property name for this color.
+A CSS custom property name for the color. It is copied instead of the value.
 </wc-field>
 </wc-fields>
+
+### Layouts
+
+`wc-colors` has two layouts. The default `compact` variant is a grid:
+
+```markdown
+<wc-colors>
+<wc-color name="primary" value="#16a34a"></wc-color>
+<wc-color name="surface" light="#ffffff" dark="#0b0b0b"></wc-color>
+<wc-color name="accent" value="oklch(0.7 0.15 250)"></wc-color>
+</wc-colors>
+```
+
+<wc-colors>
+<wc-color name="primary" value="#16a34a"></wc-color>
+<wc-color name="surface" light="#ffffff" dark="#0b0b0b"></wc-color>
+<wc-color name="accent" value="oklch(0.7 0.15 250)"></wc-color>
+</wc-colors>
+
+The `table` variant adds a titled row per group, which suits design-system pages with scales:
+
+```markdown
+<wc-colors variant="table">
+<wc-color-row title="Brand">
+<wc-color name="brand-500" value="#0ea5e9"></wc-color>
+<wc-color name="brand-700" value="#0369a1"></wc-color>
+</wc-color-row>
+<wc-color-row title="Neutral">
+<wc-color name="gray-100" value="#f3f4f6"></wc-color>
+<wc-color name="gray-900" value="#111827"></wc-color>
+</wc-color-row>
+</wc-colors>
+```
+
+<wc-colors variant="table">
+<wc-color-row title="Brand">
+<wc-color name="brand-500" value="#0ea5e9"></wc-color>
+<wc-color name="brand-700" value="#0369a1"></wc-color>
+</wc-color-row>
+<wc-color-row title="Neutral">
+<wc-color name="gray-100" value="#f3f4f6"></wc-color>
+<wc-color name="gray-900" value="#111827"></wc-color>
+</wc-color-row>
+</wc-colors>
+
+<wc-fields header="wc-colors">
+<wc-field name="variant" type="string" default="compact">
+The layout: `compact` for a swatch grid, or `table` for titled rows made of `wc-color-row`.
+</wc-field>
+</wc-fields>
+
+<wc-fields header="wc-color-row">
+<wc-field name="title" type="string">
+The label of the row. Inline Markdown works.
+</wc-field>
+</wc-fields>
+
+The [palette reference](../customization/palettes-and-brand#palettes) is built with these components.
 
 ## Version-specific content
 
@@ -100,12 +211,12 @@ Show different content based on the selected version with `wc-versions` and `wc-
 
 ```markdown
 <wc-versions>
-<wc-version version="0.2">
+<wc-version name="0.2">
 
 The `build` command now generates `llms.txt` and `llms-full.txt` automatically.
 
 </wc-version>
-<wc-version version="0.1">
+<wc-version name="0.1">
 
 Run `docslit build` to generate your static site.
 
@@ -114,17 +225,29 @@ Run `docslit build` to generate your static site.
 ```
 
 <wc-versions>
-<wc-version version="0.2">
+<wc-version name="0.2">
 
 The `build` command now generates `llms.txt` and `llms-full.txt` automatically.
 
 </wc-version>
-<wc-version version="0.1">
+<wc-version name="0.1">
 
 Run `docslit build` to generate your static site.
 
 </wc-version>
 </wc-versions>
+
+<wc-fields header="wc-version">
+<wc-field name="name" type="string" required>
+The label on the switcher button, such as `0.2`. The attribute is `name`, not `version`.
+</wc-field>
+</wc-fields>
+
+<wc-fields header="wc-versions">
+<wc-field name="default" type="string">
+The `name` of the version shown first. Defaults to the first child.
+</wc-field>
+</wc-fields>
 
 ## Visibility badges
 

@@ -411,15 +411,9 @@ See [OpenAPI integration](../integrations/openapi).
 
 ## Cloud commands
 
-These commands talk to DocsLit Cloud. They need a login or a `DOCSLIT_TOKEN`.
+These commands talk to DocsLit Cloud. They read your API token from the `DOCSLIT_TOKEN` environment variable. DocsLit Cloud is in early access: [request access](https://docslit.com/pricing/#request) to get a token.
 
 <wc-fields header="Cloud commands">
-<wc-field name="login" type="command">
-Authenticate with your email and password. Options: `--email`, `--token <token>`, `--label` and `--api-url`.
-</wc-field>
-<wc-field name="logout" type="command">
-Remove stored credentials and revoke the token.
-</wc-field>
 <wc-field name="publish" type="command">
 Build if needed and publish. Options: `--project <slug>`, `--out <dir>` and `--build`.
 </wc-field>

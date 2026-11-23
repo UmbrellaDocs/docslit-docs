@@ -21,7 +21,11 @@ All notable changes to DocsLit, organized by release.
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">
-**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern or GitBook page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
+**Switch from MkDocs, Material for MkDocs or Zensical in one command:** `docslit import` reads `mkdocs.yml` or `zensical.toml` and maps the navigation, site settings, branding, palette and fonts, analytics and redirects. Pages convert to plain Markdown: admonitions, collapsibles, content tabs, snippets, code block options, Mermaid, icons and math. `MIGRATION.md` lists every mkdocstrings block, Jinja expression, theme override, plugin and mike version that was not carried over. See [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="added">
+**Agent-driven migration:** the MCP tool `convert_mdx` converts one Mintlify, Fern, GitBook or MkDocs page without writing anything and returns the issues to fix. `get_project_info` now reports the theme and the available themes and palettes. See [Migrate with your AI agent](../migration/migrate-with-ai).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">

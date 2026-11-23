@@ -148,7 +148,7 @@ An agent should call `get_project_info` first. It returns the site name, the sid
 | `update_page` | `page`, then `content`, or `old_string` with `new_string`, or `frontmatter` | Edit an existing page. A targeted edit must match exactly once |
 | `validate` | `page`, `strict` (both optional) | Run the validator and, when available, the linter. Returns issues with code, line and fix |
 | `check_markup` | `markdown` | Check a snippet without writing it: unknown tags and attributes, invalid values, nesting, unclosed tags |
-| `convert_mdx` | `source`, `from` (optional: `mintlify`, `fern` or `gitbook`) | Convert one Mintlify, Fern or GitBook page or snippet into DocsLit Markdown without writing anything. Returns the Markdown, the `issues` that need a human and the components converted. See [Migrate with your AI agent](../migration/migrate-with-ai) |
+| `convert_mdx` | `source`, `from` (optional: `mintlify`, `fern`, `gitbook` or `mkdocs`) | Convert one Mintlify, Fern, GitBook or MkDocs page or snippet into DocsLit Markdown without writing anything. Returns the Markdown, the `issues` that need a human and the components converted. See [Migrate with your AI agent](../migration/migrate-with-ai) |
 | `preview_page` | `page`, `html` (optional) | Render through the real pipeline and return the heading outline, components used and word count |
 
 Five behaviors are worth knowing:

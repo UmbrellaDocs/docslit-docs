@@ -14,7 +14,7 @@ readtime: 7 min read
 | Authoring | `docslit mcp` | Tools, resources and prompts to write, check and edit pages in a DocsLit project |
 | Reader | `docslit mcp <url>` | Read-only access to a published DocsLit site: overview, page list, search and page Markdown |
 
-The server needs Node.js 20.19 or later. In authoring mode it only reads and writes files in your project. It writes only JSON-RPC to stdout and sends its own log lines to stderr, so it is safe to wrap in any MCP client.
+The server needs Node.js 22.22 or later. In authoring mode it only reads and writes files in your project. It writes only JSON-RPC to stdout and sends its own log lines to stderr, so it is safe to wrap in any MCP client.
 
 ## Connect your client
 

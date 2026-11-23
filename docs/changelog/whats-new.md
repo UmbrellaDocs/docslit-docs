@@ -10,6 +10,16 @@ readtime: 3 min read
 
 All notable changes to DocsLit, organized by release.
 
+## 0.2.1
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Faster, leaner builds:** `--incremental` (or `"build": { "cache": true }`) reuses unchanged pages and assets. `--no-search-index`, `--no-llms-txt`, `--no-mcp` and `--no-sitemap` skip individual generators, `--profile` prints per-phase timings and `docslit cache clean` clears the build cache. OG images render in a worker pool, are cached and are about 5x smaller. Very large sites no longer run out of memory, and `docslit validate` is about 4x faster on large sites. See [Commands](../cli-reference/commands#faster-builds).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Open Graph images are opt-in:** `docslit build` no longer generates an image per page unless you pass `--og-images` or set `"ogImage": true` or `"build": { "ogImages": true }`. Pages keep their `og:title` and `og:description` tags either way, and `--no-og-images` turns them off for one build. Node.js 22.22.0 or later is now required.
+</wc-update>
+
 ## 0.2.0
 
 <wc-update version="0.2.0" date="November 2026" type="added">

@@ -36,7 +36,7 @@ Every key below is in the frontmatter JSON Schema, which `docslit validate` uses
 The page title. Displayed in the browser tab and used by the heading, search indexing, `llms.txt` and the sidebar. Every page should have a title.
 </wc-field>
 <wc-field name="description" type="string">
-A short summary of the page. Used for SEO meta tags, search, `llms.txt` and the generated Open Graph image. Aim for 30 to 200 characters.
+A short summary of the page. Used for SEO meta tags, search, `llms.txt` and the Open Graph description. Aim for 30 to 200 characters.
 </wc-field>
 <wc-field name="desc" type="string">
 An alias of `description`.
@@ -136,7 +136,7 @@ Hide the **Copy page** menu.
 Replace the site's [contextual menu](../customization/contextual-menu) for this page with your own list of options. Use `false` to remove the menu.
 </wc-field>
 <wc-field name="ogImage" type="boolean">
-Set to `false` to skip the generated Open Graph image for this page.
+Set to `false` to skip the generated Open Graph image for this page. Images are generated only when enabled for the site (`docslit build --og-images`, `"ogImage": true` or `"build": { "ogImages": true }`), so this field only matters when they are on.
 </wc-field>
 </wc-fields>
 

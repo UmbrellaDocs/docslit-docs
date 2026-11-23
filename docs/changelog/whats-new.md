@@ -13,6 +13,10 @@ All notable changes to DocsLit, organized by release.
 ## 0.2.1
 
 <wc-update version="0.2.1" date="November 2026" type="added">
+**Python API reference:** document a Python package with mkdocstrings-style `:::` directives and no Python at build time. `docslit api python mypkg --pages` runs Griffe once to write `api/python/mypkg.json` (commit it), adds a `python` setting to `docslit.json` and scaffolds one page per public module. Pages get headings, signatures, parameter tables, examples and callouts. `[text][pkg.Obj]` cross-references resolve across pages, the build writes an `objects.inv` for intersphinx, and `docslit validate` reports missing data, missing objects and unresolved references. `docslit import` keeps mkdocstrings directives and writes the `python` setting. See [Python API reference](../integrations/python-api) and [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="added">
 **Code annotations:** add the `annotate` flag to a fence (```` ```python annotate ````) and end a comment with `(1)`, `(2)`, and so on (`(1)!` hides the comment characters). The ordered list right after the block holds the notes. Each marker becomes a numbered badge that opens its note in a popover, and without JavaScript the list stays visible under the code. Missing lists, markers or items are reported as build warnings. `docslit import` converts Material for MkDocs code annotations to this syntax. See [Code blocks](../components/code-blocks#code-annotations).
 </wc-update>
 
@@ -39,7 +43,7 @@ All notable changes to DocsLit, organized by release.
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">
-**Switch from MkDocs, Material for MkDocs or Zensical in one command:** `docslit import` reads `mkdocs.yml` or `zensical.toml` and maps the navigation, site settings, branding, palette and fonts, analytics and redirects. Pages convert to plain Markdown: admonitions, collapsibles, content tabs, snippets, code block options, Mermaid, icons and math. `MIGRATION.md` lists every mkdocstrings block, Jinja expression, theme override, plugin and mike version that was not carried over. See [Migrate from MkDocs](../migration/from-mkdocs).
+**Switch from MkDocs, Material for MkDocs or Zensical in one command:** `docslit import` reads `mkdocs.yml` or `zensical.toml` and maps the navigation, site settings, branding, palette and fonts, analytics and redirects. Pages convert to plain Markdown: admonitions, collapsibles, content tabs, snippets, code block options, Mermaid, icons and math. `MIGRATION.md` lists every Jinja expression, theme override, plugin and mike version that was not carried over. See [Migrate from MkDocs](../migration/from-mkdocs).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="added">

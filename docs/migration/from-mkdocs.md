@@ -130,13 +130,16 @@ The importer converts it to a `wc-callout` and a `wc-tabs` group. Pages stay pla
 - **Blog posts** from the blog plugin are imported as pages under `blog/` with their `date` (and `date.updated`) and a `post` layout. The blog index lists them newest first with author names (from `.authors.yml`) and excerpts, and DocsLit generates category and archive pages and an RSS feed. The old dated Material URLs redirect to the new pages. Pagination, pinned posts and related-post links are not supported.
 - **Pages outside `nav`** are still built. They go into a hidden sidebar group, so they can be linked but are left out of search and the sitemap. Move them into a visible group if readers should find them.
 
+### mkdocstrings API pages
+
+`::: package.module.Class` blocks are not converted to anything else. They stay in the page, and the `options:` block under each one is normalised: old `selection:` and `rendering:` blocks are merged, and keys DocsLit does not support are dropped and reported once in `MIGRATION.md`. The package names, `docstring_style` and global handler `options` from `mkdocs.yml` are written to the `python` setting of `docslit.json`. `MIGRATION.md` gets one warning with the exact `docslit api python <package>` command to run. DocsLit then renders the reference from a committed Griffe JSON file, with no Python at build time. See [Python API reference](../integrations/python-api).
+
 ## What is not carried over
 
 Nothing is dropped silently. Each item below is listed in `MIGRATION.md` with its location.
 
 | Source | What happens | What to do |
 |---|---|---|
-| **mkdocstrings** (`::: module.Class`) | Replaced by a placeholder callout, reported as an error. DocsLit does not run Python. | Write the API reference in Markdown, or generate Markdown from your docstrings with a tool such as griffe2md and import that. |
 | **Jinja macros** beyond simple `{{ extra }}` values | Only plain values from `extra:` become variables. Logic, loops and macro calls are not run. | Replace the expression with its output, or move repeated text into a [reusable snippet](../writing-content/reusable-content). |
 | **Theme overrides** (`custom_dir`) | Jinja templates are not copied. | Use `docslit.json` instead: `announcement` for the banner, `head` for extra tags, `footer` for links, `css` for styles. For anything richer, build a [custom component](../customization/custom-components). |
 | **Material CSS and JavaScript** | Copied as is, with a warning when the CSS targets `.md-*` classes or `--md-*` variables, which do not exist in DocsLit. | Rewrite the rules against DocsLit theme tokens, or delete them. See [Design tokens](../customization/design-tokens). |
@@ -162,7 +165,19 @@ Whether `/page/` still works depends on your host. Vercel and Cloudflare Pages r
 <wc-steps>
 <wc-step title="Fix the errors first">
 
-Work through the **Must fix** section of `MIGRATION.md`, usually mkdocstrings placeholders, then **Review**. Delete the file when you are done.
+Work through the **Must fix** section of `MIGRATION.md`, then **Review**. If you used mkdocstrings, run `docslit api python <package>` first (see the next step). Delete the file when you are done.
+
+</wc-step>
+<wc-step title="Create the Python API data (mkdocstrings only)">
+
+mkdocstrings `::: module.Class` directives are kept, with their options converted to mkdocstrings-python names, and `docslit.json` gets a `python` setting with your packages, docstring style and default options. `[text][pkg.Obj]` cross-reference links keep working. Until the API data exists, each directive shows a placeholder callout and a build warning, not an error. Create the data once:
+
+```bash
+pip install griffe   # or: uv tool install griffe
+docslit api python mypkg --search src
+```
+
+Commit `api/python/mypkg.json`. Builds never run Python. See [Python API reference](../integrations/python-api).
 
 </wc-step>
 <wc-step title="Run the checks">

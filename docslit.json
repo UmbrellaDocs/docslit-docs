@@ -105,7 +105,8 @@
     {
       "group": "Integrations",
       "pages": [
-        "integrations/openapi"
+        "integrations/openapi",
+        "integrations/python-api"
       ]
     },
     {

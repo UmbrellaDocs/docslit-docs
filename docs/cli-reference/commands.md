@@ -455,6 +455,40 @@ Only create pages for operations that are not documented yet.
 
 See [OpenAPI integration](../integrations/openapi).
 
+## api python
+
+Set up a Python API reference from a package's docstrings.
+
+<wc-endpoint method="GET" url="docslit api python <package>"></wc-endpoint>
+
+```bash
+docslit api python mypkg
+docslit api python mypkg --docstyle numpy --search src --pages
+docslit api python mypkg --from griffe.json --json
+```
+
+Runs [Griffe](https://mkdocstrings.github.io/griffe/) (`griffe`, `uvx griffe` or `python -m griffe`) to write `api/python/<package>.json`, adds the package to `python.packages` in `docslit.json`, and optionally scaffolds the pages. Python is only needed for this command, never for `docslit build`. Run it again to refresh the data.
+
+<wc-fields header="Options">
+<wc-field name="--docstyle" type="string" default="google">
+Docstring style: `google`, `numpy` or `sphinx`. Saved as `python.docstringStyle`.
+</wc-field>
+<wc-field name="--search" type="string">
+Directory Griffe searches for the package. Repeatable. Defaults to `src` if it exists, otherwise the project root.
+</wc-field>
+<wc-field name="--from" type="string">
+Copy an existing Griffe dump instead of running Griffe.
+</wc-field>
+<wc-field name="--pages" type="flag">
+Create `docs/api/<package>/` with one `::: module` page per public module plus an index, and an "API reference" sidebar group. Existing pages are never overwritten.
+</wc-field>
+<wc-field name="--json" type="flag">
+Print the result as JSON: package, JSON path, modules, and pages written and skipped.
+</wc-field>
+</wc-fields>
+
+See [Python API reference](../integrations/python-api).
+
 ## Cloud commands
 
 These commands talk to DocsLit Cloud. They read your API token from the `DOCSLIT_TOKEN` environment variable. DocsLit Cloud is in early access: [request access](https://docslit.com/pricing/#request) to get a token.

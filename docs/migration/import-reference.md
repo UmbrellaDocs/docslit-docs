@@ -7,7 +7,7 @@ readtime: 7 min read
 
 # Import reference
 
-`docslit import` converts a Mintlify, Fern or GitBook project into a DocsLit project. This page is the reference for the command: its flags, how it picks a format, the report it writes and the limits you should plan for. For a walkthrough, start with the guide for your platform: [Mintlify](from-mintlify), [Fern](from-fern) or [GitBook](from-gitbook).
+`docslit import` converts a Mintlify, Fern, GitBook or MkDocs project into a DocsLit project. This page is the reference for the command: its flags, how it picks a format, the report it writes and the limits you should plan for. For a walkthrough, start with the guide for your platform: [Mintlify](from-mintlify), [Fern](from-fern), [GitBook](from-gitbook) or [MkDocs](from-mkdocs).
 
 ```bash
 docslit import <source-dir> [options]
@@ -18,7 +18,7 @@ docslit import <source-dir> [options]
 | Flag | What it does |
 |---|---|
 | `--out <dir>` | The output directory. The default is `<source-dir>-docslit`. It is never the source folder, and it is refused when it is not empty unless you pass `--force`. |
-| `--from <mintlify\|fern\|gitbook>` | Skip detection and treat the source as this format. Any other value exits with an error. |
+| `--from <mintlify\|fern\|gitbook\|mkdocs>` | Skip detection and treat the source as this format. Any other value exits with an error. |
 | `--dry-run` | Convert and report everything without writing files. |
 | `--theme <name>` | The built-in theme or palette to apply, plus your brand colors. The default is `peppermint` for Mintlify, `frond` for Fern and `folio` for GitBook. An unknown name gets a warning with the nearest match, and the default theme is used. See [Themes](../customization/theming). |
 | `--no-theme` | Do not select a built-in theme. Brand colors are still applied. |
@@ -43,6 +43,7 @@ Point the command at the folder that holds the project config. DocsLit checks, i
 | Mintlify | `docs.json`, or the legacy `mint.json` |
 | Fern | `fern/docs.yml`, in the folder you pass, or in the `fern/` folder you pass |
 | GitBook | `SUMMARY.md` or `.gitbook.yaml`, including its `root` setting |
+| MkDocs, Material for MkDocs, Zensical | `mkdocs.yml`, `mkdocs.yaml` or `zensical.toml` |
 | Markdown folder | None of the above. Every `.md` and `.mdx` file is imported with an automatic sidebar. |
 
 The detection is printed at the start of the run, for example `Detected: Mintlify (docs.json)`.

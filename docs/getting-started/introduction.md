@@ -16,7 +16,7 @@ DocsLit is a documentation framework that combines Markdown with interactive web
 <wc-tile icon="grid" title="58 components" description="Callouts, code blocks, tabs, API testers, and more, all built in." href="components/callouts-and-alerts"></wc-tile>
 <wc-tile icon="cpu" title="Built for AI agents" description="An MCP server, agent setup files and JSON checks so AI tools write valid docs." href="ai-and-agents/overview"></wc-tile>
 <wc-tile icon="globe" title="Static or cloud" description="Deploy anywhere as static files, or publish instantly with DocsLit Cloud." href="deployment/static-hosting"></wc-tile>
-<wc-tile icon="download" title="Easy migration" description="Move from Mintlify, Fern, or GitBook with a single command." href="migration/from-mintlify"></wc-tile>
+<wc-tile icon="download" title="Easy migration" description="Move from Mintlify, Fern, GitBook, or MkDocs with a single command." href="migration/from-mintlify"></wc-tile>
 </wc-tiles>
 
 ## Try it now

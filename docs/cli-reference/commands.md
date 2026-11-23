@@ -312,7 +312,7 @@ Print a ready-to-paste client config and exit. Optionally name a client (`claude
 
 ## import
 
-Migrate a Mintlify, Fern or GitBook project.
+Migrate a Mintlify, Fern, GitBook or MkDocs project.
 
 <wc-endpoint method="GET" url="docslit import <source-dir>"></wc-endpoint>
 
@@ -323,14 +323,14 @@ docslit import ./my-gitbook --dry-run
 docslit import ./site --from fern --json
 ```
 
-Detects the source platform from `docs.json` or `mint.json` (Mintlify), `fern/docs.yml` (Fern) or `SUMMARY.md` (GitBook). Any other Markdown or MDX folder is imported with an automatic sidebar. The command converts pages, components, code blocks, links, assets and config, validates the result and writes `MIGRATION.md` with everything that needs a human. See [Migration](../migration/from-mintlify) and the [import reference](../migration/import-reference).
+Detects the source platform from `docs.json` or `mint.json` (Mintlify), `fern/docs.yml` (Fern), `SUMMARY.md` (GitBook) or `mkdocs.yml` (MkDocs, Material, Zensical). Any other Markdown or MDX folder is imported with an automatic sidebar. The command converts pages, components, code blocks, links, assets and config, validates the result and writes `MIGRATION.md` with everything that needs a human. See [Migration](../migration/from-mintlify) and the [import reference](../migration/import-reference).
 
 <wc-fields header="Options">
 <wc-field name="--out" type="string">
 The output directory. Default: `{source-dir}-docslit`. It is never the source folder, and it is refused when it is not empty unless you pass `--force`.
 </wc-field>
 <wc-field name="--from" type="string">
-Skip detection: `mintlify`, `fern` or `gitbook`.
+Skip detection: `mintlify`, `fern`, `gitbook` or `mkdocs`.
 </wc-field>
 <wc-field name="--dry-run" type="flag">
 Convert and report everything without writing any files.

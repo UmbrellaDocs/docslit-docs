@@ -65,7 +65,7 @@ Connect the server in your project with [`docslit mcp`](../ai-and-agents/mcp-ser
 The page source, with its frontmatter if it has any.
 </wc-field>
 <wc-field name="from" type="string" default="mintlify">
-The source platform: `mintlify`, `fern` or `gitbook`. Fern adds the default code line numbers and Fern-only components, and `gitbook` converts `{% %}` blocks.
+The source platform: `mintlify`, `fern`, `gitbook` or `mkdocs`. Fern adds the default code line numbers and Fern-only components, and `gitbook` converts `{% %}` blocks.
 </wc-field>
 </wc-fields>
 
@@ -136,6 +136,6 @@ The MCP prompt `migrate-page` packages this loop. In clients that show prompts a
 
 ## Next steps
 
-- Read the platform guide: [Mintlify](from-mintlify), [Fern](from-fern) or [GitBook](from-gitbook)
+- Read the platform guide: [Mintlify](from-mintlify), [Fern](from-fern), [GitBook](from-gitbook) or [MkDocs](from-mkdocs)
 - Look up any code in the [import reference](import-reference)
 - Set up the MCP server in [MCP server](../ai-and-agents/mcp-server)

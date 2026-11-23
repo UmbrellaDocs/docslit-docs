@@ -2,7 +2,7 @@
 title: What's new
 description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
-date: 2026-11-16
+date: 2026-11-23
 readtime: 3 min read
 ---
 
@@ -142,6 +142,14 @@ All notable changes to DocsLit, organized by release.
 
 <wc-update version="0.2.0" date="November 2026" type="fixed">
 **Asset paths:** `logo`, `favicon` and `css` files are copied to the same relative path the HTML references, including files in subfolders.
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Search engine 404s and canonical warnings:** every link the build generates, including OpenAPI sidebar items, the Docs and API Reference mode links and tab links, is now an absolute path with `basePath`, the locale and the version, so it resolves from any page depth. The site, version and locale roots redirect to the first page instead of copying it, and the sitemap lists only canonical page URLs. `robots.txt` no longer lists `llms.txt` as a sitemap, `basePath` reaches the sitemap, `robots.txt`, the version switcher and version links, untranslated locale pages are built with a canonical link to the default-locale page, and offline builds use `#page` links that work from `file://`. See [Search and SEO](../writing-content/search-and-seo#search-engine-optimization).
+</wc-update>
+
+<wc-update version="0.2.0" date="November 2026" type="fixed">
+**Markdown negotiation on Vercel:** the `Accept: text/markdown` rewrite in `dist/vercel.json` never ran. New `docslit deploy --vercel` writes a project-root `middleware.js` that serves a page's Markdown, plus a `vercel.json` if you have none. Every host's middleware now reads quality values in the `Accept` header, and `llms.txt` no longer contains a placeholder `{slug}.md` URL that link checkers flagged. See [Content negotiation](../ai-and-agents/reading-agents#content-negotiation).
 </wc-update>
 
 <wc-update version="0.2.0" date="November 2026" type="changed">

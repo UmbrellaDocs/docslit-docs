@@ -38,7 +38,7 @@ All navigation, search, and theme switching work without a server or internet co
 |---|---|---|
 | Output | Multiple files in `dist/` | Self-contained `dist/` folder |
 | Server required | Yes (any static host) | No (`file://` works) |
-| SEO pages | Yes (`docs/*.html`) | No |
+| SEO pages | Yes (`{slug}.html`) | No |
 | Sitemap | Yes | No |
 | Search | Yes | Yes |
 | llms.txt | Yes | No |

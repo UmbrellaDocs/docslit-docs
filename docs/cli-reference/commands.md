@@ -154,6 +154,7 @@ Write hosting recipe files. It does not upload anything. Use `docslit publish` f
 docslit deploy --github-pages
 docslit deploy --netlify
 docslit deploy --cloudflare
+docslit deploy --vercel
 docslit deploy --cloudflare --out public
 ```
 
@@ -167,8 +168,11 @@ Write a Netlify config.
 <wc-field name="--cloudflare" type="flag">
 Write `wrangler.toml`. It also copies `<out>/functions/_middleware.js` to `functions/_middleware.js` for Markdown negotiation on Cloudflare Pages. Run `docslit build` first.
 </wc-field>
+<wc-field name="--vercel" type="flag">
+Write `vercel.json` (only when the project has none) and a project-root `middleware.js` that returns a page's Markdown when the `Accept` header prefers `text/markdown`. Re-running the command updates a `middleware.js` that DocsLit wrote and leaves any other `middleware.js` unchanged.
+</wc-field>
 <wc-field name="--out" type="string" default="dist">
-The build output folder the recipes point at: the GitHub Pages artifact path, Netlify `publish`, the Cloudflare assets directory and the middleware lookup. Use the same value you pass to `docslit build --out`.
+The build output folder the recipes point at: the GitHub Pages artifact path, Netlify `publish`, the Cloudflare assets directory, the middleware lookup and the Vercel `outputDirectory`. Use the same value you pass to `docslit build --out`.
 </wc-field>
 </wc-fields>
 

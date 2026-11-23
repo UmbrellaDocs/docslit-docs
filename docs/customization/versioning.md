@@ -121,20 +121,20 @@ Versioned builds produce a directory structure with each version in its own fold
 <wc-file name="index.html"></wc-file>
 <wc-dir name="0.2" open>
 <wc-file name="index.html"></wc-file>
-<wc-dir name="docs">
 <wc-file name="introduction.html"></wc-file>
-</wc-dir>
+<wc-file name="introduction.md"></wc-file>
+<wc-file name="sitemap.xml"></wc-file>
 </wc-dir>
 <wc-dir name="0.1">
 <wc-file name="index.html"></wc-file>
-<wc-dir name="docs">
 <wc-file name="introduction.html"></wc-file>
-</wc-dir>
+<wc-file name="introduction.md"></wc-file>
+<wc-file name="sitemap.xml"></wc-file>
 </wc-dir>
 </wc-dir>
 </wc-files>
 
-The root `index.html` redirects to the default version. Only pages that differ between versions are rebuilt — unchanged pages are shared to keep build times fast.
+The root `index.html` redirects to the first page of the default version, and each version's `index.html` redirects to that version's first page. Each carries a canonical link to its target, and `basePath` is applied to these redirects and to the version switcher. Only pages that differ between versions are rebuilt — unchanged pages are shared to keep build times fast.
 
 ## Version-specific content
 

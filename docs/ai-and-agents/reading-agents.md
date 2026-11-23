@@ -19,7 +19,7 @@ Agents do better with clean Markdown than with scraped HTML. Every `docslit buil
 | `search-index.json` | The index that powers site search, also used by agents |
 | `.well-known/agent.json` | Discovery file that lists all of the above |
 | `mcp-server.js` | A standalone MCP server over stdio. See [MCP server](mcp-server#the-generated-mcp-serverjs) |
-| `robots.txt` | Allows common search and AI crawlers |
+| `robots.txt` | Allows common search and AI crawlers and points at the sitemap |
 
 For a site with `versions`, each version has its own `llms.txt`, `llms-full.txt`, `search-index.json` and Markdown files in a folder named after the version. The root `llms.txt` becomes a version index.
 
@@ -32,7 +32,7 @@ Every page also carries a short agent directive, in the HTML and in the `.md` fi
 
 > Documentation for DocsLit - build beautiful docs with Markdown and web components
 
-> Raw Markdown for each page is available at https://docs.docslit.com/0.1/{slug}.md
+> Raw Markdown for each page: append `.md` to the page URL, or request the page with `Accept: text/markdown`. Every link below already points at the Markdown.
 
 ## Getting started
 
@@ -81,7 +81,9 @@ An agent can request any page URL with `Accept: text/markdown` and receive Markd
 curl -H "Accept: text/markdown" https://docs.example.com/getting-started/quickstart
 ```
 
-`docslit dev` does this for you locally. For a static build, `docslit build` writes the pieces each host needs. Cloudflare Pages needs one extra step, because it only reads Functions from the project root:
+A request gets Markdown when its `Accept` header ranks `text/markdown` at least as high as `text/html`, counting quality values. `text/markdown, text/html;q=0.9` gets Markdown, and browsers keep getting HTML.
+
+`docslit dev` does this for you locally. For a static build, `docslit build` writes the pieces each host needs. Cloudflare Pages and Vercel need one extra step, because they read these files only from the project root:
 
 <wc-tabs sync="host">
 <wc-tab label="Cloudflare Pages">
@@ -91,7 +93,7 @@ The build writes the middleware to `dist/functions/_middleware.js` and never wri
 </wc-tab>
 <wc-tab label="Vercel">
 
-The build writes `vercel.json` with header-based rewrites into the output folder. Copy it to your project root, or merge its `rewrites` into your own file.
+Run `docslit deploy --vercel` in your project root. It writes `middleware.js`, which serves the page's Markdown, and a `vercel.json` with clean URLs, unless you already have one. Commit both and deploy the project rather than the `dist/` folder alone. A `vercel.json` rewrite on the `Accept` header does not work, because Vercel applies rewrites only after the static page has matched.
 
 </wc-tab>
 <wc-tab label="Netlify">

@@ -125,12 +125,12 @@ When you run `docslit build`, the `dist/` directory contains:
 
 <wc-fields header="Build output files">
 <wc-field name="index.html" type="file">
-The main entry point. Contains the app shell, navigation, and the component runtime.
+Redirects to the first page in the sidebar and carries a canonical link to it.
 </wc-field>
-<wc-field name="docs/{slug}.html" type="file">
+<wc-field name="{slug}.html" type="file">
 Pre-rendered HTML pages for each documentation page. These are crawlable by search engines.
 </wc-field>
-<wc-field name="docs/{slug}.md" type="file">
+<wc-field name="{slug}.md" type="file">
 Raw Markdown source files. Available for programmatic consumption by other tools.
 </wc-field>
 <wc-field name="search-index.json" type="file">
@@ -146,7 +146,7 @@ LLM-friendly site index following the llmstxt.org specification. Lists all pages
 Complete documentation corpus as plain text. AI agents can consume your entire docs in one request.
 </wc-field>
 <wc-field name="robots.txt" type="file">
-Allows all major search engines and AI crawlers by default.
+Allows all major search engines and AI crawlers by default and points them at `sitemap.xml`.
 </wc-field>
 </wc-fields>
 

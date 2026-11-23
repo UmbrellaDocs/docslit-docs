@@ -205,18 +205,18 @@
     ]
   },
   "versions": {
-    "default": "0.1",
+    "default": "0.2",
     "list": [
       {
-        "version": "0.1",
+        "version": "0.2",
         "branch": "main",
         "tag": "Latest"
       }
     ]
   },
   "redirects": {
-    "/integrations/skills": "/0.1/ai-and-agents/agent-setup",
-    "/0.1/integrations/skills": "/0.1/ai-and-agents/agent-setup"
+    "/integrations/skills": "/0.2/ai-and-agents/agent-setup",
+    "/0.2/integrations/skills": "/0.2/ai-and-agents/agent-setup"
   },
   "themePicker": true
 }

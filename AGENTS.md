@@ -5,7 +5,7 @@ This project is a DocsLit site: Markdown pages in `docs/` with embeddable `<wc-*
 
 - Pages: `docs/**/*.md`. A page id is its path without `.md` (`guides/setup` is `docs/guides/setup.md`).
 - Sidebar: explicit, in `docslit.json`. New pages must be added to a group (`docslit new --group` does it). Groups: "Getting started", "AI & agents", "Writing content", "Components", "Customization", "Deployment", "Migration", "Integrations", "CLI reference", "Changelog".
-- Versioned docs (git-branch based): 0.1. Edit the branch for the version you mean to change.
+- Versioned docs (git-branch based): 0.2. Edit the branch for the version you mean to change.
 - Reusable snippets live in `docs/_reusables/` and are included with `<wc-include src="name.md" />`.
 - Commands: `docslit dev` (preview), `docslit build` (static site to `dist/`).
 

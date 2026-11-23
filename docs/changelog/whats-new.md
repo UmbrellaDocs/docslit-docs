@@ -12,6 +12,14 @@ All notable changes to DocsLit, organized by release.
 
 ## 0.2.1
 
+<wc-update version="0.2.1" date="November 2026" type="added">
+**Code annotations:** add the `annotate` flag to a fence (```` ```python annotate ````) and end a comment with `(1)`, `(2)`, and so on (`(1)!` hides the comment characters). The ordered list right after the block holds the notes. Each marker becomes a numbered badge that opens its note in a popover, and without JavaScript the list stays visible under the code. Missing lists, markers or items are reported as build warnings. `docslit import` converts Material for MkDocs code annotations to this syntax. See [Code blocks](../components/code-blocks#code-annotations).
+</wc-update>
+
+<wc-update version="0.2.1" date="November 2026" type="changed">
+**Better MkDocs import:** Material grid cards become `wc-tiles` of `wc-card`. Material Design, Octicons and Simple Icons shortcodes are mapped to the closest Lucide or Font Awesome icon, and icons with no faithful match are listed in `MIGRATION.md`. Emoji shortcodes become Unicode. Blog plugin posts keep their metadata, get generated blog index, category and archive pages, and the old dated URLs redirect to the new pages. See [Migrate from MkDocs](../migration/from-mkdocs).
+</wc-update>
+
 <wc-update version="0.2.1" date="November 2026" type="changed">
 **Faster, leaner builds:** `--incremental` (or `"build": { "cache": true }`) reuses unchanged pages and assets. `--no-search-index`, `--no-llms-txt`, `--no-mcp` and `--no-sitemap` skip individual generators, `--profile` prints per-phase timings and `docslit cache clean` clears the build cache. OG images render in a worker pool, are cached and are about 5x smaller. Very large sites no longer run out of memory, and `docslit validate` is about 4x faster on large sites. See [Commands](../cli-reference/commands#faster-builds).
 </wc-update>

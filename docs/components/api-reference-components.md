@@ -39,7 +39,7 @@ An OpenAPI `operationId` to resolve against the loaded spec. When set, DocsLit a
 A short one-line summary of what the endpoint does. Rendered in bold above the description.
 </wc-field>
 <wc-field name="description" type="string">
-A longer description of the endpoint. Supports inline Markdown (bold, italic, code, links).
+A longer description of the endpoint. Supports inline Markdown (bold, italic, code, links). Links can be relative paths, `#anchors`, `http(s):` or `mailto:` URLs; any other link target, such as `javascript:`, is shown as plain text.
 </wc-field>
 <wc-field name="security" type="string">
 JSON-encoded security requirements for the endpoint.
@@ -135,7 +135,7 @@ Mark the field as deprecated.
 The parameter location. Options: `header`, `path`, `query`, `cookie`, `body`. Displayed as a badge next to the field name.
 </wc-field>
 <wc-field name="description" type="string">
-A description of the field. Supports inline Markdown (bold, italic, code, links).
+A description of the field. Supports inline Markdown (bold, italic, code, links). Links can be relative paths, `#anchors`, `http(s):` or `mailto:` URLs; any other link target, such as `javascript:`, is shown as plain text.
 </wc-field>
 <wc-field name="format" type="string">
 The data format (e.g., `uuid`, `email`, `date-time`). Displayed alongside the type.

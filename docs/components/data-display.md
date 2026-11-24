@@ -111,6 +111,8 @@ graph LR
 
 Mermaid diagrams support flowcharts, sequence diagrams, class diagrams, and more. Click the expand icon to view diagrams in a larger modal.
 
+Mermaid is large, so the first diagram on a page loads it from jsDelivr (pinned to Mermaid 10.9.8). Without network access, the diagram source is shown instead.
+
 ## Colors
 
 Show swatches with `wc-color`, grouped in a `wc-colors` container. Click a swatch, or focus it and press Enter, to copy its value.

@@ -165,7 +165,7 @@ Frames wrap images or media with an optional caption and hint:
 A caption displayed below the content. Inline Markdown works.
 </wc-field>
 <wc-field name="hint" type="string">
-Text shown above the frame.
+Text shown above the frame. Inline Markdown works, including links. Links can be relative paths, `#anchors`, `http(s):` or `mailto:` URLs; any other link target, such as `javascript:`, is shown as plain text.
 </wc-field>
 <wc-field name="border" type="boolean">
 Draw a border around the framed content.

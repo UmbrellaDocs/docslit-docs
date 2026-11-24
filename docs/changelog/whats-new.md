@@ -2,13 +2,23 @@
 title: What's new
 description: Latest features, improvements, and fixes in DocsLit releases.
 tag: Changelog
-date: 2026-11-23
+date: 2026-11-24
 readtime: 3 min read
 ---
 
 # What's new
 
 All notable changes to DocsLit, organized by release.
+
+## 0.2.2
+
+<wc-update version="0.2.2" date="November 2026" type="changed">
+**Lit ships with your site:** static builds no longer load Lit from `esm.sh`. `docslit build` copies the bundled Lit into `docslit-vendor/` next to `docslit.js`, and the import map points there, so sites render components without a third-party CDN and always run the Lit version DocsLit was tested with. The Lit bundles now share one copy of Lit core, and the lazily loaded Mermaid is pinned to 10.9.8.
+</wc-update>
+
+<wc-update version="0.2.2" date="November 2026" type="fixed">
+**Safer inline Markdown in attributes:** links in `wc-endpoint` and `wc-field` descriptions and `wc-frame` hints only allow relative paths, `#anchors`, `http(s):` and `mailto:` URLs. Other targets, such as `javascript:`, are shown as plain text, and quotes are escaped. Descriptions from third-party OpenAPI specs could previously run script on the docs site.
+</wc-update>
 
 ## 0.2.1
 

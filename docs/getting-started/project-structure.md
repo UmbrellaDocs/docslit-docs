@@ -158,6 +158,9 @@ LLM-friendly site index following the llmstxt.org specification. Lists all pages
 <wc-field name="llms-full.txt" type="file">
 Complete documentation corpus as plain text. AI agents can consume your entire docs in one request.
 </wc-field>
+<wc-field name="docslit-vendor/" type="directory">
+The Lit runtime the components use, copied from the DocsLit package. Pages load it from here, so the site makes no CDN request for Lit and always runs the Lit version DocsLit was tested with.
+</wc-field>
 <wc-field name="robots.txt" type="file">
 Allows all major search engines and AI crawlers by default and points them at `sitemap.xml`.
 </wc-field>

@@ -33,7 +33,7 @@ This is the JavaScript your readers download on every page load. Less JS means f
 | Mintlify | ~100+ KB | Yes (Next.js) | Full page |
 
 <wc-callout type="info" title="Where does 16 KB come from?">
-DocsLit ships Lit (the web component library) plus all 54 built-in components as a single ES module. There is no virtual DOM, no router library, no framework runtime. The browser loads 16,036 bytes gzipped from a CDN, and every component works immediately.
+DocsLit ships Lit (the web component library) plus all 54 built-in components as a single ES module. There is no virtual DOM, no router library, no framework runtime. The browser loads 16,036 bytes gzipped from your own site, with no CDN request, and every component works immediately.
 </wc-callout>
 
 ## Why the gap is so large
@@ -45,7 +45,7 @@ React-based documentation tools pay three taxes that DocsLit avoids entirely:
 
 React + ReactDOM is ~28 KB gzipped before your docs site adds a single word. Then add a client-side router, state management, and the framework's own bootstrapping code. Docusaurus bundles webpack runtime, route manifests, and the entire SPA shell — on a 4,000-page site, `main.js` alone reached 10 MB uncompressed.
 
-DocsLit loads Lit from a CDN import map. Lit is 5 KB gzipped. There is no router library, no state management layer, and no bootstrapping overhead.
+DocsLit ships Lit with your site in `docslit-vendor/` and loads it through an import map. Lit is 5 KB gzipped. There is no router library, no state management layer, and no bootstrapping overhead.
 
 </wc-step>
 <wc-step title="Hydration cost">
